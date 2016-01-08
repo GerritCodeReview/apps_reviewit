@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. -->
+
+<resources>
+  <color name="abandoned">#B1B3AF</color>
+  <color name="black">#000000</color>
+  <color name="button">#4183ff</color>
+  <color name="buttonBorder">#8699B3</color>
+  <color name="buttonBorderDisabled">#858583</color>
+  <color name="buttonDisabled">#d7d7d7</color>
+  <color name="buttonFont">#FFF</color>
+  <color name="buttonFill">#C9E1FF</color>
+  <color name="buttonFillDisabled">#D3D4D2</color>
+  <color name="commitMessage">#F9FFBF</color>
+  <color name="commitMessage2">#E9F0B1</color>
+  <color name="commitMessage3">#D6DBA4</color>
+  <color name="commitMessage4">#B6BA8D</color>
+  <color name="commitMessageIgnore">#FFE9BF</color>
+  <color name="commitMessageStar">#E0FFBF</color>
+  <color name="counter">#919191</color>
+  <color name="counterText">#d7d7d7</color>
+  <color name="darkGrey">#585858</color>
+  <color name="disabled">#d7d7d7</color>
+  <color name="grey">#d7d7d7</color>
+  <color name="headingFont">#FFF</color>
+  <color name="heading1">#CCa8e26d</color>
+  <color name="heading2">#cca46de2</color>
+  <color name="heading3">#ccffa443</color>
+  <color name="heading4">#cc448aff</color>
+  <color name="heading5">#ccf53336</color>
+  <color name="heading6">#cc67fc99</color>
+  <color name="heading7">#cc8eb9ed</color>
+  <color name="heading8">#ccee6af1</color>
+  <color name="heading9">#cc3a7b31</color>
+  <color name="heading10">#cc45f2e1</color>
+  <color name="heading11">#cc393b3d</color>
+  <color name="heading12">#ccf56e65</color>
+  <color name="hyperlink">#3863F2</color>
+  <color name="icon">#555555</color>
+  <color name="iconHighlightedGreen">#119f14</color>
+  <color name="iconHighlightedRed">#B51414</color>
+  <color name="infoTable">#EEE</color>
+  <color name="licenseBox">#ECECEC</color>
+  <color name="licenseColor">#067400</color>
+  <color name="lineAdded">#d2fdd8</color>
+  <color name="lineAddedIntraline">#7ed18a</color>
+  <color name="lineDeleted">#facbcb</color>
+  <color name="lineDeletedIntraline">#e28383</color>
+  <color name="lineNumbers">#CFCFCF</color>
+  <color name="lineSkipped">#C9E1FF</color>
+  <color name="error">#CCC</color>
+  <color name="errorText">#910022</color>
+  <color name="mainItem">#6e6e6e</color>
+  <color name="mainItemSelected">#5E76FF</color>
+  <color name="mainItemTitle">#ffffff</color>
+  <color name="mainList">#6e6e6e</color>
+  <color name="mainListDivider">#484848</color>
+  <color name="merged">#5E76FF</color>
+  <color name="navBarCenter">#494949</color>
+  <color name="navBarEnd">#232323</color>
+  <color name="navBarFont">#e4e4e4</color>
+  <color name="navBarStart">#232323</color>
+  <color name="nonMergable">#F5BC00</color>
+  <color name="noResults">#CEFFB8</color>
+  <color name="noState">#FFFFFF</color>
+  <color name="postReview">#FFF</color>
+  <color name="progressBar">#4f91c9</color>
+  <color name="progressBarBackground">#08000000</color>
+  <color name="progressBarBackgroundStroke">#80c4c4c4</color>
+  <color name="progressReload">#efefef</color>
+  <color name="separator">@android:color/darker_gray</color>
+  <color name="statusFailed">#910022</color>
+  <color name="statusOk">#009122</color>
+  <color name="text">#000</color>
+  <color name="text_disabeled">#BBB</color>
+  <color name="transparent">#00000000</color>
+  <color name="verifiedMinusOne">#910022</color>
+  <color name="verifiedPlusOne">#009122</color>
+  <color name="voteNegative">#910022</color>
+  <color name="votePositive">#009122</color>
+  <color name="votingNegative">#facbcb</color>
+  <color name="votingNegativeSelected">#dc5151</color>
+  <color name="votingNeutral">#f4d640</color>
+  <color name="votingPositive">#bcfcc5</color>
+  <color name="votingPositiveSelected">#57d469</color>
+  <color name="white">#FFF</color>
+</resources>

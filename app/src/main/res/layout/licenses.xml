@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/licenses"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/about_licenses"
+    android:textSize="10sp"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:textStyle="bold"
+    android:text="@string/apache2.0"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/apache2.0_link"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/lib_gerrit_rest_java_client"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/lib_gson"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/lib_guava"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/lib_httpclient_android"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp">
+
+    <TextView
+      android:id="@+id/license_apache2.0"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:padding="2dp"
+      android:fontFamily="monospace"
+      android:textSize="7sp"
+      android:textColor="@color/licenseColor"
+      android:background="@color/licenseBox"
+      android:linksClickable="true"
+      android:autoLink="web"
+      android:textColorLink="@color/hyperlink"/>
+  </HorizontalScrollView>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:textStyle="bold"
+    android:text="@string/cc_by_3.0"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/cc_by_3.0_link"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/lib_diffy"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp">
+
+    <TextView
+      android:id="@+id/license_cc_by_3.0"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:padding="2dp"
+      android:fontFamily="monospace"
+      android:textSize="7sp"
+      android:textColor="@color/licenseColor"
+      android:background="@color/licenseBox"
+      android:linksClickable="true"
+      android:autoLink="web"
+      android:textColorLink="@color/hyperlink"/>
+  </HorizontalScrollView>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:textStyle="bold"
+    android:text="@string/cc_by_4.0"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/cc_by_4.0_link"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="10sp"
+    android:text="@string/lib_material_icons"
+    android:linksClickable="true"
+    android:autoLink="web"
+    android:textColorLink="@color/hyperlink"/>
+
+  <HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp">
+
+    <TextView
+      android:id="@+id/license_cc_by_4.0"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:padding="2dp"
+      android:fontFamily="monospace"
+      android:textSize="7sp"
+      android:textColor="@color/licenseColor"
+      android:background="@color/licenseBox"
+      android:linksClickable="true"
+      android:autoLink="web"
+      android:textColorLink="@color/hyperlink"/>
+  </HorizontalScrollView>
+</LinearLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+  <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+               android:id="@+id/serverInputTable"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="10dp"
+               android:stretchColumns="1"
+               android:shrinkColumns="1">
+
+    <TableRow
+      android:visibility="gone">
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:text="@string/id"/>
+
+      <EditText
+        android:id="@+id/idInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:singleLine="true"/>
+    </TableRow>
+
+    <TableRow>
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:text="@string/url"/>
+
+      <AutoCompleteTextView
+        android:id="@+id/urlInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/url_hint"
+        android:inputType="textUri"
+        android:singleLine="true"/>
+    </TableRow>
+
+    <TableRow>
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:text="@string/name"/>
+
+      <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name_hint"
+        android:inputType="textUri"
+        android:singleLine="true"/>
+    </TableRow>
+
+    <TableRow>
+
+      <LinearLayout
+        android:id="@+id/crendentialsInfo"
+        android:orientation="vertical"
+        android:layout_span="2">
+
+        <TextView
+          android:id="@+id/credentialsInfoText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColorLink="@color/hyperlink"/>
+
+        <Button
+          android:id="@+id/pasteCredentialsButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
+          android:text="@string/paste_credentials"
+          android:textSize="10sp"
+          android:visibility="gone"/>
+      </LinearLayout>
+    </TableRow>
+
+    <TableRow>
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:text="@string/user"/>
+
+      <EditText
+        android:id="@+id/userInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/user_hint"
+        android:inputType="textFilter"
+        android:singleLine="true"/>
+    </TableRow>
+
+    <TableRow>
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:text="@string/password"/>
+
+      <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password_hint"
+        android:inputType="text"
+        android:password="true"
+        android:singleLine="true"/>
+    </TableRow>
+  </TableLayout>
+
+  <LinearLayout
+    android:id="@+id/statusTestConnection"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:visibility="gone">
+
+    <ProgressBar
+      android:id="@+id/statusTestConnectionProgress"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:indeterminate="true"/>
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="3dp"
+      android:text="@string/test_server_connection"/>
+
+    <TextView
+      android:id="@+id/statusTestConnectionText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+  </LinearLayout>
+
+  <Button
+    android:id="@+id/saveServerSettings"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/save"/>
+
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="14dp"
+    android:layout_marginTop="3dp"
+    android:text="@string/storage_info"/>
+</LinearLayout>

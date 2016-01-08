@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+  <com.google.reviewit.widget.ScrollWithHeadingsView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/unifiedDiffRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
+  </com.google.reviewit.widget.ScrollWithHeadingsView>
+
+  <LinearLayout
+    android:id="@+id/postReviewPanel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/navigation_button_bar"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <com.google.reviewit.widget.PostReviewView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/postReview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/postReview"
+      android:layout_marginTop="5dp"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:visibility="gone">
+    </com.google.reviewit.widget.PostReviewView>
+
+    <ImageView
+      android:id="@+id/expandPostReviewPanel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:clickable="true"
+      android:src="@drawable/ic_keyboard_arrow_up_white_36dp"/>
+
+    <ImageView
+      android:id="@+id/collapsePostReviewPanel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:clickable="true"
+      android:src="@drawable/ic_keyboard_arrow_down_white_36dp"
+      android:visibility="gone"/>
+  </LinearLayout>
+
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/navigation_button_bar">
+
+    <com.google.reviewit.widget.PostReviewView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:id="@+id/postReviewNav"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/postReview"
+      android:layout_marginTop="5dp"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:visibility="gone">
+    </com.google.reviewit.widget.PostReviewView>
+
+    <RelativeLayout
+      android:id="@+id/navigationButtons"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:visibility="gone">
+
+      <LinearLayout
+        android:id="@+id/navigationPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone">
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="3dp"
+          android:layout_gravity="center_vertical"
+          android:src="@drawable/ic_arrow_back_white_36dp"/>
+
+        <TextView
+          android:id="@+id/navigationPrevFile"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/navBarFont"
+          android:layout_gravity="center_vertical"
+          android:textSize="10sp"
+          android:layout_marginRight="4dp"/>
+      </LinearLayout>
+
+      <ImageView
+        android:id="@+id/expandPostReviewPanelNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_keyboard_arrow_up_white_36dp"/>
+
+      <ImageView
+        android:id="@+id/collapsePostReviewPanelNav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_keyboard_arrow_down_white_36dp"
+        android:visibility="gone"/>
+
+      <LinearLayout
+        android:id="@+id/navigationNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:visibility="gone">
+
+        <TextView
+          android:id="@+id/navigationNextFile"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/navBarFont"
+          android:layout_gravity="center_vertical"
+          android:gravity="right"
+          android:textSize="10sp"
+          android:layout_marginLeft="4dp"/>
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="3dp"
+          android:layout_gravity="center_vertical"
+          android:src="@drawable/ic_arrow_forward_white_36dp"/>
+      </LinearLayout>
+    </RelativeLayout>
+  </LinearLayout>
+
+</LinearLayout>

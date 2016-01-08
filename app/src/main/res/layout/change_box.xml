@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:reviewit="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="10dp">
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:reviewit="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/changeBoxUpperPart"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+      <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="3dp"
+          android:textSize="9sp"
+          android:text="@string/project"/>
+
+        <TextView
+          android:id="@+id/project"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="9sp"/>
+      </LinearLayout>
+
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="3dp"
+          android:textSize="9sp"
+          android:text="@string/branch"/>
+
+        <TextView
+          android:id="@+id/branch"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="9sp"/>
+      </LinearLayout>
+
+      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="3dp"
+          android:textSize="9sp"
+          android:text="@string/topic"/>
+
+        <TextView
+          android:id="@+id/topic"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="9sp"/>
+      </LinearLayout>
+
+      <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="9sp"/>
+    </LinearLayout>
+
+    <View
+      android:background="@color/separator"
+      android:layout_height="1dp"
+      android:layout_width="match_parent"
+      android:layout_marginTop="3dp"
+      android:layout_marginBottom="3dp"/>
+
+    <com.google.reviewit.widget.MaxFontSizeTextView
+      android:id="@+id/subject"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="3dp"
+      android:fontFamily="monospace"
+      reviewit:minTextSize="14sp"
+      reviewit:maxTextSize="18sp"/>
+
+    <com.google.reviewit.widget.MaxFontSizeTextView
+      android:id="@+id/commitMessage"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textSize="8sp"
+      android:textColorLink="@color/hyperlink"
+      android:layout_weight="1"
+      android:fontFamily="monospace"
+      reviewit:maxTextSize="13sp"
+      reviewit:maxLineLength="72"
+      reviewit:ellipsize="true"/>
+
+    <View
+      android:background="@color/separator"
+      android:layout_height="1dp"
+      android:layout_width="match_parent"
+      android:layout_marginTop="3dp"
+      android:layout_marginBottom="3dp"/>
+  </LinearLayout>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/changeBoxLowerPart"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="4dp">
+
+      <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="3dp"/>
+
+      <TextView
+        android:id="@+id/owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+      <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+      <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+
+        <TableRow>
+
+          <TextView
+            android:id="@+id/patchSetIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/icon"
+            android:layout_marginTop="-2dp"
+            android:layout_marginRight="2dp"
+            android:text="PS"/>
+
+          <ImageView
+            android:id="@+id/positiveReviewIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/ic_thumb_up_black_18dp"/>
+
+          <ImageView
+            android:id="@+id/negativeReviewIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/ic_thumb_down_black_18dp"/>
+
+          <ImageView
+            android:id="@+id/commentIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/ic_comment_black_16dp"/>
+
+          <ImageView
+            android:id="@+id/reviewerIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_face_black_18dp"/>
+        </TableRow>
+
+        <TableRow>
+
+          <TextView
+            android:id="@+id/patchsets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="-3dp"
+            android:textSize="10sp"/>
+
+          <TextView
+            android:id="@+id/likes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="-3dp"
+            android:textSize="10sp"/>
+
+          <TextView
+            android:id="@+id/dislikes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="-3dp"
+            android:textSize="10sp"/>
+
+          <TextView
+            android:id="@+id/comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="-3dp"
+            android:textSize="10sp"
+            android:visibility="invisible"/>
+
+          <TextView
+            android:id="@+id/reviewers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="-3dp"
+            android:textSize="10sp"/>
+        </TableRow>
+      </TableLayout>
+    </LinearLayout>
+  </LinearLayout>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/changeUrlBox"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+    <View
+      android:background="@color/separator"
+      android:layout_height="1dp"
+      android:layout_width="match_parent"
+      android:layout_marginTop="3dp"
+      android:layout_marginBottom="3dp"/>
+
+    <TextView
+      android:id="@+id/changeUrl"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColorLink="@color/hyperlink"
+      android:layout_gravity="center_horizontal"
+      android:textSize="12sp"
+      android:autoLink="web"
+      android:linksClickable="true"/>
+  </LinearLayout>
+</LinearLayout>

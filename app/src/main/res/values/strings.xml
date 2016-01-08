@@ -1,0 +1,269 @@
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License. -->
+
+<resources>
+  <string name="app_name">Review It!?</string>
+  <string name="app_menu_sort">Sort Changes</string>
+  <string name="app_menu_review">Review Changes</string>
+  <string name="app_menu_settings">Settings</string>
+
+  <!-- SortChangesFragment -->
+  <string name="branch">branch:</string>
+  <string name="help">Help</string>
+  <string name="project">project:</string>
+  <string name="reload_error">Reloading change failed with %1$d %2$s</string>
+  <string name="topic">topic:</string>
+
+  <string name="no_network">No network connection available!</string>
+
+  <string name="no_more_changes">No more changes!</string>
+  <string name="loading">Loading!</string>
+
+  <!-- SortChangesFragment - menu -->
+  <string name="action_abandon">Abandon...</string>
+  <string name="action_add_reviewer">Add Reviewer...</string>
+  <string name="action_help">Help</string>
+  <string name="action_preferences">Preferences</string>
+  <string name="action_reload_change">Reload Change</string>
+  <string name="action_reload_query">Reload Query</string>
+  <string name="action_restore">Restore...</string>
+  <string name="action_undo">Undo</string>
+
+  <!-- ErrorFragment -->
+  <string name="title_activity_error">Error</string>
+
+  <!-- HelpFragment -->
+  <string name="about_app">This app allows you to sort incoming changes.</string>
+  <string name="disclaimer_app">This is not an official Google product.</string>
+    <string name="disclaimer_actions">This app is a prototype. The
+        ignore, skip and star actions are not implemented yet and don\'t have any effect.</string>
+
+  <string name="actions">Actions:</string>
+    <string name="about_star">By clicking on the star button the change is added to your ReviewIt
+        dashboard. Alternatively you can swipe the change to the right.</string>
+    <string name="about_ignore">By clicking on the ignore button the change is added to your ignore
+        list and you will not be asked again if you want to review this change. Alternatively you
+        can swipe the change to the left.</string>
+    <string name="about_skip">By clicking on the skip button the change is skipped and when a new
+        patch set is available you will be asked again if you want to review this change.</string>
+
+  <string name="info">Info:</string>
+    <string name="about_info">Which information is displayed can be configured in the
+        preferences.\nClicking at the bottom of the change box opens the detailed change
+        view.</string>
+  <string name="about_patch_sets">Number of patch sets.</string>
+  <string name="about_thumb_up">Number of positive votes on the Code-Review label.</string>
+  <string name="about_thumb_down">Number of negative votes on the Code-Review label.</string>
+    <string name="about_comments">Number of inline comments on the current revision of the
+        change.</string>
+  <string name="about_reviewers">Number of reviewers (exclusive the change owner).</string>
+    <string name="about_verified_plus_one">Green background indicates a verified change. This means
+        that the change has at least one positive voting on the Verified label and no negative
+        Verified vote.</string>
+    <string name="about_verified_minus_one">Red background indicates that the change has at least
+        one negative voting on the Verified label.</string>
+    <string name="about_non_mergeable">Orange background indicates that the change is not
+        mergeable.</string>
+  <string name="about_abandoned">Grey background indicates that the change is abandoned.</string>
+  <string name="about_merged">Blue background indicates that the change is merged.</string>
+
+  <string name="menu">Menu:</string>
+  <string name="about_preferences">User preferences.</string>
+    <string name="about_settings">Application settings. Configure the connection to the Gerrit
+        server.</string>
+  <string name="about_reload_change">Reload the current change.</string>
+    <string name="about_undo">Undo. The rating of the previous change is undone and you are asked
+        again if you want to review it. Alternatively you can also press the hardware back
+        button.</string>
+    <string name="about_add_reviewer">Add Reviewer. Allows you to add a reviewer to this
+        change.</string>
+
+  <string name="licenses">Licenses:</string>
+    <string name="about_licenses">The \'Review It!?\' app is licensed under
+        the Apache License 2.0. Executable distributions also include other
+        software components that are provided under additional licenses.</string>
+  <string name="apache2.0">Apache License, Version 2.0:</string>
+  <string name="apache2.0_link">http://www.apache.org/licenses/LICENSE-2.0</string>
+    <string name="lib_gerrit_rest_java_client">&#8226;\tJava REST client for Gerrit Code Review:\n
+        \tCopyright 2013 - 2015 Urs Wolfer\n
+        \thttps://github.com/uwolfer/gerrit-rest-java-client</string>
+    <string name="lib_gson">&#8226;\tGson:\n
+        \tCopyright 2008 Google Inc.\n
+        \thttps://github.com/google/gson</string>
+    <string name="lib_guava">&#8226;\tGuava:\n
+        \thttps://github.com/google/guava</string>
+    <string name="lib_httpclient_android">&#8226;\tHttpClient for Android:\n
+        \thttps://hc.apache.org/httpcomponents-client-4.3.x/android-port.html</string>
+    <string name="cc_by_3.0">Creative Commons Attribution 3.0 United States
+        (CC BY 3.0 US):</string>
+  <string name="cc_by_3.0_link">http://creativecommons.org/licenses/by/3.0/us/</string>
+    <string name="lib_diffy">&#8226;\tDiffy:\n
+        \tCopyright Sara Owens\n
+        \thttp://inkylabs.com/</string>
+    <string name="cc_by_4.0">Creative Commons Attribution 4.0 international
+        (CC BY 4.0):</string>
+  <string name="cc_by_4.0_link">https://creativecommons.org/licenses/by/4.0/</string>
+    <string name="lib_material_icons">&#8226;\tMaterial Icons:\n
+        \tCopyright Google Inc.\n
+        \thttps://design.google.com/icons/</string>
+
+  <string name="title_activity_help">Help</string>
+
+  <!-- AddReviewerFragment -->
+  <string name="title_activity_add_reviewer">Add Reviewer</string>
+  <string name="add_reviewer_error">Add reviewer failed with %1$d %2$s</string>
+  <string name="ccs">CC\'s:</string>
+  <string name="reviewer_hint">Fullname or Email</string>
+  <string name="reviewers">Reviewers:</string>
+  <string name="no_reviewers">No Reviewers</string>
+  <string name="save">Save</string>
+
+  <!-- SettingsFragmnet -->
+  <string name="serverConfig">Server Configuration</string>
+  <string name="sortConfig">Sort Configuration</string>
+
+  <string name="add_server">Add Server</string>
+  <string name="connection_failed">Connection failed: %1$s</string>
+    <string name="credentials_info">Go to %1$s, generate a password and copy/paste the user and the
+        password.</string>
+    <string name="credentials_info_googlesource">Go to %1$s, copy the box content to the clipboard
+        and click on the \'Paste\' button.</string>
+    <string name="duplicate_server_name">A server configuration with name %1$s exists
+        already. The name must be unique.</string>
+  <string name="error_title">Error</string>
+  <string name="error_with_cause">%1$s\nCaused by: %2$s</string>
+  <string name="googlesource_obtain_password">Obtain Password</string>
+  <string name="http_password">HTTP Password.</string>
+  <string name="id">ID*:</string>
+  <string name="incompleteInput">Required input parameters are missing.</string>
+  <string name="incompleteSettings">Please complete the settings!</string>
+  <string name="invalidLabel">Invalid label, must match \'%1$s\'.</string>
+  <string name="invalidUrl">Invalid URL</string>
+  <string name="label">Star Label*:</string>
+  <string name="label_hint">Label to mark changes</string>
+  <string name="name">Name*:</string>
+  <string name="name_hint">Server Name</string>
+  <string name="password">Password*:</string>
+  <string name="password_hint">Gerrit HTTP Password</string>
+  <string name="paste_credentials">Paste Credentials</string>
+  <string name="save_anyway">Save anyway</string>
+  <string name="server">Server*:</string>
+  <string name="servers">Servers:</string>
+  <string name="server_remove_message">Are you sure you want to delete server \'%1$s\'</string>
+  <string name="server_remove_title">Delete Server</string>
+    <string name="storage_info">The server configuration is stored in the application preferences.
+        All values are encrypted.</string>
+  <string name="test_server_connection">Testing connection to the server ...</string>
+  <string name="test_server_connection_ok">OK</string>
+  <string name="test_server_connection_failed">FAILED</string>
+  <string name="title_activity_settings">Settings</string>
+  <string name="url">URL*:</string>
+  <string name="url_hint">Gerrit Server URL</string>
+  <string-array name="urls">
+    <item>https://gerrit-review.googlesource.com/</item>
+    <item>https://android-review.googlesource.com/</item>
+    <item>http://localhost:8080/</item>
+  </string-array>
+  <string name="user">User*:</string>
+  <string name="user_hint">Gerrit User</string>
+  <string name="query">Query*:</string>
+  <string name="query_hint">Change Query</string>
+
+  <!-- SettingsFragment - menu -->
+  <string name="action_clean_avatar_cache">Clean avatar cache</string>
+
+  <!-- DetailedChangeFragment -->
+  <string name="title_activity_detailed_change">Change Details</string>
+  <string name="approvals">Approvals:</string>
+  <string name="detailed_change_title">Change %1$d</string>
+  <string name="files">Files:</string>
+  <string name="show_more">Show %1$d more</string>
+  <string name="show_all">Show all (+%1$d)</string>
+
+  <!-- DetailedChangeFragment - menu -->
+  <string name="action_ignore">Ignore</string>
+  <string name="action_skip">Skip</string>
+  <string name="action_star">Star</string>
+
+  <!-- IntroFragment -->
+  <string name="title_activity_intro">Review It!? - Introduction</string>
+  <string name="continue_intro">Continue</string>
+
+  <!-- PreferencesFragment -->
+  <string name="title_activity_preferences">Preferences</string>
+    <string name="pref_color_background">Use different color as app background to visualize the
+        state of the current change.</string>
+  <string name="pref_show_patch_sets">Show number of patch sets on change card.</string>
+    <string name="pref_show_positive_code_review_votes">Show number of positive Code-Review votes on
+        change card.</string>
+    <string name="pref_show_negative_code_review_votes">Show number of negative Code-Review votes on
+        change card.</string>
+  <string name="pref_show_comments">Show number of inline comments on change card.</string>
+  <string name="pref_show_reviewers">Show number of reviewers on change card.</string>
+    <string name="pref_auto_font_size">Maximize font for commit message so that no lines are
+        wrapped.</string>
+  <string name="pref_font_size">Font size for commit message.</string>
+
+  <!-- AbandonFragment -->
+  <string name="title_activity_abandon">Abandon Change</string>
+  <string name="abandon_change_title">Abandon Change %1$d</string>
+  <string name="abandon">Abandon</string>
+  <string name="abandon_error">Abandon failed with %1$d %2$s</string>
+  <string name="reason">Reason:</string>
+
+  <!-- RestoreActivity -->
+  <string name="title_activity_restore">Restore Change</string>
+  <string name="restore_change_title">Restore Change %1$d</string>
+  <string name="restore">Restore</string>
+  <string name="restore_error">Restore failed with %1$d %2$s</string>
+
+  <!-- UnifiedDiffFragment -->
+  <string name="title_activity_unified_diff">UnifiedDiffActivity</string>
+
+  <!-- UnfifiedDiffView -->
+  <string name="skipped_common_lines">... skipped %1$d common lines ...</string>
+  <string name="expand_before">+%1$d&#x21e7;</string>
+  <string name="expand_after">+%1$d&#x21e9;</string>
+
+  <!-- PostReviewFragment -->
+  <string name="title_activity_post_review">PostReviewActivity</string>
+  <string name="message">Message:</string>
+  <string name="publish">Publish</string>
+  <string name="publishAndSubmit">Publish and Submit</string>
+  <string name="review_error">Posting review failed with %1$d %2$s</string>
+  <string name="submit_error">Submit failed with %1$d %2$s</string>
+
+  <!-- RelativeDateFormatter -->
+  <string name="in_the_future">in the future</string>
+  <string name="month">m</string>
+  <string name="months">m</string>
+  <string name="year">y</string>
+  <string name="years">y</string>
+  <string name="one_second_ago">1sec</string>
+  <string name="one_minute_ago">1min</string>
+  <string name="one_hour_ago">1h</string>
+  <string name="one_day_ago">1d</string>
+  <string name="one_week_ago">1w</string>
+  <string name="one_month_ago">1m</string>
+  <string name="one_year_ago">1y</string>
+  <string name="seconds_ago">%1$dsec</string>
+  <string name="minutes_ago">%1$dmin</string>
+  <string name="hours_ago">%1$dh</string>
+  <string name="days_ago">%1$dd</string>
+  <string name="weeks_ago">%1$dw</string>
+  <string name="months_ago">%1$dm</string>
+  <string name="years_ago">%1$dy</string>
+  <string name="years_0_months_ago">%1$d%2$s</string>
+  <string name="years_months_ago">%1$d%2$s,%3$d%4$s</string>
+</resources>
