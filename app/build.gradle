@@ -23,7 +23,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile files('libs/gerrit-rest-java-client-0.8.8-SNAPSHOT.jar')
-    compile files('libs/guava-19.0-rc2.jar')
+    compile 'com.google.guava:guava:19.0-rc2'
     compile files('libs/httpclient-android-4.3.5.1.jar')
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
