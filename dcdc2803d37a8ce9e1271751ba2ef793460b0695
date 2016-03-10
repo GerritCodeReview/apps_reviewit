@@ -22,6 +22,30 @@
       "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371db51b_d6ba24e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-10T10:54:34Z",
+      "side": 1,
+      "message": "Alternatively, I could change the files() directive to not look into libs/ but third_party/.\n\nOr we ask Urs to publish his snapshot to Sonatype.",
+      "parentUuid": "37c9357a_1668bc87",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
