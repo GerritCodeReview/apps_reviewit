@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "371db51b_b694c85e",
+        "filename": "app/build.gradle",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-03-10T10:25:28Z",
+      "side": 1,
+      "message": "Any reason not to use 19.0?",
+      "range": {
+        "startLine": 26,
+        "startChar": 36,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "3f001b7701e257c899b09268805cf73fac629815",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
