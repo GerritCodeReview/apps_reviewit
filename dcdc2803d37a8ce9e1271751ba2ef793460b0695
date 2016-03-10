@@ -70,6 +70,30 @@
       "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37c9357a_967bec4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-10T11:05:02Z",
+      "side": 1,
+      "message": "I agree publishing the snapshot would be the cleanest solution, I\u0027ve asked Urs: https://github.com/uwolfer/gerrit-rest-java-client/issues/34\n\nAbout the libs/ directory, the use of that as been deprecated with Gradle. Newer version of the project wizard should not anymore generate the\n\n    compile fileTree(include: [\u0027*.jar\u0027], dir: \u0027libs\u0027)\n\nline for project files.",
+      "parentUuid": "371db51b_16cdbc7f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
