@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37c9357a_1668bc87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-03-10T10:51:04Z",
+      "side": 1,
+      "message": "This is a good point.\nI placed this library in the third_party folder because this was a requirement from Google for being allowed to open-source this app. Before submitting this I should check whether it\u0027s OK to just change it back now after it was published.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
