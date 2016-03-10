@@ -46,6 +46,30 @@
       "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371db51b_16cdbc7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-03-10T10:59:12Z",
+      "side": 1,
+      "message": "Publishing the snapshot to Sonatype would be the preferred option for me.\n\nOtherwise the lib folder would be the better place since then we match with the standard folder structure of Android apps. I don\u0027t think that this will be an issue, just wanting to double-check on this.\n\nBut good to know that we could also change the files() directive to look at this other folder if needed.",
+      "parentUuid": "371db51b_d6ba24e4",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
