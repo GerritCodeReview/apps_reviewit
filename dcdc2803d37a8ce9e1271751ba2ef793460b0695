@@ -118,6 +118,30 @@
       "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371db51b_f6b800a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-03-10T15:22:19Z",
+      "side": 1,
+      "message": "I double-checked it, and moving this to the lib folder should be fine.\n\nStill it would be nice if the lib is published to Sonatype.",
+      "parentUuid": "37c9357a_d6756459",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "dcdc2803d37a8ce9e1271751ba2ef793460b0695",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
