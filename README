@@ -122,3 +122,11 @@ guidelines](https://gerrit.googlesource.com/apps/reviewit/+/master/CONTRIBUTING)
 
 Note that we do not accept Pull Requests via the Github mirror.
 
+## Build-time dependencies
+
+The app uses the following build-time dependencies provided under the given licenses:
+
+* Apache License, Version 2.0
+  * [gradle-versions-plugin](https://github.com/ben-manes/gradle-versions-plugin)
+
+Compile-time dependencies are listed in the app's help screen.
