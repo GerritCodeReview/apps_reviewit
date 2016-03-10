@@ -22,6 +22,30 @@
       "revId": "3f001b7701e257c899b09268805cf73fac629815",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "371db51b_9699cc98",
+        "filename": "app/build.gradle",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-10T10:27:40Z",
+      "side": 1,
+      "message": "Not from my point of view, but I didn\u0027t want to mix upgrading versions with switching to JCenter. IN case there were any API changes this would soon get messy in a single commit. Instead, I plan to do separate commits later to update the dependencies.",
+      "parentUuid": "371db51b_b694c85e",
+      "range": {
+        "startLine": 26,
+        "startChar": 36,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "3f001b7701e257c899b09268805cf73fac629815",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
