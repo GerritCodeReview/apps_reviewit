@@ -21,7 +21,7 @@
               android:background="@drawable/info_table">
 
   <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-               android:id="@+id/filesTable"
+               android:id="@+id/info_table"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:stretchColumns="1"
@@ -36,41 +36,40 @@
         android:layout_span="2">
 
         <ImageView
-          android:id="@+id/reviewButton"
+          android:id="@+id/info_action"
           android:layout_width="24dp"
           android:layout_height="24dp"
           android:layout_marginTop="3dp"
           android:layout_marginRight="3dp"
           android:clickable="true"
-          android:src="@drawable/ic_feedback_black_18dp"/>
+          android:visibility="gone"/>
 
         <TextView
-          android:id="@+id/filesLabel"
+          android:id="@+id/info_title"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginBottom="3dp"
-          android:textSize="20dp"
-          android:text="@string/files"/>
+          android:textSize="20dp"/>
       </LinearLayout>
     </TableRow>
   </TableLayout>
 
   <LinearLayout
-    android:id="@+id/fileButtons"
+    android:id="@+id/info_buttons"
     android:orientation="horizontal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:visibility="gone">
 
     <View
-      android:id="@+id/showMoreArea"
+      android:id="@+id/show_more_area"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_weight="1"
       />
 
     <Button
-      android:id="@+id/showMore"
+      android:id="@+id/show_more"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:textColor="@color/hyperlink"
@@ -87,7 +86,7 @@
       />
 
     <Button
-      android:id="@+id/showAll"
+      android:id="@+id/show_all"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:textColor="@color/hyperlink"

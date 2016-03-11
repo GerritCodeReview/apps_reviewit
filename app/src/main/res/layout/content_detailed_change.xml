@@ -61,7 +61,11 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"/>
 
-      <include layout="@layout/files"/>
+      <com.google.reviewit.widget.FileBox
+        android:id="@+id/fileBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+      </com.google.reviewit.widget.FileBox>
 
       <View
         android:layout_width="match_parent"
