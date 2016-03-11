@@ -16,7 +16,6 @@ package com.google.reviewit;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
-import android.view.View;
 
 import com.google.reviewit.util.WidgetUtil;
 
