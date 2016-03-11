@@ -170,11 +170,9 @@ public class ActionHandler {
           }
         }));
     start += LIMIT_QUERY;
-    more = !toProcess.isEmpty()
-        ? (toProcess.getLast().info._moreChanges != null
-          ? toProcess.getLast().info._moreChanges
-          : false)
-        : false;
+    more = !toProcess.isEmpty() && (toProcess.getLast().info._moreChanges != null
+        ? toProcess.getLast().info._moreChanges
+        : false);
   }
 
   public boolean isQueryNeeded() {
