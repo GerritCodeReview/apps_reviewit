@@ -52,7 +52,7 @@ public class ConfigManager {
   private static final String KEY_LABEL = "LABEL";
 
   private static final Set<String> DEFAULT_SERVERS = Collections.emptySet();
-  private static final String DEFAULT_QUERY = "status:open project:gerrit";
+  private static final String DEFAULT_QUERY = "status:open";
   private static final String DEFAULT_LABEL = "reviewit";
 
   private final SharedPreferences prefs;
