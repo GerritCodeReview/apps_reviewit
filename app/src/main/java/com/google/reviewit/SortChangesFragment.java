@@ -211,7 +211,7 @@ public class SortChangesFragment extends BaseFragment
           setGone(resultBox, loadingBox);
         }
       }
-    }.execute(new Void[]{});
+    }.execute();
   }
 
   private void init() {

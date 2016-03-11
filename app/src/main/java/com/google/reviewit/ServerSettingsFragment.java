@@ -265,7 +265,7 @@ public class ServerSettingsFragment extends BaseFragment {
               onServerSave(saveServerSettings());
             }
           }
-        }.execute(new Void[]{});
+        }.execute();
       }
     });
 
