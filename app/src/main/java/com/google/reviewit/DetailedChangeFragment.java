@@ -15,7 +15,6 @@
 package com.google.reviewit;
 
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.text.util.Linkify;
@@ -24,13 +23,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.gerrit.extensions.client.ChangeStatus;
-import com.google.gerrit.extensions.common.FileInfo;
 import com.google.reviewit.app.ActionHandler;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.util.ChangeUtil;
@@ -39,14 +34,11 @@ import com.google.reviewit.util.FormatUtil;
 import com.google.reviewit.util.TaskObserver;
 import com.google.reviewit.util.WidgetUtil;
 import com.google.reviewit.widget.ApprovalsView;
+import com.google.reviewit.widget.FileBox;
 import com.google.reviewit.widget.ZoomHandler;
 
-import java.util.Map;
 import java.util.regex.Pattern;
 
-import static com.google.reviewit.util.LayoutUtil.matchAndWrapTableLayout;
-import static com.google.reviewit.util.LayoutUtil.matchAndWrapTableRowLayout;
-import static com.google.reviewit.util.WidgetUtil.setGone;
 import static com.google.reviewit.util.WidgetUtil.setVisible;
 
 /**
@@ -56,7 +48,6 @@ public class DetailedChangeFragment extends BaseFragment implements
     OnBackPressedAware, DispatchTouchEventAware {
   private static final String TAG = DetailedChangeFragment.class.getName();
 
-  private static final int PAGE_SIZE = 10;
   private static final Pattern PATTERN_CHANGE_ID =
       Pattern.compile("I[0-9a-f]{5,40}");
   private static final String PART_LINK = "(?:"
@@ -99,7 +90,7 @@ public class DetailedChangeFragment extends BaseFragment implements
       displayChangeUrl(change);
       ((ApprovalsView) v(R.id.approvals)).displayApprovals(getApp(),
           change.info, this);
-      displayFiles(change, 1, false);
+      ((FileBox)v(R.id.fileBox)).display(this, change);
       // TODO show further change info, e.g. summary comments, hashtags,
       // related changes
     } catch (Throwable t) {
@@ -114,18 +105,7 @@ public class DetailedChangeFragment extends BaseFragment implements
   }
 
   private void init() {
-    TextView commitMsg = (TextView) v(R.id.commitMessage);
-    commitMsg.setLinksClickable(true);
-
-    v(R.id.reviewButton).setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        display(UnifiedDiffFragment.class);
-      }
-    });
-
-    WidgetUtil.underline(tv(R.id.showMore));
-    WidgetUtil.underline(tv(R.id.showAll));
+    tv(R.id.commitMessage).setLinksClickable(true);
   }
 
   private void linkify() {
@@ -143,76 +123,6 @@ public class DetailedChangeFragment extends BaseFragment implements
   private String getServerUrl() {
     String serverUrl = getApp().getConfigManager().getServerConfig().url;
     return FormatUtil.ensureSlash(serverUrl);
-  }
-
-  private void displayFiles(
-      final Change change, final int page, boolean showAll) {
-    TableLayout tl = (TableLayout) v(R.id.filesTable);
-    Map<String, FileInfo> files = change.currentRevision().files;
-    int count = 0;
-    for (Map.Entry<String, FileInfo> e : files.entrySet()) {
-      count++;
-      if (count <= (page - 1) * PAGE_SIZE) {
-        continue;
-      }
-      if (!showAll && count > page * PAGE_SIZE) {
-        break;
-      }
-      addFileRow(tl, e.getKey(), e.getValue());
-    }
-    if (!showAll && files.size() > page * PAGE_SIZE) {
-      WidgetUtil.setText(v(R.id.showAll),
-          getString(R.string.show_all, files.size() - page * PAGE_SIZE));
-      setVisible(v(R.id.fileButtons));
-      v(R.id.showAll).setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-          displayFiles(change, page + 1, true);
-        }
-      });
-      if (files.size() > (page + 1) * PAGE_SIZE) {
-        WidgetUtil.setText(v(R.id.showMore),
-            getString(R.string.show_more, PAGE_SIZE));
-        setVisible(v(R.id.showMoreArea, R.id.showMore));
-        v(R.id.showMore).setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            displayFiles(change, page + 1, false);
-          }
-        });
-      } else {
-        setGone(v(R.id.showMoreArea, R.id.showMore));
-      }
-    } else {
-      setGone(v(R.id.fileButtons));
-    }
-  }
-
-  private void addFileRow(TableLayout tl, final String path, FileInfo file) {
-    TableRow tr = new TableRow(getActivity());
-    tr.setLayoutParams(matchAndWrapTableRowLayout());
-
-    tr.addView(widgetUtil.tableRowRightMargin(widgetUtil.createTextView(
-        file.status != null ? Character.toString(file.status) : "M", 11), 4));
-
-    TextView pathText = widgetUtil.createTextView(path, 11);
-    pathText.setTextColor(widgetUtil.color(R.color.hyperlink));
-    pathText.setPaintFlags(
-        pathText.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-    pathText.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        display(UnifiedDiffFragment.create(path));
-      }
-    });
-    tr.addView(widgetUtil.tableRowRightMargin(pathText, 4));
-
-    tr.addView(widgetUtil.createTextView(
-        FormatUtil.formatBytes(file.size), 11));
-
-    // TODO show further file infos
-
-    tl.addView(tr, matchAndWrapTableLayout());
   }
 
   @Override
