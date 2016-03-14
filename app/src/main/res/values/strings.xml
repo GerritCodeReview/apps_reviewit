@@ -13,7 +13,7 @@
     limitations under the License. -->
 
 <resources>
-  <string name="app_name">Review It!?</string>
+  <string name="app_name">ReviewIt</string>
   <string name="app_menu_sort">Sort Changes</string>
   <string name="app_menu_review">Review Changes</string>
   <string name="app_menu_settings">Settings</string>
@@ -90,7 +90,7 @@
         change.</string>
 
   <string name="licenses">Licenses:</string>
-    <string name="about_licenses">The \'Review It!?\' app is licensed under
+    <string name="about_licenses">The \'ReviewIt\' app is licensed under
         the Apache License 2.0. Executable distributions also include other
         software components that are provided under additional licenses.</string>
   <string name="apache2.0">Apache License, Version 2.0:</string>
@@ -197,7 +197,7 @@
   <string name="action_star">Star</string>
 
   <!-- IntroFragment -->
-  <string name="title_activity_intro">Review It!? - Introduction</string>
+  <string name="title_activity_intro">ReviewIt - Introduction</string>
   <string name="continue_intro">Continue</string>
 
   <!-- PreferencesFragment -->

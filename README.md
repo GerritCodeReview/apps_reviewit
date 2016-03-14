@@ -1,7 +1,7 @@
-# Review It? - Android application for Gerrit
+# ReviewIt - Android application for Gerrit
 
 [Gerrit](https://www.gerritcodereview.com) provides web based code review and
-repository management for the Git version control system. The Review It? app is
+repository management for the Git version control system. The ReviewIt app is
 an Android app for Gerrit that allows sorting of incoming changes and review of
 small/trivial changes.
 
@@ -35,7 +35,7 @@ changes gets too high:
 * changes that are not interesting popup again and again whenever they are
   updated
 
-The 'ReviewIt?' Android app tries to solve these problems by offering a simple
+The 'ReviewIt' Android app tries to solve these problems by offering a simple
 way to sort incoming changes:
 
 * mark interesting changes to review them later (by putting a labeled star on
@@ -43,7 +43,7 @@ way to sort incoming changes:
 * mark non-interesting changes as ignored
 
 The actual review of the changes is done later, either by using the Gerrit web
-UI or by using the review functionality of the Review It? app. The idea is that
+UI or by using the review functionality of the ReviewIt app. The idea is that
 the sorting of incoming changes allows users to stay updated about their project
 while they are not in office (see new changes and sort them), but the code
 review is done only later when there is time for it. Also some large changes may
