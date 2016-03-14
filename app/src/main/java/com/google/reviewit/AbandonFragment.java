@@ -22,6 +22,7 @@ import android.view.View;
 
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
+import com.google.reviewit.widget.ExpandableCommitMessageView;
 import com.urswolfer.gerrit.client.rest.http.HttpStatusException;
 
 /**
@@ -55,6 +56,8 @@ public class AbandonFragment extends BaseFragment
   }
 
   private void init(final Change change) {
+    ((ExpandableCommitMessageView)v(R.id.commitMessage)).init(change);
+
     v(R.id.abandonButton).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(final View v) {
