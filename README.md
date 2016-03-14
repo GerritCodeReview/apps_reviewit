@@ -120,8 +120,6 @@ Contributions are welcome!
 Please read the [contribution
 guidelines](https://gerrit.googlesource.com/apps/reviewit/+/master/CONTRIBUTING).
 
-Note that we do not accept Pull Requests via the Github mirror.
-
 ## Build-time dependencies
 
 The app uses the following build-time dependencies provided under the given licenses:
