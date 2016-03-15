@@ -84,14 +84,12 @@ public class ChangeBox extends RelativeLayout {
   public void display(ReviewItApp app, Change change) {
     configureInfo(app);
 
-    ((ProjectBranchTopicAgeView)v(R.id.projectBranchTopicAge)).init(change);
-
     ChangeInfo info = change.info;
+    ((ProjectBranchTopicAgeView)v(R.id.projectBranchTopicAge)).init(change);
+    ((UserView)v(R.id.owner)).init(app, info.owner);
     WidgetUtil.setText(v(R.id.subject), info.subject);
     WidgetUtil.setText(v(R.id.commitMessage),
         FormatUtil.formatMessage(change));
-    displayAvatar(app, info.owner);
-    WidgetUtil.setText(v(R.id.owner), FormatUtil.format(info.owner));
     WidgetUtil.setText(v(R.id.patchsets),
         FormatUtil.format(change.currentRevision()._number));
     setInlineCommentCount(app, change);
@@ -203,10 +201,6 @@ public class ChangeBox extends RelativeLayout {
       }
     }
     return false;
-  }
-
-  private void displayAvatar(ReviewItApp app,AccountInfo account) {
-    WidgetUtil.displayAvatar(app, account, (ImageView) v(R.id.avatar));
   }
 
   private View v(@IdRes int id) {
