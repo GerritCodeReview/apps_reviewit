@@ -29,77 +29,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-
-      <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginRight="3dp"
-          android:textSize="9sp"
-          android:text="@string/project"/>
-
-        <TextView
-          android:id="@+id/project"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textSize="9sp"/>
-      </LinearLayout>
-
-      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-        <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginRight="3dp"
-          android:textSize="9sp"
-          android:text="@string/branch"/>
-
-        <TextView
-          android:id="@+id/branch"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textSize="9sp"/>
-      </LinearLayout>
-
-      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-        <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginRight="3dp"
-          android:textSize="9sp"
-          android:text="@string/topic"/>
-
-        <TextView
-          android:id="@+id/topic"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textSize="9sp"/>
-      </LinearLayout>
-
-      <TextView
-        android:id="@+id/age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="9sp"/>
-    </LinearLayout>
+    <com.google.reviewit.widget.ProjectBranchTopicAgeView
+      android:id="@+id/projectBranchTopicAge"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
 
     <View
       android:background="@color/separator"
