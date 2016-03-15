@@ -84,12 +84,9 @@ public class ChangeBox extends RelativeLayout {
   public void display(ReviewItApp app, Change change) {
     configureInfo(app);
 
+    ((ProjectBranchTopicAgeView)v(R.id.projectBranchTopicAge)).init(change);
+
     ChangeInfo info = change.info;
-    WidgetUtil.setText(v(R.id.project), info.project);
-    WidgetUtil.setText(v(R.id.branch), info.branch);
-    WidgetUtil.setText(v(R.id.topic), info.topic);
-    WidgetUtil.setText(v(R.id.age),
-        FormatUtil.formatDate(getContext(), info.updated));
     WidgetUtil.setText(v(R.id.subject), info.subject);
     WidgetUtil.setText(v(R.id.commitMessage),
         FormatUtil.formatMessage(change));
