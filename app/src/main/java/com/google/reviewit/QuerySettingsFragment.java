@@ -25,12 +25,12 @@ import com.google.reviewit.app.QueryConfig;
 import com.google.reviewit.app.ServerConfig;
 import com.google.reviewit.util.WidgetUtil;
 
-public class SortSettingFragment extends BaseFragment {
+public class QuerySettingsFragment extends BaseFragment {
   private static final String LABEL_REGEXP = "^[a-zA-Z][a-zA-Z0-9]*$";
 
   @Override
   protected @LayoutRes int getLayout() {
-    return R.layout.content_sort_settings;
+    return R.layout.content_query_settings;
   }
 
   @Override

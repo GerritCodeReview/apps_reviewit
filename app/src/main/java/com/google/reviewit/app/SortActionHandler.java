@@ -23,7 +23,7 @@ import com.google.gerrit.extensions.restapi.RestApiException;
 
 import java.util.LinkedList;
 
-public class ActionHandler {
+public class SortActionHandler {
   public enum Action {
     /**
      * Do nothing.
@@ -90,7 +90,7 @@ public class ActionHandler {
    */
   private boolean more = true;
 
-  ActionHandler(ConfigManager cfgManager, Gerrit gerrit) {
+  SortActionHandler(ConfigManager cfgManager, Gerrit gerrit) {
     this.gerrit = gerrit;
     this.config = cfgManager.getQueryConfig();
 
@@ -147,7 +147,7 @@ public class ActionHandler {
     toProcess.addAll(Collections2.transform(Collections2.filter(
         gerrit.api()
             .changes()
-            .query(encodeQuery(config.query))
+            .query(config.encodedQuery())
             .withOption(ListChangesOption.ALL_FILES)
             .withOption(ListChangesOption.CURRENT_COMMIT)
             .withOption(ListChangesOption.CURRENT_REVISION)
@@ -177,10 +177,6 @@ public class ActionHandler {
 
   public boolean isQueryNeeded() {
     return toProcess.size() < THRESHOLD_QUEUE && more;
-  }
-
-  private static String encodeQuery(String query) {
-    return query.replaceAll(" ", "+");
   }
 
   /**
