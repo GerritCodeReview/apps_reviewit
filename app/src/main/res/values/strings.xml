@@ -129,7 +129,7 @@
   <string name="no_reviewers">No Reviewers</string>
   <string name="save">Save</string>
 
-  <!-- SettingsFragmnet -->
+  <!-- SettingsFragment -->
   <string name="serverConfig">Server Configuration</string>
   <string name="sortConfig">Sort Configuration</string>
 
