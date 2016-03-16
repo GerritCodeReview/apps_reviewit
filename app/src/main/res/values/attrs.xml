@@ -21,4 +21,9 @@
     <attr name="maxLineLength" format="integer"/>
     <attr name="ellipsize" format="boolean"/>
   </declare-styleable>
+
+  <declare-styleable name="UserView">
+    <attr name="avatarSize" format="string"/>
+    <attr name="textSize" format="string"/>
+  </declare-styleable>
 </resources>

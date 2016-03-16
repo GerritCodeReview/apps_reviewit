@@ -15,9 +15,12 @@
 package com.google.reviewit.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.gerrit.extensions.common.AccountInfo;
 import com.google.reviewit.R;
@@ -39,6 +42,23 @@ public class UserView extends LinearLayout {
     super(context, attrs, defStyle);
 
     inflate(context, R.layout.user, this);
+
+    WidgetUtil widgetUtil = new WidgetUtil(context);
+    TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
+        R.styleable.UserView, 0, 0);
+    int avatarSize = (int) widgetUtil.toDimension(
+        a.getString(R.styleable.UserView_avatarSize), -1);
+    if (avatarSize > 0) {
+      findViewById(R.id.avatar).setLayoutParams(new LayoutParams(avatarSize,
+          avatarSize));
+    }
+
+    float textSize = widgetUtil.toDimension(
+        a.getString(R.styleable.UserView_textSize), -1);
+    if (textSize > 0) {
+      ((TextView)findViewById(R.id.userName)).setTextSize(
+          TypedValue.COMPLEX_UNIT_PX, textSize);
+    }
   }
 
   public void init(ReviewItApp app, AccountInfo account) {
