@@ -32,7 +32,8 @@ import java.util.concurrent.Executors;
 public class ReviewItApp extends Application {
   private static final String TAG = ReviewItApp.class.getName();
 
-  private ActionHandler actionHandler;
+  private QueryHandler queryHandler;
+  private SortActionHandler sortActionHandler;
   private AvatarCache avatarCache;
   private ConfigManager cfgManager;
   private ExecutorService executor;
@@ -94,11 +95,18 @@ public class ReviewItApp extends Application {
     super.onCreate();
   }
 
-  public ActionHandler getActionHandler() {
-    if (actionHandler == null) {
-      actionHandler = new ActionHandler(getConfigManager(), getGerrit());
+  public QueryHandler getQueryHandler() {
+    if (queryHandler == null) {
+      queryHandler = new QueryHandler(getConfigManager(), getGerrit());
     }
-    return actionHandler;
+    return queryHandler;
+  }
+
+  public SortActionHandler getSortActionHandler() {
+    if (sortActionHandler == null) {
+      sortActionHandler = new SortActionHandler(getConfigManager(), getGerrit());
+    }
+    return sortActionHandler;
   }
 
   public AvatarCache getAvatarCache() {

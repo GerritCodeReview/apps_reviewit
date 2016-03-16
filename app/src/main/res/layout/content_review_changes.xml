@@ -15,14 +15,47 @@
     limitations under the License. -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
 
-  <TextView
+  <include layout="@layout/progress"/>
+
+  <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:textSize="40sp"
-    android:text="TODO"/>
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:id="@+id/changeList"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <TextView
+        android:id="@+id/statusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textSize="24sp"
+        android:text="@string/loading"/>
+
+      <ProgressBar
+        android:id="@+id/initialProgress"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:indeterminate="true"/>
+
+      <ImageView
+        android:id="@+id/reloadButton"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:clickable="true"
+        android:src="@drawable/ic_refresh_black_48dp"
+        android:visibility="gone"/>
+    </LinearLayout>
+  </ScrollView>
 </LinearLayout>

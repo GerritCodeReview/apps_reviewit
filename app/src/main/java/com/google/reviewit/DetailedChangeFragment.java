@@ -31,7 +31,7 @@ import android.widget.TextView;
 
 import com.google.gerrit.extensions.client.ChangeStatus;
 import com.google.gerrit.extensions.common.FileInfo;
-import com.google.reviewit.app.ActionHandler;
+import com.google.reviewit.app.SortActionHandler;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.util.ChangeUtil;
 import com.google.reviewit.widget.ChangeBox;
@@ -85,7 +85,7 @@ public class DetailedChangeFragment extends BaseFragment implements
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
 
-    Change change = getApp().getActionHandler().getCurrentChange();
+    Change change = getApp().getSortActionHandler().getCurrentChange();
     setTitle(getString(R.string.detailed_change_title, change.info._number));
     setHasOptionsMenu(true);
     init();
@@ -217,7 +217,7 @@ public class DetailedChangeFragment extends BaseFragment implements
 
   @Override
   public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-    ActionHandler actionHandler = getApp().getActionHandler();
+    SortActionHandler actionHandler = getApp().getSortActionHandler();
     inflater.inflate(R.menu.menu_detailed_change, menu);
     for (int i = 0; i < menu.size(); i++) {
       MenuItem item = menu.getItem(i);
@@ -237,7 +237,7 @@ public class DetailedChangeFragment extends BaseFragment implements
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    ActionHandler actionHandler = getApp().getActionHandler();
+    SortActionHandler actionHandler = getApp().getSortActionHandler();
     switch (item.getItemId()) {
       case R.id.action_add_reviewer:
         display(AddReviewerFragment.create(getClass()));

@@ -31,7 +31,7 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
-import com.google.reviewit.app.ActionHandler;
+import com.google.reviewit.app.SortActionHandler;
 import com.google.reviewit.app.ReviewItApp;
 import com.google.reviewit.util.TaskObserver;
 import com.google.reviewit.util.WidgetUtil;
@@ -121,8 +121,8 @@ public abstract class BaseFragment extends Fragment {
     return ((ReviewItApp) getActivity().getApplication());
   }
 
-  protected ActionHandler getActionHandler() {
-    return getApp().getActionHandler();
+  protected SortActionHandler getSortActionHandler() {
+    return getApp().getSortActionHandler();
   }
 
   public void display(

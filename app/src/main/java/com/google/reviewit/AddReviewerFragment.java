@@ -77,7 +77,7 @@ public class AddReviewerFragment extends BaseFragment
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
 
-    Change change = getApp().getActionHandler().getCurrentChange();
+    Change change = getApp().getSortActionHandler().getCurrentChange();
     initInputField(change);
     try {
       displayReviewers(change);

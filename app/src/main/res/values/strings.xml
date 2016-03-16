@@ -40,6 +40,9 @@
   <string name="action_restore">Restore...</string>
   <string name="action_undo">Undo</string>
 
+  <!-- ReviewChangesFragment -->
+  <string name="no_changes_match">No changes match the query!</string>
+
   <!-- ErrorFragment -->
   <string name="title_activity_error">Error</string>
 
@@ -131,7 +134,7 @@
 
   <!-- SettingsFragmnet -->
   <string name="serverConfig">Server Configuration</string>
-  <string name="sortConfig">Sort Configuration</string>
+  <string name="queryConfig">Query Configuration</string>
 
   <string name="add_server">Add Server</string>
   <string name="connection_failed">Connection failed: %1$s</string>

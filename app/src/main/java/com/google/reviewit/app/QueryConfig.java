@@ -27,6 +27,10 @@ public class QueryConfig {
     this.label = label;
   }
 
+  public String encodedQuery() {
+    return query.replaceAll(" ", "+");
+  }
+
   public boolean isComplete() {
     return !Strings.isNullOrEmpty(serverId)
         && !Strings.isNullOrEmpty(query)

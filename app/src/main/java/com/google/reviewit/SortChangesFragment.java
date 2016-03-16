@@ -37,7 +37,7 @@ import android.widget.TextView;
 
 import com.google.gerrit.extensions.client.ChangeStatus;
 import com.google.gerrit.extensions.restapi.RestApiException;
-import com.google.reviewit.app.ActionHandler;
+import com.google.reviewit.app.SortActionHandler;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.app.ConfigManager;
 import com.google.reviewit.app.QueryConfig;
@@ -74,8 +74,8 @@ public class SortChangesFragment extends BaseFragment
 
     setHasOptionsMenu(true);
 
-    if (getActionHandler().hasCurrentChange()) {
-      getActionHandler().pushBack();
+    if (getSortActionHandler().hasCurrentChange()) {
+      getSortActionHandler().pushBack();
     }
 
     TaskObserver.enableProgressBar(getWindow());
@@ -92,7 +92,7 @@ public class SortChangesFragment extends BaseFragment
     ConfigManager cfgManager = getApp().getConfigManager();
     QueryConfig config = cfgManager.getQueryConfig();
     if (!config.isComplete()) {
-      display(SortSettingFragment.class);
+      display(QuerySettingsFragment.class);
       return;
     }
 
@@ -105,7 +105,7 @@ public class SortChangesFragment extends BaseFragment
       return;
     }
 
-    if (getActionHandler().isQueryNeeded()) {
+    if (getSortActionHandler().isQueryNeeded()) {
       if (v(R.id.changeBox) == null) {
         setVisible(v(R.id.loadingBox));
         setInvisible(v(R.id.progress));
@@ -115,7 +115,7 @@ public class SortChangesFragment extends BaseFragment
         setVisible(v(R.id.progress));
       }
     } else {
-      Change change = getActionHandler().preview();
+      Change change = getSortActionHandler().preview();
       if (change != null) {
         ChangeUtil.colorBackground(root, change);
       }
@@ -144,7 +144,7 @@ public class SortChangesFragment extends BaseFragment
       @Override
       protected ChangeData doInBackground(Void... v) {
         try {
-          ActionHandler actionHandler = getActionHandler();
+          SortActionHandler actionHandler = getSortActionHandler();
           if (actionHandler.hasNext()) {
             Change change = actionHandler.next();
             int queueSize = actionHandler.getQueueSize();
@@ -235,16 +235,16 @@ public class SortChangesFragment extends BaseFragment
     v(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
       public void onClick(View v) {
         disableButtons();
-        getActionHandler().skip();
-        animate(changeBox, ActionHandler.Action.SKIP);
+        getSortActionHandler().skip();
+        animate(changeBox, SortActionHandler.Action.SKIP);
       }
     });
 
     View.OnClickListener onStarClickListener = new View.OnClickListener() {
       public void onClick(View v) {
         disableButtons();
-        getActionHandler().star();
-        animate(changeBox, ActionHandler.Action.STAR);
+        getSortActionHandler().star();
+        animate(changeBox, SortActionHandler.Action.STAR);
       }
     };
     v(R.id.starButton).setOnClickListener(onStarClickListener);
@@ -253,8 +253,8 @@ public class SortChangesFragment extends BaseFragment
     View.OnClickListener onIgnoreClickListener = new View.OnClickListener() {
       public void onClick(View v) {
         disableButtons();
-        getActionHandler().ignore();
-        animate(changeBox, ActionHandler.Action.IGNORE);
+        getSortActionHandler().ignore();
+        animate(changeBox, SortActionHandler.Action.IGNORE);
       }
     };
     v(R.id.ignoreButton).setOnClickListener(onIgnoreClickListener);
@@ -304,7 +304,7 @@ public class SortChangesFragment extends BaseFragment
     final ViewGroup resultBox = vg(R.id.resultBox);
     changeBox.findViewById(R.id.changeBoxUpperPart).setOnTouchListener(
         new View.OnTouchListener() {
-      private ActionHandler.Action action = ActionHandler.Action.NONE;
+      private SortActionHandler.Action action = SortActionHandler.Action.NONE;
       private int x;
       private int y;
 
@@ -330,9 +330,9 @@ public class SortChangesFragment extends BaseFragment
               if (eventX > (screenCenter + (screenCenter / 2))) {
                 ((GradientDrawable) changeBox.getBackground())
                     .setColor(widgetUtil.color(R.color.commitMessageStar));
-                action = ActionHandler.Action.STAR;
+                action = SortActionHandler.Action.STAR;
               } else {
-                action = ActionHandler.Action.NONE;
+                action = SortActionHandler.Action.NONE;
                 ((GradientDrawable) changeBox.getBackground())
                     .setColor(widgetUtil.color(R.color.commitMessage));
               }
@@ -342,9 +342,9 @@ public class SortChangesFragment extends BaseFragment
               if (eventX < (screenCenter / 2)) {
                 ((GradientDrawable) changeBox.getBackground())
                     .setColor(widgetUtil.color(R.color.commitMessageIgnore));
-                action = ActionHandler.Action.IGNORE;
+                action = SortActionHandler.Action.IGNORE;
               } else {
-                action = ActionHandler.Action.NONE;
+                action = SortActionHandler.Action.NONE;
                 ((GradientDrawable) changeBox.getBackground())
                     .setColor(widgetUtil.color(R.color.commitMessage));
               }
@@ -355,17 +355,17 @@ public class SortChangesFragment extends BaseFragment
                 .setColor(widgetUtil.color(R.color.commitMessage));
             switch (action) {
               case STAR:
-                getActionHandler().star();
+                getSortActionHandler().star();
                 resultBox.removeView(changeBox);
                 display();
                 break;
               case IGNORE:
-                getActionHandler().ignore();
+                getSortActionHandler().ignore();
                 resultBox.removeView(changeBox);
                 display();
                 break;
               case SKIP:
-                getActionHandler().skip();
+                getSortActionHandler().skip();
                 resultBox.removeView(changeBox);
                 display();
                 break;
@@ -388,7 +388,7 @@ public class SortChangesFragment extends BaseFragment
   }
 
   private void animate(
-      final View changeBox, final ActionHandler.Action action) {
+      final View changeBox, final SortActionHandler.Action action) {
     final ViewGroup resultBox = vg(R.id.resultBox);
     Point screenSize = getScreenSize();
     final int screenCenter = screenSize.x / 2;
@@ -517,7 +517,7 @@ public class SortChangesFragment extends BaseFragment
 
   @Override
   public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-    ActionHandler actionHandler = getActionHandler();
+    SortActionHandler actionHandler = getSortActionHandler();
     inflater.inflate(R.menu.menu_sort_changes, menu);
     for (int i = 0; i < menu.size(); i++) {
       MenuItem item = menu.getItem(i);
@@ -574,7 +574,7 @@ public class SortChangesFragment extends BaseFragment
   }
 
   private void undo() {
-    ActionHandler actionHandler = getActionHandler();
+    SortActionHandler actionHandler = getSortActionHandler();
     if (!actionHandler.undoPossible()) {
       return;
     }
@@ -615,17 +615,17 @@ public class SortChangesFragment extends BaseFragment
           display(SortChangesFragment.class);
         }
       }
-    }.execute(getActionHandler().getCurrentChange());
+    }.execute(getSortActionHandler().getCurrentChange());
   }
 
   private void reloadQuery() {
-    getActionHandler().reset();
+    getSortActionHandler().reset();
     display(getClass(), false);
   }
 
   @Override
   public boolean onBackPressed() {
-    if (getActionHandler().undoPossible()) {
+    if (getSortActionHandler().undoPossible()) {
       undo();
       return true;
     }
