@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bc6d0aef_3d6a3bee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-03-17T15:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c937619_1d36539a",
+      "revId": "3b46eb51e884582276bbe75f1e0eecfd3ed66d54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc6d0aef_da3f8569",
         "filename": "app/src/main/res/layout/project_branch_topic_age.xml",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "bc6d0aef_dd5e9f4a",
+        "filename": "app/src/main/res/layout/project_branch_topic_age.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-03-17T15:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc6d0aef_da3f8569",
+      "revId": "3b46eb51e884582276bbe75f1e0eecfd3ed66d54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c937619_3d3b0f81",
         "filename": "app/src/main/res/layout/project_branch_topic_age.xml",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-03-17T08:45:51Z",
       "side": 1,
       "message": "The xmlns line should not be necessary as they already are in the parent LinearLayout.",
+      "revId": "3b46eb51e884582276bbe75f1e0eecfd3ed66d54",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c937619_80e198bd",
+        "filename": "app/src/main/res/layout/project_branch_topic_age.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-03-17T15:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c937619_3d3b0f81",
       "revId": "3b46eb51e884582276bbe75f1e0eecfd3ed66d54",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
