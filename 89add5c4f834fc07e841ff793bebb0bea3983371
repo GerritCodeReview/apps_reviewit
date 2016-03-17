@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c937619_5d55bb99",
+        "filename": "app/src/main/java/com/google/reviewit/app/QueryConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-17T08:58:34Z",
+      "side": 1,
+      "message": "How about instead using URLEncoder.encode()?",
+      "revId": "89add5c4f834fc07e841ff793bebb0bea3983371",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c937619_7d5af7ca",
+        "filename": "app/src/main/res/layout/change_entry.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-17T08:58:34Z",
+      "side": 1,
+      "message": "The xmlns line should not be necessary as they already are in the parent LinearLayout.",
+      "revId": "89add5c4f834fc07e841ff793bebb0bea3983371",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
