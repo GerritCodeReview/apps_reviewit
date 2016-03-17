@@ -253,7 +253,7 @@ public class DetailedChangeFragment extends BaseFragment implements
         startActivity(new Intent(getActivity(), MainActivity.class));
         return true;
       case R.id.action_restore:
-        display(RestoreActivity.create(getClass()));
+        display(RestoreFragment.create(getClass()));
         return true;
       case R.id.action_skip:
         actionHandler.skip();

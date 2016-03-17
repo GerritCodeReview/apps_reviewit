@@ -563,7 +563,7 @@ public class SortChangesFragment extends BaseFragment
         reloadQuery();
         return true;
       case R.id.action_restore:
-        display(RestoreActivity.create(getClass()));
+        display(RestoreFragment.create(getClass()));
         return true;
       case R.id.action_undo:
         undo();

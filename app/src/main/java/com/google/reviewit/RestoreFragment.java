@@ -27,13 +27,13 @@ import com.urswolfer.gerrit.client.rest.http.HttpStatusException;
 /**
  * Fragment to restore a change.
  */
-public class RestoreActivity extends BaseFragment
+public class RestoreFragment extends BaseFragment
     implements OnBackPressedAware {
   private static final String ORIGIN =
-      "com.google.reviewit.RestoreActivity.ORIGIN";
+      "com.google.reviewit.RestoreFragment.ORIGIN";
 
-  public static RestoreActivity create(Class<? extends Fragment> origin) {
-    RestoreActivity fragment = new RestoreActivity();
+  public static RestoreFragment create(Class<? extends Fragment> origin) {
+    RestoreFragment fragment = new RestoreFragment();
     Bundle bundle = new Bundle();
     bundle.putSerializable(ORIGIN, origin);
     fragment.setArguments(bundle);

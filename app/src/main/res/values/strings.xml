@@ -222,7 +222,7 @@
   <string name="abandon_error">Abandon failed with %1$d %2$s</string>
   <string name="reason">Reason:</string>
 
-  <!-- RestoreActivity -->
+  <!-- RestoreFragment -->
   <string name="title_activity_restore">Restore Change</string>
   <string name="restore_change_title">Restore Change %1$d</string>
   <string name="restore">Restore</string>
