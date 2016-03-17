@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c937619_9d49030c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-17T08:46:48Z",
+      "side": 1,
+      "message": "Nit: Missing period at end of sentence.",
+      "revId": "23e4a5d0006c7c7cb43d2f78c93e9a535f0287ec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
