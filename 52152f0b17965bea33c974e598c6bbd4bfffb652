@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc6d0aef_1a365d9a",
+        "filename": "app/src/main/res/layout/content_abandon.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-17T08:42:24Z",
+      "side": 1,
+      "message": "The xmlns lines should not be necessary as they already are in the parent LinearLayout.",
+      "revId": "52152f0b17965bea33c974e598c6bbd4bfffb652",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6d0aef_3a3b2181",
+        "filename": "app/src/main/res/layout/content_abandon.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-17T08:42:24Z",
+      "side": 1,
+      "message": "Maybe use a \"/\u003e\" closing tag in the previous line instead?",
+      "revId": "52152f0b17965bea33c974e598c6bbd4bfffb652",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c937619_5d2cdb4b",
+        "filename": "app/src/main/res/layout/content_restore.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-17T08:42:24Z",
+      "side": 1,
+      "message": "The xmlns lines should not be necessary as they already are in the parent LinearLayout.",
+      "revId": "52152f0b17965bea33c974e598c6bbd4bfffb652",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c937619_bda5df13",
+        "filename": "app/src/main/res/layout/content_restore.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015513
+      },
+      "writtenOn": "2016-03-17T08:42:24Z",
+      "side": 1,
+      "message": "Maybe use a \"/\u003e\" closing tag in the previous line instead?",
+      "revId": "52152f0b17965bea33c974e598c6bbd4bfffb652",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
