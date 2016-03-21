@@ -21,11 +21,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile files('libs/gerrit-rest-java-client-0.8.8-SNAPSHOT.jar')
+    compile 'com.github.uwolfer:gerrit-rest-java-client:a7f5d5c'
     compile 'com.google.guava:guava:19.0'
-    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
