@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.reviewit.R;
+import com.google.reviewit.util.WidgetUtil;
 
 /**
  * TextView that automatically sets the font size as large as possible
@@ -46,13 +47,14 @@ public class MaxFontSizeTextView extends TextView {
 
   public MaxFontSizeTextView(Context context, AttributeSet attrs) {
     super(context, attrs);
+    WidgetUtil widgetUtil = new WidgetUtil(context);
     TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
         R.styleable.MaxFontSizeTextView, 0, 0);
     maxLineLength = a.getInteger(R.styleable
         .MaxFontSizeTextView_maxLineLength, 0);
-    minTextSize = readAttr(a.getString(
+    minTextSize = widgetUtil.toDimension(a.getString(
         R.styleable.MaxFontSizeTextView_minTextSize), MIN_TEXT_SIZE_DEFAULT);
-    maxTextSize = readAttr(a.getString(
+    maxTextSize = widgetUtil.toDimension(a.getString(
         R.styleable.MaxFontSizeTextView_maxTextSize), MAX_TEXT_SIZE_DEFAULT);
 
     paint = new Paint();
@@ -87,25 +89,6 @@ public class MaxFontSizeTextView extends TextView {
           }
         }
       });
-    }
-  }
-
-  private float readAttr(String attr, float defaultValue) {
-    if (attr == null) {
-      return defaultValue;
-    }
-    try {
-      if (attr.endsWith("sp")) {
-        attr = attr.substring(0, attr.length() - 2).trim();
-        return spToPx(Integer.valueOf(attr));
-      } else if (attr.endsWith("px")) {
-        attr = attr.substring(0, attr.length() - 2).trim();
-        return Integer.valueOf(attr);
-      } else {
-        return Integer.valueOf(attr);
-      }
-    } catch (NumberFormatException e) {
-      return defaultValue;
     }
   }
 
@@ -183,10 +166,5 @@ public class MaxFontSizeTextView extends TextView {
     if (width != oldWidth) {
       refitText(getText(), width);
     }
-  }
-
-  private int spToPx(int sp) {
-    return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp,
-        getResources().getDisplayMetrics());
   }
 }

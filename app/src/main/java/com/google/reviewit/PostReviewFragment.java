@@ -26,8 +26,8 @@ import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.util.ObservableAsynTask;
 import com.google.reviewit.util.TaskObserver;
-import com.google.reviewit.util.WidgetUtil;
 import com.google.reviewit.widget.ApprovalsView;
+import com.google.reviewit.widget.ExpandableCommitMessageView;
 import com.google.reviewit.widget.VoteView;
 import com.urswolfer.gerrit.client.rest.http.HttpStatusException;
 
@@ -71,36 +71,17 @@ public class PostReviewFragment extends BaseFragment {
 
     int vote = getArguments().getInt(VOTE);
     update(vote);
-    Change change = getApp().getActionHandler().getCurrentChange();
+    Change change = getApp().getSortActionHandler().getCurrentChange();
 
     setTitle(getString(R.string.detailed_change_title, change.info._number));
     init(change);
-    WidgetUtil.setText(v(R.id.subject), change.info.subject);
     initLabels(change, vote);
     ((ApprovalsView) v(R.id.approvals)).displayApprovals(getApp(),
         change.info, this);
   }
 
   private void init(final Change change) {
-    v(R.id.expandCommitMessage).setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        setGone(v(R.id.expandCommitMessage));
-        setVisible(v(R.id.collapseCommitMessage));
-        WidgetUtil.setText(v(R.id.subject),
-            change.currentRevision().commit.message);
-      }
-    });
-
-    v(R.id.collapseCommitMessage).setOnClickListener(
-        new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        setGone(v(R.id.collapseCommitMessage));
-        setVisible(v(R.id.expandCommitMessage));
-        WidgetUtil.setText(v(R.id.subject), change.info.subject);
-      }
-    });
+    ((ExpandableCommitMessageView)v(R.id.commitMessage)).init(change);
 
     v(R.id.postReviewButton).setOnClickListener(new View.OnClickListener() {
       @Override

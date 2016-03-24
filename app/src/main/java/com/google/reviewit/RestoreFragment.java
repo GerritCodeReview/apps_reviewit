@@ -22,6 +22,7 @@ import android.view.View;
 
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
+import com.google.reviewit.widget.ExpandableCommitMessageView;
 import com.urswolfer.gerrit.client.rest.http.HttpStatusException;
 
 /**
@@ -49,12 +50,14 @@ public class RestoreFragment extends BaseFragment
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
 
-    Change change = getApp().getActionHandler().getCurrentChange();
+    Change change = getApp().getSortActionHandler().getCurrentChange();
     setTitle(getString(R.string.restore_change_title, change.info._number));
     init(change);
   }
 
   private void init(final Change change) {
+    ((ExpandableCommitMessageView)v(R.id.commitMessage)).init(change);
+
     v(R.id.restoreButton).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(final View v) {

@@ -118,6 +118,28 @@ public class WidgetUtil {
     return (int) context.getResources().getDimension(id);
   }
 
+  public float toDimension(String value, float defaultValue) {
+    if (value == null) {
+      return defaultValue;
+    }
+    try {
+      if (value.endsWith("sp")) {
+        value = value.substring(0, value.length() - 2).trim();
+        return spToPx(Integer.valueOf(value));
+      } else if (value.endsWith("dp")) {
+        value = value.substring(0, value.length() - 2).trim();
+        return dpToPx(Integer.valueOf(value));
+      } else if (value.endsWith("px")) {
+        value = value.substring(0, value.length() - 2).trim();
+        return Integer.valueOf(value);
+      } else {
+        return Integer.valueOf(value);
+      }
+    } catch (NumberFormatException e) {
+      return defaultValue;
+    }
+  }
+
   public void setBackgroundColor(View view, @ColorRes int colorId) {
     view.setBackgroundColor(color(colorId));
   }

@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,16 +12,11 @@
     See the License for the specific language governing permissions and
     limitations under the License. -->
 
-<resources>
-  <declare-styleable name="MaxFontSizeTextView">
-    <attr name="minTextSize" format="string"/>
-    <attr name="maxTextSize" format="string"/>
-    <attr name="maxLineLength" format="integer"/>
-    <attr name="ellipsize" format="boolean"/>
-  </declare-styleable>
-
-  <declare-styleable name="UserView">
-    <attr name="avatarSize" format="string"/>
-    <attr name="textSize" format="string"/>
-  </declare-styleable>
-</resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+  <item
+    android:id="@+id/action_reload_query"
+    android:orderInCategory="100"
+    android:title="@string/action_reload_query"
+    app:showAsAction="never"/>
+</menu>

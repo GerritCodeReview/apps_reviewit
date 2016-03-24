@@ -16,6 +16,9 @@ package com.google.reviewit.app;
 
 import com.google.common.base.Strings;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class QueryConfig {
   public final String serverId;
   public final String query;
@@ -25,6 +28,15 @@ public class QueryConfig {
     this.serverId = serverId;
     this.query = query;
     this.label = label;
+  }
+
+  public String encodedQuery() {
+    try {
+      // TODO use StandardCharsets.UTF_8.name() with API level 19
+      return URLEncoder.encode(query, "UTF-8");
+    } catch (UnsupportedEncodingException e) {
+      throw new IllegalStateException(e);
+    }
   }
 
   public boolean isComplete() {

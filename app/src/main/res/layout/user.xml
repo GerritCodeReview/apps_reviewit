@@ -14,16 +14,19 @@
     See the License for the specific language governing permissions and
     limitations under the License. -->
 
-<resources>
-  <declare-styleable name="MaxFontSizeTextView">
-    <attr name="minTextSize" format="string"/>
-    <attr name="maxTextSize" format="string"/>
-    <attr name="maxLineLength" format="integer"/>
-    <attr name="ellipsize" format="boolean"/>
-  </declare-styleable>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
 
-  <declare-styleable name="UserView">
-    <attr name="avatarSize" format="string"/>
-    <attr name="textSize" format="string"/>
-  </declare-styleable>
-</resources>
+  <ImageView
+    android:id="@+id/avatar"
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:layout_marginRight="3dp"/>
+
+  <TextView
+    android:id="@+id/userName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+</LinearLayout>

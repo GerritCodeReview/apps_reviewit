@@ -41,10 +41,10 @@ public class SettingsFragment extends BaseFragment {
       }
     });
 
-    v(R.id.sortConfig).setOnClickListener(new View.OnClickListener() {
+    v(R.id.queryConfig).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        display(SortSettingFragment.class);
+        display(QuerySettingsFragment.class);
       }
     });
   }
