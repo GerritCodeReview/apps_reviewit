@@ -39,6 +39,10 @@ public class LayoutUtil {
         ViewGroup.LayoutParams.MATCH_PARENT, height);
   }
 
+  public static ViewGroup.LayoutParams fixedLayout(int width, int height) {
+    return new ViewGroup.LayoutParams(width, height);
+  }
+
   public static TableLayout.LayoutParams matchAndWrapTableLayout() {
     return new TableLayout.LayoutParams(
         TableLayout.LayoutParams.MATCH_PARENT,
