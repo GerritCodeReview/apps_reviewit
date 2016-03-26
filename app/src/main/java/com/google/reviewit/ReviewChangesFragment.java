@@ -54,7 +54,6 @@ public class ReviewChangesFragment extends BaseFragment {
 
     setHasOptionsMenu(true);
 
-    TaskObserver.enableProgressBar(getWindow());
     init();
     display();
   }
@@ -128,7 +127,11 @@ public class ReviewChangesFragment extends BaseFragment {
 
         getActivity().invalidateOptionsMenu();
         setInvisible(progress);
-        setGone(initialProgress, reloadButton);
+        setGone(reloadButton);
+        if (initialProgress.getVisibility() != View.GONE) {
+          setGone(initialProgress);
+          TaskObserver.enableProgressBar(getWindow());
+        }
 
         if (changeListData.error != null) {
           statusText.setText(changeListData.error);
