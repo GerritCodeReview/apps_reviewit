@@ -23,4 +23,5 @@
   android:maxHeight="2dp"
   android:minHeight="2dp"
   android:indeterminateDrawable="@drawable/progress"
-  style="?android:attr/progressBarStyleHorizontal"/>
+  style="?android:attr/progressBarStyleHorizontal"
+  android:visibility="invisible"/>

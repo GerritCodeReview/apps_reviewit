@@ -14,6 +14,7 @@
 
 package com.google.reviewit;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.util.Log;
@@ -28,7 +29,6 @@ import android.widget.TextView;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.app.QueryHandler;
-import com.google.reviewit.util.ObservableAsynTask;
 import com.google.reviewit.util.TaskObserver;
 import com.google.reviewit.widget.ChangeEntry;
 
@@ -80,7 +80,7 @@ public class ReviewChangesFragment extends BaseFragment {
       return;
     }
 
-    new ObservableAsynTask<Void, Void, ChangeListData>() {
+    new AsyncTask<Void, Void, ChangeListData>() {
       private View progress;
       private View initialProgress;
       private View reloadButton;
@@ -88,8 +88,8 @@ public class ReviewChangesFragment extends BaseFragment {
       private ViewGroup changeList;
 
       @Override
-      protected void preExecute() {
-        super.preExecute();
+      protected void onPreExecute() {
+        super.onPreExecute();
         progress = v(R.id.progress);
         initialProgress = v(R.id.initialProgress);
         reloadButton = v(R.id.reloadButton);
@@ -118,8 +118,9 @@ public class ReviewChangesFragment extends BaseFragment {
         }
       }
 
-      protected void postExecute(ChangeListData changeListData) {
-        super.postExecute(changeListData);
+      @Override
+      protected void onPostExecute(ChangeListData changeListData) {
+        super.onPostExecute(changeListData);
 
         if (getActivity() == null) {
           // user navigated away while we were waiting for the request
