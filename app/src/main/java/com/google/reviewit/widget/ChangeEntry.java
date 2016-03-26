@@ -48,5 +48,6 @@ public class ChangeEntry extends LinearLayout {
     WidgetUtil.setText(findViewById(R.id.subject), info.subject);
 
     ((CodeReviewVotes)findViewById(R.id.codeReviewVotes)).init(change);
+    ((VerifiedVotes)findViewById(R.id.verifiedVotes)).init(change);
   }
 }
