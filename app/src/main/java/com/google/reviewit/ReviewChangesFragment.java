@@ -24,6 +24,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.gerrit.extensions.restapi.RestApiException;
@@ -66,7 +68,24 @@ public class ReviewChangesFragment extends BaseFragment {
       }
     });
 
-    // TODO detect when scrolled to the end and automatically load next page
+    final View nextPageProgress = v(R.id.nextPageProgress);
+    final ScrollView scrollView = (ScrollView) v(R.id.scrollView);
+    scrollView.getViewTreeObserver().addOnScrollChangedListener(
+        new ViewTreeObserver.OnScrollChangedListener() {
+          @Override
+          public void onScrollChanged() {
+            if (getApp().getQueryHandler().hasNext()
+                && nextPageProgress.getVisibility() == View.GONE) {
+              View lastChild =
+                  scrollView.getChildAt(scrollView.getChildCount() - 1);
+              if ((lastChild.getBottom()
+                  - (scrollView.getHeight() + scrollView.getScrollY())) == 0) {
+                setVisible(nextPageProgress);
+                display();
+              }
+            }
+          }
+        });
   }
 
   private void display() {
@@ -83,6 +102,7 @@ public class ReviewChangesFragment extends BaseFragment {
     new AsyncTask<Void, Void, ChangeListData>() {
       private View progress;
       private View initialProgress;
+      private View nextPageProgress;
       private View reloadButton;
       private TextView statusText;
       private ViewGroup changeList;
@@ -92,6 +112,7 @@ public class ReviewChangesFragment extends BaseFragment {
         super.onPreExecute();
         progress = v(R.id.progress);
         initialProgress = v(R.id.initialProgress);
+        nextPageProgress = v(R.id.nextPageProgress);
         reloadButton = v(R.id.reloadButton);
         statusText = tv(R.id.statusText);
         changeList = vg(R.id.changeList);
@@ -129,7 +150,7 @@ public class ReviewChangesFragment extends BaseFragment {
 
         getActivity().invalidateOptionsMenu();
         setInvisible(progress);
-        setGone(initialProgress, reloadButton);
+        setGone(initialProgress, reloadButton, nextPageProgress);
 
         if (changeListData.error != null) {
           statusText.setText(changeListData.error);
