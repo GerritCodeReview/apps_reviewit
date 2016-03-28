@@ -138,6 +138,10 @@ public class ApprovalsView extends TableLayout {
     }
   }
 
+  public void clear() {
+    removeAllViews();
+  }
+
   private void addApprovalRow(
       ReviewItApp app, AccountInfo account, Map<String, LabelInfo> labels,
       TreeMap<String, Map<Integer, ApprovalInfo>> approvalsByLabel) {

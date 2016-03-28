@@ -138,5 +138,14 @@ public abstract class InfoBox<T> extends RelativeLayout {
     }
   }
 
+  public void clear() {
+    TableLayout tl = (TableLayout) findViewById(R.id.info_table);
+    View child = tl.getChildAt(1);
+    while (child != null) {
+      tl.removeView(child);
+      child = tl.getChildAt(1);
+    }
+  }
+
   protected abstract void addRow(TableLayout tl, T entry);
 }

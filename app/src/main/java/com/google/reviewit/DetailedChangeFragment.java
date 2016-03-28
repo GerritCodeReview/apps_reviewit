@@ -15,8 +15,10 @@
 package com.google.reviewit;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +29,7 @@ import android.widget.TextView;
 
 import com.google.gerrit.extensions.client.ChangeStatus;
 import com.google.reviewit.app.SortActionHandler;
+import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.util.ChangeUtil;
 import com.google.reviewit.widget.ChangeBox;
@@ -79,10 +82,30 @@ public class DetailedChangeFragment extends BaseFragment implements
     Change change = getApp().getSortActionHandler().getCurrentChange();
     setTitle(getString(R.string.detailed_change_title, change.info._number));
     setHasOptionsMenu(true);
-    init();
+    init(change);
     zoomHandler = new ZoomHandler(v(R.id.scrollContent));
     TaskObserver.enableProgressBar(getWindow());
 
+    display(change);
+  }
+
+  private void init(final Change change) {
+    SwipeRefreshLayout swipeRefreshLayout =
+        (SwipeRefreshLayout) v(R.id.swipeRefreshLayout);
+    swipeRefreshLayout.setColorSchemeColors(R.color.progressBar);
+    swipeRefreshLayout.setRefreshing(true);
+    swipeRefreshLayout.setOnRefreshListener(
+        new SwipeRefreshLayout.OnRefreshListener() {
+          @Override
+          public void onRefresh() {
+            refresh(change);
+          }
+        });
+
+    tv(R.id.commitMessage).setLinksClickable(true);
+  }
+
+  private void display(Change change) {
     try {
       ChangeUtil.colorBackground(root, change);
       ((ChangeBox) v(R.id.changeBox)).display(getApp(), change);
@@ -93,19 +116,12 @@ public class DetailedChangeFragment extends BaseFragment implements
       ((FileBox)v(R.id.fileBox)).display(this, change);
       // TODO show further change info, e.g. summary comments, hashtags,
       // related changes
+
+      ((SwipeRefreshLayout) v(R.id.swipeRefreshLayout)).setRefreshing(false);
     } catch (Throwable t) {
       Log.e(TAG, "Failed to display change", t);
       display(ErrorFragment.create(t));
     }
-  }
-
-  @Override
-  public void dispatchTouchEvent(MotionEvent event) {
-    zoomHandler.dispatchTouchEvent(event);
-  }
-
-  private void init() {
-    tv(R.id.commitMessage).setLinksClickable(true);
   }
 
   private void linkify() {
@@ -113,6 +129,11 @@ public class DetailedChangeFragment extends BaseFragment implements
     Linkify.addLinks(commitMsg, PATTERN_CHANGE_ID, getServerUrl() + "#/q/");
     Linkify.addLinks(commitMsg, PATTERN_LINK, "");
     Linkify.addLinks(commitMsg, PATTERN_EMAIL, "");
+  }
+
+  @Override
+  public void dispatchTouchEvent(MotionEvent event) {
+    zoomHandler.dispatchTouchEvent(event);
   }
 
   private void displayChangeUrl(Change change) {
@@ -123,6 +144,31 @@ public class DetailedChangeFragment extends BaseFragment implements
   private String getServerUrl() {
     String serverUrl = getApp().getConfigManager().getServerConfig().url;
     return FormatUtil.ensureSlash(serverUrl);
+  }
+
+  private void refresh(final Change change) {
+    new AsyncTask<Void, Void, Change>() {
+      @Override
+      protected Change doInBackground(Void... v) {
+        try {
+          change.reload();
+          return change;
+        } catch (RestApiException e) {
+          // e.g. server not reachable
+          Log.e(TAG, "Reload failed", e);
+          return null;
+        }
+      }
+
+      @Override
+      protected void onPostExecute(Change change) {
+        if (change != null) {
+          ((ApprovalsView) v(R.id.approvals)).clear();
+          ((FileBox) v(R.id.fileBox)).clear();
+          display(change);
+        }
+      }
+    }.execute();
   }
 
   @Override
