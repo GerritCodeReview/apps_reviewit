@@ -17,6 +17,7 @@ package com.google.reviewit;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -62,6 +63,19 @@ public class ReviewChangesFragment extends BaseFragment {
   }
 
   private void init() {
+    SwipeRefreshLayout swipeRefreshLayout =
+        (SwipeRefreshLayout) v(R.id.swipeRefreshLayout);
+    swipeRefreshLayout.setColorSchemeColors(R.color.progressBar);
+    swipeRefreshLayout.setRefreshing(true);
+    swipeRefreshLayout.setOnRefreshListener(
+        new SwipeRefreshLayout.OnRefreshListener() {
+          @Override
+          public void onRefresh() {
+            getApp().getQueryHandler().reset();
+            display(true);
+          }
+        });
+
     v(R.id.reloadButton).setOnClickListener(new View.OnClickListener() {
       public void onClick(View v) {
         reloadQuery();
@@ -89,6 +103,10 @@ public class ReviewChangesFragment extends BaseFragment {
   }
 
   private void display() {
+    display(false);
+  }
+
+  private void display(final boolean clear) {
     if (!isOnline()) {
       setInvisible(v(R.id.progress));
       setGone(v(R.id.initialProgress));
@@ -100,6 +118,7 @@ public class ReviewChangesFragment extends BaseFragment {
     }
 
     new AsyncTask<Void, Void, ChangeListData>() {
+      private SwipeRefreshLayout swipeRefreshLayout;
       private View progress;
       private View initialProgress;
       private View nextPageProgress;
@@ -110,6 +129,7 @@ public class ReviewChangesFragment extends BaseFragment {
       @Override
       protected void onPreExecute() {
         super.onPreExecute();
+        swipeRefreshLayout = (SwipeRefreshLayout) v(R.id.swipeRefreshLayout);
         progress = v(R.id.progress);
         initialProgress = v(R.id.initialProgress);
         nextPageProgress = v(R.id.nextPageProgress);
@@ -151,6 +171,7 @@ public class ReviewChangesFragment extends BaseFragment {
         getActivity().invalidateOptionsMenu();
         setInvisible(progress);
         setGone(initialProgress, reloadButton, nextPageProgress);
+        swipeRefreshLayout.setRefreshing(false);
 
         if (changeListData.error != null) {
           statusText.setText(changeListData.error);
@@ -159,6 +180,9 @@ public class ReviewChangesFragment extends BaseFragment {
 
         if (!changeListData.changeList.isEmpty()) {
           setGone(statusText);
+          if (clear) {
+            changeList.removeAllViews();
+          }
           for (Change change : changeListData.changeList) {
             ChangeEntry changeEntry = new ChangeEntry(getContext());
             changeEntry.init(getApp(), change);

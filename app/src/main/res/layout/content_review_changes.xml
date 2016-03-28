@@ -21,57 +21,63 @@
 
   <include layout="@layout/progress"/>
 
-  <ScrollView
-    android:id="@+id/scrollView"
+  <android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-      android:orientation="vertical"
+    <ScrollView
+      android:id="@+id/scrollView"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
 
-      <TextView
-        android:id="@+id/statusText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:textSize="24sp"
-        android:text="@string/loading"/>
-
-      <ProgressBar
-        android:id="@+id/initialProgress"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:indeterminate="true"/>
-
-      <ImageView
-        android:id="@+id/reloadButton"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:clickable="true"
-        android:src="@drawable/ic_refresh_black_48dp"
-        android:visibility="gone"/>
-
       <LinearLayout
-        android:id="@+id/changeList"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-      </LinearLayout>
 
-      <ProgressBar
-        android:id="@+id/nextPageProgress"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:indeterminate="true"
-        android:visibility="gone"/>
-    </LinearLayout>
-  </ScrollView>
+        <TextView
+          android:id="@+id/statusText"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center_horizontal"
+          android:layout_marginTop="15dp"
+          android:textSize="24sp"
+          android:text="@string/loading"/>
+
+        <ProgressBar
+          android:id="@+id/initialProgress"
+          android:layout_marginTop="20dp"
+          android:layout_width="match_parent"
+          android:layout_height="150dp"
+          android:indeterminate="true"/>
+
+        <ImageView
+          android:id="@+id/reloadButton"
+          android:layout_width="match_parent"
+          android:layout_height="150dp"
+          android:layout_marginTop="20dp"
+          android:gravity="center_horizontal"
+          android:clickable="true"
+          android:src="@drawable/ic_refresh_black_48dp"
+          android:visibility="gone"/>
+
+        <LinearLayout
+          android:id="@+id/changeList"
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+        </LinearLayout>
+
+        <ProgressBar
+          android:id="@+id/nextPageProgress"
+          android:layout_marginTop="3dp"
+          android:layout_marginBottom="3dp"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:indeterminate="true"
+          android:visibility="gone"/>
+      </LinearLayout>
+    </ScrollView>
+  </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
