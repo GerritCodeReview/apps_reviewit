@@ -143,8 +143,7 @@ public class WidgetUtil {
   }
 
   public static void setBackground(View view, Drawable drawable) {
-    // TODO use setBackGround(Drawable) with API 16
-    view.setBackgroundDrawable(drawable);
+    view.setBackground(drawable);
   }
 
   public static void setXY(View view, int x, int y) {
