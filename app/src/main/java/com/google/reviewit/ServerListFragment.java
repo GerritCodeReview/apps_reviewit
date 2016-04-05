@@ -99,8 +99,7 @@ public class ServerListFragment extends BaseFragment {
         widgetUtil.dpToPx(20), widgetUtil.dpToPx(20));
     layoutParams.setMargins(0, 0, widgetUtil.dpToPx(5), 0);
     icon.setLayoutParams(layoutParams);
-    // TODO use setBackGround(Drawable) with API 16
-    icon.setBackgroundDrawable(widgetUtil.getDrawable(drawableId));
+    icon.setBackground(widgetUtil.getDrawable(drawableId));
     icon.setOnClickListener(onClickListener);
     return icon;
   }
