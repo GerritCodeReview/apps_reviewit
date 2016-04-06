@@ -19,19 +19,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.text.util.Linkify;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.widget.TextView;
 
 import com.google.gerrit.extensions.client.ChangeStatus;
 import com.google.reviewit.app.SortActionHandler;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.util.ChangeUtil;
+import com.google.reviewit.util.Linkifier;
 import com.google.reviewit.widget.ChangeBox;
 import com.google.reviewit.util.FormatUtil;
 import com.google.reviewit.util.TaskObserver;
@@ -39,8 +38,6 @@ import com.google.reviewit.util.WidgetUtil;
 import com.google.reviewit.widget.ApprovalsView;
 import com.google.reviewit.widget.FileBox;
 import com.google.reviewit.widget.ZoomHandler;
-
-import java.util.regex.Pattern;
 
 import static com.google.reviewit.util.WidgetUtil.setVisible;
 
@@ -50,23 +47,6 @@ import static com.google.reviewit.util.WidgetUtil.setVisible;
 public class DetailedChangeFragment extends BaseFragment implements
     OnBackPressedAware, DispatchTouchEventAware {
   private static final String TAG = DetailedChangeFragment.class.getName();
-
-  private static final Pattern PATTERN_CHANGE_ID =
-      Pattern.compile("I[0-9a-f]{5,40}");
-  private static final String PART_LINK = "(?:"
-      + "[a-zA-Z0-9$_+!*'%;:@=?#/~-]"
-      + "|&(?!lt;|gt;)"
-      + "|[.,](?!(?:\\s|$))"
-      + ")";
-  private static final Pattern PATTERN_LINK = Pattern.compile(
-      "https?://"
-      + PART_LINK + "{2,}"
-      + "(?:[(]" + PART_LINK + "*" + "[)])*"
-      + PART_LINK + "*");
-  private static final Pattern PATTERN_EMAIL =
-      Pattern.compile("[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}",
-          Pattern.CASE_INSENSITIVE);
-
 
   private ZoomHandler zoomHandler;
 
@@ -101,15 +81,13 @@ public class DetailedChangeFragment extends BaseFragment implements
             refresh(change);
           }
         });
-
-    tv(R.id.commitMessage).setLinksClickable(true);
   }
 
   private void display(Change change) {
     try {
       ChangeUtil.colorBackground(root, change);
       ((ChangeBox) v(R.id.changeBox)).display(getApp(), change);
-      linkify();
+      (new Linkifier(getApp())).linkifyCommitMessage(tv(R.id.commitMessage));
       displayChangeUrl(change);
       ((ApprovalsView) v(R.id.approvals)).displayApprovals(getApp(),
           change.info, this);
@@ -122,13 +100,6 @@ public class DetailedChangeFragment extends BaseFragment implements
       Log.e(TAG, "Failed to display change", t);
       display(ErrorFragment.create(t));
     }
-  }
-
-  private void linkify() {
-    TextView commitMsg = tv(R.id.commitMessage);
-    Linkify.addLinks(commitMsg, PATTERN_CHANGE_ID, getServerUrl() + "#/q/");
-    Linkify.addLinks(commitMsg, PATTERN_LINK, "");
-    Linkify.addLinks(commitMsg, PATTERN_EMAIL, "");
   }
 
   @Override
