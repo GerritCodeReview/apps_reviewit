@@ -71,7 +71,7 @@ public class PostReviewFragment extends BaseFragment {
 
     int vote = getArguments().getInt(VOTE);
     update(vote);
-    Change change = getApp().getSortActionHandler().getCurrentChange();
+    Change change = getApp().getCurrentChange();
 
     setTitle(getString(R.string.detailed_change_title, change.info._number));
     init(change);

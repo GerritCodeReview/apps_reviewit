@@ -16,8 +16,9 @@ package com.google.reviewit.app;
 
 import android.app.Activity;
 import android.app.Application;
-import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
 import com.google.gerrit.extensions.api.GerritApi;
@@ -40,7 +41,7 @@ public class ReviewItApp extends Application {
   private Gerrit gerrit;
   private PreferenceManager prefManager;
   private AccountInfo self;
-  private Activity currentActivity;
+  private FragmentActivity currentActivity;
 
   @Override
   public void onCreate() {
@@ -48,7 +49,7 @@ public class ReviewItApp extends Application {
       @Override
       public void onActivityCreated(
           Activity activity, Bundle savedInstanceState) {
-        currentActivity = activity;
+        currentActivity = (FragmentActivity) activity;
       }
 
       @Override
@@ -85,7 +86,7 @@ public class ReviewItApp extends Application {
         Log.e(TAG, "Application failure", t);
         if (currentActivity != null) {
           FragmentManager fragmentManager =
-              currentActivity.getFragmentManager();
+              currentActivity.getSupportFragmentManager();
           fragmentManager.beginTransaction()
               .replace(R.id.mainFrame, ErrorFragment.create(t))
               .commit();
@@ -161,5 +162,15 @@ public class ReviewItApp extends Application {
       }
     }
     return self;
+  }
+
+  public Change getCurrentChange() {
+    switch (getPrefs().startScreen) {
+      case REVIEW_SCREEN:
+        return getQueryHandler().getCurrentChange();
+      case SORT_SCREEN:
+      default:
+        return getSortActionHandler().getCurrentChange();
+    }
   }
 }

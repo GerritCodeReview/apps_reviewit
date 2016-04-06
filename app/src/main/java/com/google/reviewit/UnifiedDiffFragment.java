@@ -84,7 +84,7 @@ public class UnifiedDiffFragment extends BaseFragment
         ? getArguments().getString(PATH)
         : null;
 
-    Change change = getApp().getSortActionHandler().getCurrentChange();
+    Change change = getApp().getCurrentChange();
     checkState(change != null, "Change not set");
     Map<String, FileInfo> files = change.currentRevision().files;
     root = (ScrollWithHeadingsView) v(R.id.unifiedDiffRoot);
