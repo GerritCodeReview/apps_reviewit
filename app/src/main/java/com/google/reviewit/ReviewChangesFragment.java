@@ -61,7 +61,13 @@ public class ReviewChangesFragment extends BaseFragment {
 
     TaskObserver.enableProgressBar(getWindow());
     init();
-    display();
+
+    List<Change> loadedChanges = getApp().getQueryHandler().getLoadedChanges();
+    if (loadedChanges.isEmpty()) {
+      loadAndDisplay();
+    } else {
+      display(loadedChanges);
+    }
   }
 
   private void init() {
@@ -74,7 +80,7 @@ public class ReviewChangesFragment extends BaseFragment {
           @Override
           public void onRefresh() {
             getApp().getQueryHandler().reset();
-            display(true);
+            loadAndDisplay(true);
           }
         });
 
@@ -97,18 +103,18 @@ public class ReviewChangesFragment extends BaseFragment {
               if ((lastChild.getBottom()
                   - (scrollView.getHeight() + scrollView.getScrollY())) == 0) {
                 setVisible(nextPageProgress);
-                display();
+                loadAndDisplay();
               }
             }
           }
         });
   }
 
-  private void display() {
-    display(false);
+  private void loadAndDisplay() {
+    loadAndDisplay(false);
   }
 
-  private void display(final boolean clear) {
+  private void loadAndDisplay(final boolean clear) {
     if (!isOnline()) {
       setInvisible(v(R.id.progress));
       setGone(v(R.id.initialProgress));
@@ -196,6 +202,20 @@ public class ReviewChangesFragment extends BaseFragment {
         }
       }
     }.execute();
+  }
+
+  private void display(List<Change> changes) {
+    setInvisible(v(R.id.progress));
+    setGone(v(R.id.initialProgress, R.id.reloadButton, R.id.nextPageProgress,
+        R.id.statusText));
+    ((SwipeRefreshLayout) v(R.id.swipeRefreshLayout)).setRefreshing(false);
+    ViewGroup changeList = vg(R.id.changeList);
+    for (Change change : changes) {
+      ChangeEntry changeEntry = new ChangeEntry(getContext());
+      changeEntry.init(ReviewChangesFragment.this, getApp(), change);
+      changeList.addView(changeEntry);
+      addSeparator(changeList);
+    }
   }
 
   private void addSeparator(ViewGroup viewGroup) {
