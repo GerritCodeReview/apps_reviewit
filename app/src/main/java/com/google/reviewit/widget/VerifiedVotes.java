@@ -51,19 +51,19 @@ public class VerifiedVotes extends LinearLayout {
   }
 
   public void init(Change change) {
-    List<ApprovalInfo> codeReviewApprovals =
+    List<ApprovalInfo> verifiedApprovals =
         (change.info.labels != null
             && change.info.labels.get("Verified") != null)
             ? change.info.labels.get("Verified").all : null;
 
-    if (codeReviewApprovals == null) {
+    if (verifiedApprovals == null) {
       setLayoutParams(new LinearLayout.LayoutParams(
           widgetUtil.dpToPx(48), widgetUtil.dpToPx(48)));
       return;
     }
 
     Set<Integer> values = new HashSet<>();
-    for (ApprovalInfo approval : codeReviewApprovals) {
+    for (ApprovalInfo approval : verifiedApprovals) {
       if (approval.value != null) {
         values.add(approval.value);
       }
