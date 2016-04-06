@@ -17,6 +17,7 @@ package com.google.reviewit.app;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
+import com.google.common.collect.ImmutableList;
 import com.google.gerrit.extensions.client.ListChangesOption;
 import com.google.gerrit.extensions.common.ChangeInfo;
 import com.google.gerrit.extensions.restapi.RestApiException;
@@ -73,6 +74,10 @@ public class QueryHandler {
 
   public boolean hasNext() {
     return more;
+  }
+
+  public List<Change> getLoadedChanges() {
+    return ImmutableList.copyOf(result);
   }
 
   private void query() throws RestApiException {
