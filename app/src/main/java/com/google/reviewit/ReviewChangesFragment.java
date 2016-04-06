@@ -55,6 +55,8 @@ public class ReviewChangesFragment extends BaseFragment {
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
 
+    setTitle(getString(R.string.app_menu_review));
+
     setHasOptionsMenu(true);
 
     TaskObserver.enableProgressBar(getWindow());
