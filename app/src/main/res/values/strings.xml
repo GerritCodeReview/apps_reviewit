@@ -247,6 +247,12 @@
   <string name="review_error">Posting review failed with %1$d %2$s</string>
   <string name="submit_error">Submit failed with %1$d %2$s</string>
 
+  <!-- CommitMessageFragment -->
+  <string name="commit_message_title">Commit Message</string>
+
+  <!-- FileListFragment -->
+  <string name="file_list_title">Files</string>
+
   <!-- RelativeDateFormatter -->
   <string name="in_the_future">in the future</string>
   <string name="month">m</string>

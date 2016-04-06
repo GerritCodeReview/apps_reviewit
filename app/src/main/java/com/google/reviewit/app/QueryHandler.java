@@ -50,6 +50,8 @@ public class QueryHandler {
    */
   private boolean more = true;
 
+  private Change currentChange;
+
   QueryHandler(ConfigManager cfgManager, Gerrit gerrit) {
     this.gerrit = gerrit;
     this.config = cfgManager.getQueryConfig();
@@ -110,10 +112,19 @@ public class QueryHandler {
         : false);
   }
 
+  public Change getCurrentChange() {
+    return currentChange;
+  }
+
+  public void setCurrentChange(Change currentChange) {
+    this.currentChange = currentChange;
+  }
+
   public void reset() {
     result.clear();
     start = 0;
     more = true;
     page = 0;
+    currentChange = null;
   }
 }

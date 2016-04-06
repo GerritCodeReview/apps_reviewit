@@ -198,9 +198,7 @@ public class ReviewChangesFragment extends BaseFragment {
             changeList.removeAllViews();
           }
           for (Change change : changeListData.changeList) {
-            ChangeEntry changeEntry = new ChangeEntry(getContext());
-            changeEntry.init(getApp(), change);
-            changeList.addView(changeEntry);
+            changeList.addView(createChangeEntry(change));
             addSeparator(changeList);
           }
         } else {
@@ -217,11 +215,23 @@ public class ReviewChangesFragment extends BaseFragment {
     ((SwipeRefreshLayout) v(R.id.swipeRefreshLayout)).setRefreshing(false);
     ViewGroup changeList = vg(R.id.changeList);
     for (Change change : changes) {
-      ChangeEntry changeEntry = new ChangeEntry(getContext());
-      changeEntry.init(ReviewChangesFragment.this, getApp(), change);
-      changeList.addView(changeEntry);
+      changeList.addView(createChangeEntry(change));
       addSeparator(changeList);
     }
+  }
+
+  private ChangeEntry createChangeEntry(final Change change) {
+    ChangeEntry changeEntry = new ChangeEntry(getContext());
+    changeEntry.init(getApp(), change);
+
+    changeEntry.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        getApp().getQueryHandler().setCurrentChange(change);
+        display(PagedChangeDetailsFragment.class);
+      }
+    });
+    return changeEntry;
   }
 
   private void addSeparator(ViewGroup viewGroup) {

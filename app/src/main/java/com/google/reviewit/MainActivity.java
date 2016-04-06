@@ -15,13 +15,13 @@
 package com.google.reviewit;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -174,7 +174,7 @@ public class MainActivity extends ReviewItBaseActivity {
   }
 
   private void displayView(Fragment fragment) {
-    FragmentManager fragmentManager = getFragmentManager();
+    FragmentManager fragmentManager = getSupportFragmentManager();
     fragmentManager.beginTransaction()
         .replace(R.id.mainFrame, fragment)
         .addToBackStack(null)
@@ -229,7 +229,8 @@ public class MainActivity extends ReviewItBaseActivity {
 
   @Override
   public boolean dispatchTouchEvent(MotionEvent event) {
-    Fragment fragment = getFragmentManager().findFragmentById(R.id.mainFrame);
+    Fragment fragment = getSupportFragmentManager()
+        .findFragmentById(R.id.mainFrame);
     if (fragment instanceof DispatchTouchEventAware) {
       ((DispatchTouchEventAware) fragment).dispatchTouchEvent(event);
     }
@@ -239,7 +240,8 @@ public class MainActivity extends ReviewItBaseActivity {
 
   @Override
   public void onBackPressed() {
-    Fragment fragment = getFragmentManager().findFragmentById(R.id.mainFrame);
+    Fragment fragment = getSupportFragmentManager()
+        .findFragmentById(R.id.mainFrame);
     if (fragment instanceof OnBackPressedAware) {
       if (((OnBackPressedAware) fragment).onBackPressed()) {
         return;
