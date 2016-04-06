@@ -65,7 +65,8 @@ public class QueryHandler {
   public List<Change> next() throws RestApiException {
     query();
     List<Change> nextChanges =
-        result.subList(page * LIMIT_QUERY, (page + 1) * LIMIT_QUERY);
+        result.subList(page * LIMIT_QUERY,
+            Math.min((page + 1) * LIMIT_QUERY, result.size()));
     page++;
     return nextChanges;
   }
