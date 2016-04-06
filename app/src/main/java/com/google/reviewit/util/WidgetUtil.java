@@ -48,9 +48,7 @@ public class WidgetUtil {
     this.context = context;
   }
 
-  public
-  @ColorInt
-  int color(@ColorRes int id) {
+  public @ColorInt int color(@ColorRes int id) {
     // TODO use getResources().getColor(id, null) with API 23
     return context.getResources().getColor(id);
   }
