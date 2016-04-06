@@ -67,7 +67,9 @@ public class CodeReviewVotes extends LinearLayout {
 
     Set<Integer> values = new HashSet<>();
     for (ApprovalInfo approval : codeReviewApprovals) {
-      values.add(approval.value);
+      if (approval.value != null) {
+        values.add(approval.value);
+      }
     }
 
     values.remove(0);
