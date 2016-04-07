@@ -141,7 +141,15 @@ public class MainActivity extends ReviewItBaseActivity {
     if (getApp().getPrefs().showIntro) {
       displayView(new IntroFragment1());
     } else if (savedInstanceState == null) {
-      displayView(0);
+      switch (getApp().getPrefs().startScreen) {
+        case REVIEW_SCREEN:
+          displayView(1);
+          break;
+        case SORT_SCREEN:
+        default:
+          displayView(0);
+          break;
+      }
     }
   }
 

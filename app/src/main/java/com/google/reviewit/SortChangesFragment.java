@@ -37,6 +37,7 @@ import android.widget.TextView;
 
 import com.google.gerrit.extensions.client.ChangeStatus;
 import com.google.gerrit.extensions.restapi.RestApiException;
+import com.google.reviewit.app.Preferences;
 import com.google.reviewit.app.SortActionHandler;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.app.ConfigManager;
@@ -77,6 +78,11 @@ public class SortChangesFragment extends BaseFragment
     if (getSortActionHandler().hasCurrentChange()) {
       getSortActionHandler().pushBack();
     }
+
+    getApp().getPrefManager().setPreferences(
+        new Preferences.Builder(getApp().getPrefManager().getPreferences())
+            .setStartScreen(Preferences.StartScreen.SORT_SCREEN)
+            .build());
 
     TaskObserver.enableProgressBar(getWindow());
     init();
