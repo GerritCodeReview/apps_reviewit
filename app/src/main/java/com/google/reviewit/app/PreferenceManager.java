@@ -19,6 +19,7 @@ import android.content.SharedPreferences;
 
 public class PreferenceManager {
   private static final String KEY_SHOW_INTRO = "SHOW_INTRO";
+  private static final String KEY_START_SCREEN = "START_SCREEN";
   private static final String KEY_COLOR_BACKGROUND = "COLOR_BACKGROUND";
   private final static String KEY_SHOW_PATCH_SETS = "SHOW_PATCH_SETS";
   private final static String KEY_SHOW_POSITIVE_CODE_REVIEW_VOTES =
@@ -46,6 +47,8 @@ public class PreferenceManager {
     if (preferences == null) {
       preferences = new Preferences.Builder()
           .setShowIntro(prefs.getBoolean(KEY_SHOW_INTRO, true))
+          .setStartScreen(Preferences.StartScreen.fromString(
+              prefs.getString(KEY_START_SCREEN, null)))
           .setColorBackground(prefs.getBoolean(KEY_COLOR_BACKGROUND, true))
           .setShowPatchSets(prefs.getBoolean(KEY_SHOW_PATCH_SETS, true))
           .setShowPositiveCodeReviewVotes(
@@ -64,6 +67,10 @@ public class PreferenceManager {
   public void setPreferences(Preferences preferences) {
     SharedPreferences.Editor editor = prefs.edit();
     editor.putBoolean(KEY_SHOW_INTRO, preferences.showIntro);
+    editor.putString(KEY_START_SCREEN,
+        preferences.startScreen != null
+            ? preferences.startScreen.name()
+            : null);
     editor.putBoolean(KEY_COLOR_BACKGROUND, preferences.colorBackground);
     editor.putBoolean(KEY_SHOW_PATCH_SETS, preferences.showPatchSets);
     editor.putBoolean(KEY_SHOW_POSITIVE_CODE_REVIEW_VOTES,

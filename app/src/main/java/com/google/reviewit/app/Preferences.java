@@ -18,10 +18,30 @@ package com.google.reviewit.app;
  * User preferences.
  */
 public class Preferences {
+  public static enum StartScreen {
+    SORT_SCREEN, REVIEW_SCREEN;
+
+    public static StartScreen fromString(String s) {
+      if (s == null) {
+        return SORT_SCREEN;
+      }
+      try {
+        return valueOf(s);
+      } catch (IllegalArgumentException e) {
+        return SORT_SCREEN;
+      }
+    }
+  }
+
   /**
    * Whether the app introduction should be shown on app startup.
    */
   public final boolean showIntro;
+
+  /**
+   * Which screen should be shown on app startup.
+   */
+  public final StartScreen startScreen;
 
   /**
    * Whether the background should be colored to indicate Verified votings
@@ -62,10 +82,12 @@ public class Preferences {
   public final int commitMessageFontSize;
 
   private Preferences(
-      boolean showIntro, boolean colorBackground, boolean showPatchSets,
-      boolean showPositiveCodeReviewVotes, boolean showNegativeCodeReviewVotes,
-      boolean showComments, boolean showReviewers, int commitMessageFontSize) {
+      boolean showIntro, StartScreen startScreen, boolean colorBackground,
+      boolean showPatchSets, boolean showPositiveCodeReviewVotes,
+      boolean showNegativeCodeReviewVotes, boolean showComments,
+      boolean showReviewers, int commitMessageFontSize) {
     this.showIntro = showIntro;
+    this.startScreen = startScreen;
     this.colorBackground = colorBackground;
     this.showPatchSets = showPatchSets;
     this.showPositiveCodeReviewVotes = showPositiveCodeReviewVotes;
@@ -81,6 +103,7 @@ public class Preferences {
 
   public static class Builder {
     private boolean showIntro;
+    private StartScreen startScreen;
     private boolean colorBackground;
     private boolean showPatchSets;
     private boolean showPositiveCodeReviewVotes;
@@ -94,6 +117,7 @@ public class Preferences {
 
     public Builder(Preferences prefs) {
       this.showIntro = prefs.showIntro;
+      this.startScreen = prefs.startScreen;
       this.colorBackground = prefs.colorBackground;
       this.showPatchSets = prefs.showPatchSets;
       this.showPositiveCodeReviewVotes = prefs.showPositiveCodeReviewVotes;
@@ -105,6 +129,11 @@ public class Preferences {
 
     public Builder setShowIntro(boolean showIntro) {
       this.showIntro = showIntro;
+      return this;
+    }
+
+    public Builder setStartScreen(StartScreen startScreen) {
+      this.startScreen = startScreen;
       return this;
     }
 
@@ -146,9 +175,10 @@ public class Preferences {
     }
 
     public Preferences build() {
-      return new Preferences(showIntro, colorBackground, showPatchSets,
-          showPositiveCodeReviewVotes, showNegativeCodeReviewVotes,
-          showComments, showReviewers, commitMessageFontSize);
+      return new Preferences(showIntro, startScreen, colorBackground,
+          showPatchSets, showPositiveCodeReviewVotes,
+          showNegativeCodeReviewVotes, showComments, showReviewers,
+          commitMessageFontSize);
     }
   }
 }

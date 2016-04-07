@@ -31,6 +31,7 @@ import android.widget.TextView;
 
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
+import com.google.reviewit.app.Preferences;
 import com.google.reviewit.app.QueryHandler;
 import com.google.reviewit.util.TaskObserver;
 import com.google.reviewit.widget.ChangeEntry;
@@ -58,6 +59,11 @@ public class ReviewChangesFragment extends BaseFragment {
     setTitle(getString(R.string.app_menu_review));
 
     setHasOptionsMenu(true);
+
+    getApp().getPrefManager().setPreferences(
+        new Preferences.Builder(getApp().getPrefManager().getPreferences())
+            .setStartScreen(Preferences.StartScreen.REVIEW_SCREEN)
+            .build());
 
     TaskObserver.enableProgressBar(getWindow());
     init();
