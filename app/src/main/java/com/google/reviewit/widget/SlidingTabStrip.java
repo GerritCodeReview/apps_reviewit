@@ -37,10 +37,10 @@ class SlidingTabStrip extends LinearLayout {
     private static final byte DEFAULT_DIVIDER_COLOR_ALPHA = 0x20;
     private static final float DEFAULT_DIVIDER_HEIGHT = 0.5f;
 
-    private final int mBottomBorderThickness;
+    private int mBottomBorderThickness;
     private final Paint mBottomBorderPaint;
 
-    private final int mSelectedIndicatorThickness;
+    private int mSelectedIndicatorThickness;
     private final Paint mSelectedIndicatorPaint;
 
     private final int mDefaultBottomBorderColor;
@@ -104,6 +104,21 @@ class SlidingTabStrip extends LinearLayout {
         // Make sure that the custom colorizer is removed
         mCustomTabColorizer = null;
         mDefaultTabColorizer.setDividerColors(colors);
+        invalidate();
+    }
+
+    void setBorderColor(int color) {
+        mBottomBorderPaint.setColor(color);
+        invalidate();
+    }
+
+    void setBottomBorderThickness(int bottomBorderThickness) {
+        mBottomBorderThickness = bottomBorderThickness;
+        invalidate();
+    }
+
+    void setSelectedIndicatorThickness(int selectedIndicatorThickness) {
+        mSelectedIndicatorThickness = selectedIndicatorThickness;
         invalidate();
     }
 

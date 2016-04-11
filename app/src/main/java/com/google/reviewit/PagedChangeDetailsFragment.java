@@ -86,8 +86,12 @@ public class PagedChangeDetailsFragment extends BaseFragment {
         });
 
     SlidingTabLayout tabs = ((SlidingTabLayout) v(R.id.tabs));
+    tabs.setTextColor(widgetUtil.color(R.color.tab));
     tabs.setSelectedIndicatorColors(widgetUtil.color(R.color.tab));
+    tabs.setBorderColor(widgetUtil.color(R.color.tab));
     tabs.setDividerColors(widgetUtil.color(R.color.tabDivider));
+    tabs.setBottomBorderThickness(widgetUtil.dpToPx(1));
+    tabs.setSelectedIndicatorThickness(widgetUtil.dpToPx(5));
     tabs.setViewPager(pager);
   }
 }

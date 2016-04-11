@@ -74,6 +74,8 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private int mTabViewLayoutId;
     private int mTabViewTextViewId;
 
+    private int mTextColor = -1;
+
     private ViewPager mViewPager;
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
 
@@ -126,6 +128,22 @@ public class SlidingTabLayout extends HorizontalScrollView {
      */
     public void setDividerColors(int... colors) {
         mTabStrip.setDividerColors(colors);
+    }
+
+    public void setTextColor(int color) {
+        mTextColor = color;
+    }
+
+    public void setBorderColor(int color) {
+        mTabStrip.setBorderColor(color);
+    }
+
+    public void setBottomBorderThickness(int bottomBorderThickness) {
+        mTabStrip.setBottomBorderThickness(bottomBorderThickness);
+    }
+
+    public void setSelectedIndicatorThickness(int selectedIndicatorThickness) {
+        mTabStrip.setSelectedIndicatorThickness(selectedIndicatorThickness);
     }
 
     /**
@@ -218,6 +236,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
             }
 
             tabTitleView.setText(adapter.getPageTitle(i));
+            if (mTextColor != -1) {
+                tabTitleView.setTextColor(mTextColor);
+            }
+
             tabView.setOnClickListener(tabClickListener);
 
             mTabStrip.addView(tabView);
