@@ -110,7 +110,13 @@ public class ReviewChangesFragment extends BaseFragment {
               if ((lastChild.getBottom()
                   - (scrollView.getHeight() + scrollView.getScrollY())) == 0) {
                 setVisible(nextPageProgress);
-                loadAndDisplay();
+                scrollView.post(new Runnable() {
+                  @Override
+                  public void run() {
+                    scrollView.fullScroll(View.FOCUS_DOWN);
+                    loadAndDisplay();
+                  }
+                });
               }
             }
           }
