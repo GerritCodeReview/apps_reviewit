@@ -36,6 +36,7 @@ import com.google.reviewit.util.WidgetUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import static com.google.reviewit.util.LayoutUtil.matchAndWrapLayout;
@@ -97,7 +98,8 @@ public class VoteView extends TableLayout {
       l.addView(valueText);
     }
 
-    for (Map.Entry<String, LabelInfo> e : change.info.labels.entrySet()) {
+    for (Map.Entry<String, LabelInfo> e :
+        new TreeMap<>(change.info.labels).entrySet()) {
       final String labelName = e.getKey();
       LabelInfo label = e.getValue();
 
