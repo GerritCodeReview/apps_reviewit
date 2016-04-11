@@ -15,27 +15,12 @@
 package com.google.reviewit;
 
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
-import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
-import com.google.reviewit.util.ObservableAsyncTask;
 import com.google.reviewit.util.TaskObserver;
-import com.google.reviewit.widget.ApprovalsView;
-import com.google.reviewit.widget.ExpandableCommitMessageView;
-import com.google.reviewit.widget.VoteView;
-import com.urswolfer.gerrit.client.rest.http.HttpStatusException;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.google.reviewit.util.WidgetUtil.setGone;
-import static com.google.reviewit.util.WidgetUtil.setVisible;
+import com.google.reviewit.widget.PostReviewView;
 
 /**
  * Fragment to post a review
@@ -43,8 +28,6 @@ import static com.google.reviewit.util.WidgetUtil.setVisible;
 public class PostReviewFragment extends BaseFragment {
   private static final String VOTE =
       "com.google.reviewit.PostReviewFragment.VOTE";
-
-  private Map<String, Integer> selectedValues = new HashMap<>();
 
   public static PostReviewFragment create(int vote) {
     PostReviewFragment fragment = new PostReviewFragment();
@@ -70,151 +53,10 @@ public class PostReviewFragment extends BaseFragment {
         WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
     int vote = getArguments().getInt(VOTE);
-    update(vote);
     Change change = getApp().getCurrentChange();
 
     setTitle(getString(R.string.detailed_change_title, change.info._number));
-    init(change);
-    initLabels(change, vote);
-    ((ApprovalsView) v(R.id.approvals)).displayApprovals(getApp(),
-        change.info, this);
-  }
-
-  private void init(final Change change) {
-    ((ExpandableCommitMessageView)v(R.id.commitMessage)).init(change);
-
-    v(R.id.postReviewButton).setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(final View v) {
-        v.setEnabled(false);
-        v.setBackgroundColor(widgetUtil.color(R.color.buttonDisabled));
-        final String msg = textOf(R.id.changeMessageInput).trim();
-        new ObservableAsyncTask<Change, Void, String>() {
-          @Override
-          protected String doInBackground(Change... changes) {
-            Change change = changes[0];
-            try {
-              change.postReview(msg, selectedValues);
-              change.reload();
-              return null;
-            } catch (RestApiException e) {
-              if (e instanceof HttpStatusException) {
-                HttpStatusException se = (HttpStatusException) e;
-                return getString(R.string.review_error, se.getStatusCode(),
-                    se.getStatusText());
-              } else {
-                return e.getMessage();
-              }
-            }
-          }
-
-          @Override
-          protected void postExecute(String errorMsg) {
-            if (errorMsg != null) {
-              v.setEnabled(true);
-              v.setBackgroundColor(widgetUtil.color(R.color.button));
-              widgetUtil.showError(errorMsg);
-            } else {
-              display(SortChangesFragment.class);
-            }
-          }
-        }.execute(change);
-      }
-    });
-
-    v(R.id.postReviewAndSubmitButton).setOnClickListener(
-        new View.OnClickListener() {
-      @Override
-      public void onClick(final View v) {
-        v.setEnabled(false);
-        v.setBackgroundColor(widgetUtil.color(R.color.buttonDisabled));
-        final String msg = textOf(R.id.changeMessageInput).trim();
-        new ObservableAsyncTask<Change, Void, String>() {
-          @Override
-          protected String doInBackground(Change... changes) {
-            Change change = changes[0];
-            try {
-              change.postReview(msg, selectedValues);
-            } catch (RestApiException e) {
-              if (e instanceof HttpStatusException) {
-                HttpStatusException se = (HttpStatusException) e;
-                return getString(R.string.review_error, se.getStatusCode(),
-                    se.getStatusText());
-              } else {
-                return e.getMessage();
-              }
-            }
-
-            try {
-              change.submit();
-              change.reload();
-              return null;
-            } catch (RestApiException e) {
-              if (e instanceof HttpStatusException) {
-                HttpStatusException se = (HttpStatusException) e;
-                return getString(R.string.submit_error, se.getStatusCode(),
-                    se.getStatusText());
-              } else {
-                return e.getMessage();
-              }
-            }
-          }
-
-          @Override
-          protected void postExecute(String errorMsg) {
-            if (errorMsg != null) {
-              v.setEnabled(true);
-              v.setBackgroundColor(widgetUtil.color(R.color.button));
-              widgetUtil.showError(errorMsg);
-            } else {
-              display(SortChangesFragment.class);
-            }
-          }
-        }.execute(change);
-      }
-    });
-
-  }
-
-  private void initLabels(Change change, int codeReviewVote) {
-    selectedValues.put("Code-Review", codeReviewVote);
-
-    Map<String, Integer> votes = new HashMap<>();
-    votes.put("Code-Review", codeReviewVote);
-
-    ViewGroup voteInput = vg(R.id.voteInput);
-    VoteView voteView = new VoteView(getContext());
-    voteView.init(change, votes);
-    voteInput.addView(voteView);
-
-    voteView.addOnSelectListener(new VoteView.OnSelectListener() {
-      @Override
-      public void onSelect(String label, int vote) {
-        selectedValues.put(label, vote);
-        if ("Code-Review".equals(label)) {
-          update(vote);
-        }
-      }
-    });
-  }
-
-  private void update(int codeReviewVote) {
-    setGone(v(R.id.postReviewAndSubmitButton));
-
-    @DrawableRes int iconRes;
-    if (codeReviewVote <= -2) {
-      iconRes = R.drawable.ic_sentiment_very_dissatisfied_white_48dp;
-    } else if (codeReviewVote == -1) {
-      iconRes = R.drawable.ic_sentiment_dissatisfied_white_48dp;
-    } else if (codeReviewVote == 0) {
-      iconRes = R.drawable.ic_sentiment_neutral_white_48dp;
-    } else if (codeReviewVote == 1) {
-      iconRes = R.drawable.ic_sentiment_satisfied_white_48dp;
-    } else {
-      iconRes = R.drawable.ic_sentiment_very_satisfied_white_48dp;
-      setVisible(v(R.id.postReviewAndSubmitButton));
-    }
-    ((ImageView) v(R.id.emoticon)).setImageDrawable(
-        widgetUtil.getDrawable(iconRes));
+    ((PostReviewView)v(R.id.postReview)).init(getApp(), this, vote,
+        SortChangesFragment.class);
   }
 }
