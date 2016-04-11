@@ -18,11 +18,11 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 
 import com.google.reviewit.app.Change;
 import com.google.reviewit.widget.ChangeEntry;
+import com.google.reviewit.widget.SlidingTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,8 @@ public class PagedChangeDetailsFragment extends BaseFragment {
 
     // TODO add more tabs, e.g. for change messages, approvals and post review
 
-    ((ViewPager) v(R.id.pager)).setAdapter(
+    ViewPager pager = ((ViewPager) v(R.id.pager));
+    pager.setAdapter(
         new FragmentPagerAdapter(getChildFragmentManager()) {
           @Override
           public Fragment getItem(int position) {
@@ -84,8 +85,9 @@ public class PagedChangeDetailsFragment extends BaseFragment {
           }
         });
 
-    PagerTabStrip pagerTabStrip = (PagerTabStrip) v(R.id.tabStrip);
-    pagerTabStrip.setDrawFullUnderline(true);
-    pagerTabStrip.setTabIndicatorColorResource(R.color.tab);
+    SlidingTabLayout tabs = ((SlidingTabLayout) v(R.id.tabs));
+    tabs.setSelectedIndicatorColors(widgetUtil.color(R.color.tab));
+    tabs.setDividerColors(widgetUtil.color(R.color.tabDivider));
+    tabs.setViewPager(pager);
   }
 }

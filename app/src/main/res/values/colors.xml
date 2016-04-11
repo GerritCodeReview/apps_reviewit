@@ -86,6 +86,7 @@
   <color name="statusOk">#009122</color>
   <color name="tab">#3863F2</color>
   <color name="tabBackground">#e9efff</color>
+  <color name="tabDivider">#c6d6fd</color>
   <color name="text">#000</color>
   <color name="text_disabeled">#BBB</color>
   <color name="transparent">#00000000</color>
