@@ -45,7 +45,7 @@ import com.google.reviewit.app.QueryConfig;
 import com.google.reviewit.util.ChangeUtil;
 import com.google.reviewit.widget.ChangeBox;
 import com.google.reviewit.util.NoOpAnimatorListener;
-import com.google.reviewit.util.ObservableAsynTask;
+import com.google.reviewit.util.ObservableAsyncTask;
 import com.google.reviewit.util.TaskObserver;
 import com.google.reviewit.util.WidgetUtil;
 import com.urswolfer.gerrit.client.rest.http.HttpStatusException;
@@ -599,7 +599,7 @@ public class SortChangesFragment extends BaseFragment
   }
 
   private void reloadChange() {
-    new ObservableAsynTask<Change, Void, String>() {
+    new ObservableAsyncTask<Change, Void, String>() {
       @Override
       protected String doInBackground(Change... changes) {
         Change change = changes[0];

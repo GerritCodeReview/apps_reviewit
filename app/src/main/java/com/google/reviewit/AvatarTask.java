@@ -30,7 +30,7 @@ import com.google.gerrit.extensions.common.AccountInfo;
 import com.google.gerrit.extensions.restapi.BinaryResult;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.ReviewItApp;
-import com.google.reviewit.util.ObservableAsynTask;
+import com.google.reviewit.util.ObservableAsyncTask;
 import com.urswolfer.gerrit.client.rest.accounts.Accounts;
 import com.urswolfer.gerrit.client.rest.http.HttpStatusException;
 
@@ -42,7 +42,7 @@ import java.io.IOException;
  * If available the avatar image is taken from the avatar cache, if not it
  * is downloaded and stored in the avatar cache.
  */
-public class AvatarTask extends ObservableAsynTask<AccountInfo, Void, Bitmap> {
+public class AvatarTask extends ObservableAsyncTask<AccountInfo, Void, Bitmap> {
   private static final String TAG = AvatarTask.class.getName();
 
   private final ReviewItApp app;

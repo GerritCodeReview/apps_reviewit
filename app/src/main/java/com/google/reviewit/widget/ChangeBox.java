@@ -34,7 +34,7 @@ import com.google.reviewit.app.Change;
 import com.google.reviewit.app.Preferences;
 import com.google.reviewit.app.ReviewItApp;
 import com.google.reviewit.util.FormatUtil;
-import com.google.reviewit.util.ObservableAsynTask;
+import com.google.reviewit.util.ObservableAsyncTask;
 import com.google.reviewit.util.WidgetUtil;
 
 import java.util.ArrayList;
@@ -155,7 +155,7 @@ public class ChangeBox extends RelativeLayout {
   }
 
   private void setInlineCommentCount(final ReviewItApp app, Change change) {
-    new ObservableAsynTask<Change, Void, Integer>() {
+    new ObservableAsyncTask<Change, Void, Integer>() {
       private TextView comments;
 
       @Override

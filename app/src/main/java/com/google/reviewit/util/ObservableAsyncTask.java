@@ -16,7 +16,7 @@ package com.google.reviewit.util;
 
 import android.os.AsyncTask;
 
-public abstract class ObservableAsynTask<Params, Progress, Result>
+public abstract class ObservableAsyncTask<Params, Progress, Result>
     extends AsyncTask<Params, Progress, Result> {
 
   @Override

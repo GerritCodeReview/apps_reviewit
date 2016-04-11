@@ -24,7 +24,7 @@ import android.widget.ImageView;
 
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.reviewit.app.Change;
-import com.google.reviewit.util.ObservableAsynTask;
+import com.google.reviewit.util.ObservableAsyncTask;
 import com.google.reviewit.util.TaskObserver;
 import com.google.reviewit.widget.ApprovalsView;
 import com.google.reviewit.widget.ExpandableCommitMessageView;
@@ -89,7 +89,7 @@ public class PostReviewFragment extends BaseFragment {
         v.setEnabled(false);
         v.setBackgroundColor(widgetUtil.color(R.color.buttonDisabled));
         final String msg = textOf(R.id.changeMessageInput).trim();
-        new ObservableAsynTask<Change, Void, String>() {
+        new ObservableAsyncTask<Change, Void, String>() {
           @Override
           protected String doInBackground(Change... changes) {
             Change change = changes[0];
@@ -129,7 +129,7 @@ public class PostReviewFragment extends BaseFragment {
         v.setEnabled(false);
         v.setBackgroundColor(widgetUtil.color(R.color.buttonDisabled));
         final String msg = textOf(R.id.changeMessageInput).trim();
-        new ObservableAsynTask<Change, Void, String>() {
+        new ObservableAsyncTask<Change, Void, String>() {
           @Override
           protected String doInBackground(Change... changes) {
             Change change = changes[0];
