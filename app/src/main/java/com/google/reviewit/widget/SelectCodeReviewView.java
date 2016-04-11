@@ -48,9 +48,9 @@ import static com.google.reviewit.util.LayoutUtil.matchAndWrapLayout;
 import static com.google.reviewit.util.LayoutUtil.matchLayout;
 
 /**
- * View to post a review on a change (summary comment + Code-Review vote).
+ * View to select a Code-Review vote.
  */
-public class PostReviewView extends LinearLayout {
+public class SelectCodeReviewView extends LinearLayout {
   private final WidgetUtil widgetUtil;
   private final List<VotingButton> votingButtons = new ArrayList<>();
   private final ImageView emoticon;
@@ -58,11 +58,11 @@ public class PostReviewView extends LinearLayout {
   private Change change;
   private OnVoteListener onVoteListener = null;
 
-  public PostReviewView(Context context) {
+  public SelectCodeReviewView(Context context) {
     this(context, null);
   }
 
-  public PostReviewView(Context context, AttributeSet attrs) {
+  public SelectCodeReviewView(Context context, AttributeSet attrs) {
     super(context, attrs);
 
     this.widgetUtil = new WidgetUtil(context);

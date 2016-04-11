@@ -33,7 +33,7 @@ import com.google.reviewit.app.Change;
 import com.google.reviewit.util.FormatUtil;
 import com.google.reviewit.util.LayoutUtil;
 import com.google.reviewit.util.WidgetUtil;
-import com.google.reviewit.widget.PostReviewView;
+import com.google.reviewit.widget.SelectCodeReviewView;
 import com.google.reviewit.widget.ScrollWithHeadingsView;
 import com.google.reviewit.widget.UnifiedDiffView;
 
@@ -156,10 +156,10 @@ public class UnifiedDiffFragment extends BaseFragment
   }
 
   private void initPostReview(Change change, @IdRes int id) {
-    PostReviewView postReview = ((PostReviewView) v(id));
+    SelectCodeReviewView postReview = ((SelectCodeReviewView) v(id));
     postReview.setChange(change);
     postReview.select(change.getVote("Code-Review", getApp().getSelf()));
-    postReview.setOnVoteListener(new PostReviewView.OnVoteListener() {
+    postReview.setOnVoteListener(new SelectCodeReviewView.OnVoteListener() {
       @Override
       public void vote(int vote) {
         display(PostReviewFragment.create(vote));
