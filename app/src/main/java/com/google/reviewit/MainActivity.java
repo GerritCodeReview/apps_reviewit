@@ -22,6 +22,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -139,15 +140,15 @@ public class MainActivity extends ReviewItBaseActivity {
     });
 
     if (getApp().getPrefs().showIntro) {
-      displayView(new IntroFragment1());
+      displayInitialView(new IntroFragment1());
     } else if (savedInstanceState == null) {
       switch (getApp().getPrefs().startScreen) {
         case REVIEW_SCREEN:
-          displayView(1);
+          displayInitialView(newFragmentInstance(items.get(1).fragmentClass));
           break;
         case SORT_SCREEN:
         default:
-          displayView(0);
+          displayInitialView(newFragmentInstance(items.get(0).fragmentClass));
           break;
       }
     }
@@ -173,12 +174,24 @@ public class MainActivity extends ReviewItBaseActivity {
     drawer.closeDrawer(list);
   }
 
+  private void displayInitialView(Fragment fragment) {
+    displayView(fragment, false);
+  }
+
   private void displayView(Fragment fragment) {
+    displayView(fragment, true);
+  }
+
+  private void displayView(Fragment fragment, boolean addToBackStack) {
     FragmentManager fragmentManager = getSupportFragmentManager();
-    fragmentManager.beginTransaction()
-        .replace(R.id.mainFrame, fragment)
-        .addToBackStack(null)
-        .commit();
+    FragmentTransaction t = fragmentManager.beginTransaction()
+        .replace(R.id.mainFrame, fragment);
+
+    if (addToBackStack) {
+      t.addToBackStack(null);
+    }
+
+    t.commit();
   }
 
   private Fragment newFragmentInstance(
