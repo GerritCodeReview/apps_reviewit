@@ -523,6 +523,10 @@ public class SortChangesFragment extends BaseFragment
 
   @Override
   public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    if (!isAdded()) {
+      super.onCreateOptionsMenu(menu, inflater);
+      return;
+    }
     SortActionHandler actionHandler = getSortActionHandler();
     inflater.inflate(R.menu.menu_sort_changes, menu);
     for (int i = 0; i < menu.size(); i++) {

@@ -102,7 +102,8 @@ public class ReviewChangesFragment extends BaseFragment {
         new ViewTreeObserver.OnScrollChangedListener() {
           @Override
           public void onScrollChanged() {
-            if (getApp().getQueryHandler().hasNext()
+            if (isAdded()
+                && getApp().getQueryHandler().hasNext()
                 && nextPageProgress.getVisibility() == View.GONE) {
               View lastChild =
                   scrollView.getChildAt(scrollView.getChildCount() - 1);
