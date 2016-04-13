@@ -50,7 +50,7 @@ public class AbandonFragment extends BaseFragment
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
 
-    Change change = getApp().getSortActionHandler().getCurrentChange();
+    Change change = getApp().getCurrentChange();
     setTitle(getString(R.string.abandon_change_title, change.info._number));
     init(change);
   }

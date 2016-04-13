@@ -76,6 +76,7 @@
   <color name="nonMergable">#F5BC00</color>
   <color name="noResults">#CEFFB8</color>
   <color name="noState">#FFFFFF</color>
+  <color name="popupBackground">#d4e0ff</color>
   <color name="postReview">#FFF</color>
   <color name="progressBar">#4f91c9</color>
   <color name="progressBarBackground">#08000000</color>

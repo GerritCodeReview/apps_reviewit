@@ -19,7 +19,11 @@ import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 
+import com.google.gerrit.extensions.client.ChangeStatus;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.widget.ChangeEntry;
 import com.google.reviewit.widget.SlidingTabLayout;
@@ -47,7 +51,7 @@ public class PagedChangeDetailsFragment extends BaseFragment {
   }
 
   private void init() {
-    Change change = getApp().getQueryHandler().getCurrentChange();
+    final Change change = getApp().getQueryHandler().getCurrentChange();
     checkArgument(change != null, "No change to display");
 
     ChangeEntry changeEntry = new ChangeEntry(getContext());
@@ -97,5 +101,39 @@ public class PagedChangeDetailsFragment extends BaseFragment {
     tabs.setBottomBorderThickness(widgetUtil.dpToPx(1));
     tabs.setSelectedIndicatorThickness(widgetUtil.dpToPx(5));
     tabs.setViewPager(pager);
+
+    final View more = v(R.id.more);
+    more.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        PopupMenu popup = new PopupMenu(getContext(), more);
+        popup.getMenuInflater()
+            .inflate(R.menu.menu_paged_change_details, popup.getMenu());
+
+        popup.getMenu().findItem(R.id.action_abandon).setVisible(
+            change.info.status == ChangeStatus.NEW
+                || change.info.status == ChangeStatus.SUBMITTED);
+        popup.getMenu().findItem(R.id.action_restore).setVisible(
+            change.info.status == ChangeStatus.ABANDONED);
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+          public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+              case R.id.action_abandon:
+                display(AbandonFragment.create(
+                    PagedChangeDetailsFragment.class));
+                return true;
+              case R.id.action_restore:
+                display(RestoreFragment.create(
+                    PagedChangeDetailsFragment.class));
+                return true;
+              default:
+                return true;
+            }
+          }
+        });
+        popup.show();
+      }
+    });
   }
 }
