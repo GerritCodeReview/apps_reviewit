@@ -53,26 +53,47 @@ public class PostReviewView extends LinearLayout {
   public PostReviewView(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
     this.widgetUtil = new WidgetUtil(getContext());
-    inflate(context, R.layout.post_review, this);
   }
 
-  public void init(ReviewItApp app, BaseFragment origin, int vote,
-                   Class<? extends BaseFragment> target) {
+  public void initWithExpandableCommitMessageAndApprovals(
+      ReviewItApp app, BaseFragment origin, int vote,
+      Class<? extends BaseFragment> target) {
+    inflate(getContext(), R.layout.post_review, this);
+    init(app, origin, vote, target);
+  }
+
+  public void initForDisplayInTab(
+      ReviewItApp app, BaseFragment origin, int vote,
+      Class<? extends BaseFragment> target) {
+    inflate(getContext(), R.layout.post_review_tab, this);
+    init(app, origin, vote, target);
+  }
+
+  private void init(
+      ReviewItApp app, BaseFragment origin, int vote,
+      Class<? extends BaseFragment> target) {
     update(vote);
     Change change = app.getCurrentChange();
 
     init(origin, change, target);
     initLabels(change, vote);
-    ((ApprovalsView) findViewById(R.id.approvals)).displayApprovals(app,
-        change.info, origin);
+
+    ExpandableCommitMessageView expandableCommitMessage =
+        (ExpandableCommitMessageView) findViewById(R.id.commitMessage);
+    if (expandableCommitMessage != null) {
+      expandableCommitMessage.init(change);
+    }
+
+    ApprovalsView approvalsView =
+        ((ApprovalsView) findViewById(R.id.approvals));
+    if (approvalsView != null) {
+      approvalsView.displayApprovals(app, change.info, origin);
+    }
   }
 
   private void init(
       final BaseFragment origin, final Change change,
       final Class<? extends BaseFragment> target) {
-    ((ExpandableCommitMessageView)findViewById(R.id.commitMessage))
-        .init(change);
-
     findViewById(R.id.postReviewButton).setOnClickListener(
         new View.OnClickListener() {
           @Override

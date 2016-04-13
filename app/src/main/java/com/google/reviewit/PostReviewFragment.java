@@ -56,7 +56,8 @@ public class PostReviewFragment extends BaseFragment {
     Change change = getApp().getCurrentChange();
 
     setTitle(getString(R.string.detailed_change_title, change.info._number));
-    ((PostReviewView)v(R.id.postReview)).init(getApp(), this, vote,
-        SortChangesFragment.class);
+    ((PostReviewView) v(R.id.postReview))
+        .initWithExpandableCommitMessageAndApprovals(getApp(), this, vote,
+            SortChangesFragment.class);
   }
 }

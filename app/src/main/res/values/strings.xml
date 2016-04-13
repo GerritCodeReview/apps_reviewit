@@ -253,6 +253,9 @@
   <!-- FileListFragment -->
   <string name="file_list_title">Files</string>
 
+  <!-- ReplyFragment -->
+  <string name="reply_title">Reply</string>
+
   <!-- RelativeDateFormatter -->
   <string name="in_the_future">in the future</string>
   <string name="month">m</string>
