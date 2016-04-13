@@ -113,7 +113,14 @@ public class QuerySettingsFragment extends BaseFragment {
             .setQuery(textOf(R.id.queryInput))
             .setLabel(textOf(R.id.labelInput))
             .build());
-    display(SortChangesFragment.class);
+    switch (getApp().getPrefs().startScreen) {
+      case REVIEW_SCREEN:
+        display(ReviewChangesFragment.class);
+        break;
+      case SORT_SCREEN:
+      default:
+        display(SortChangesFragment.class);
+    }
   }
 
   private String getServerId() {
