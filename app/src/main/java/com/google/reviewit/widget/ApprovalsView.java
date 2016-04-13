@@ -129,8 +129,11 @@ public class ApprovalsView extends TableLayout {
     }
 
     for (String labelName : labels.keySet()) {
-      headerRow.addView(center(widgetUtil.createTextView(
-          FormatUtil.formatLabelName(labelName), 16)));
+      TextView labelNameText = widgetUtil.createTextView(
+          FormatUtil.formatLabelName(labelName), 16);
+      labelNameText.setPadding(
+          widgetUtil.dpToPx(2), 0, widgetUtil.dpToPx(2), 0);
+      headerRow.addView(center(labelNameText));
     }
 
     for (AccountInfo account : reviewers) {
