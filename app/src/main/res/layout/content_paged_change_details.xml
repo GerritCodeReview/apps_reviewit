@@ -30,11 +30,52 @@
     android:layout_height="1dp"
     android:layout_width="match_parent"/>
 
-  <com.google.reviewit.widget.SlidingTabLayout
-    android:id="@+id/tabs"
+  <LinearLayout
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/tabBackground"/>
+    android:baselineAligned="false">
+
+    <com.google.reviewit.widget.SlidingTabLayout
+      android:id="@+id/tabs"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:background="@color/tabBackground"/>
+
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent">
+      <View
+        android:background="@color/tabBackground"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"/>
+
+      <ImageView
+        android:id="@+id/more"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_more_vert_white_24dp"
+        android:tint="@color/tab"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
+        android:background="@color/tabBackground"
+        android:contentDescription="@string/more_description"/>
+
+      <View
+        android:background="@color/tabBackground"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"/>
+
+      <View
+        android:background="@color/tab"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"/>
+    </LinearLayout>
+  </LinearLayout>
 
   <android.support.v4.view.ViewPager
     android:id="@+id/pager"
