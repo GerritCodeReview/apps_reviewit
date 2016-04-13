@@ -41,6 +41,7 @@ import com.google.reviewit.util.WidgetUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.checkState;
@@ -212,14 +213,18 @@ public class SelectCodeReviewView extends LinearLayout {
   public void setChange(Change change) {
     this.change = change;
 
-    Collection<Integer> voteableValues = Collections2.transform(
-        change.info.permittedLabels.get("Code-Review"),
-        new Function<String, Integer>() {
-      @Override
-      public Integer apply(String value) {
-        return Integer.parseInt(value.trim());
-      }
-    });
+    Collection<String> permittedCodeReviewVotes =
+        change.info.permittedLabels.get("Code-Review");
+
+    Collection<Integer> voteableValues = permittedCodeReviewVotes != null
+        ? Collections2.transform(permittedCodeReviewVotes,
+          new Function<String, Integer>() {
+            @Override
+            public Integer apply(String value) {
+              return Integer.parseInt(value.trim());
+            }
+          })
+        : new ArrayList<Integer>();
     for (VotingButton b : votingButtons) {
       if (!voteableValues.contains(b.getVote())) {
         b.setDisabled(true);
