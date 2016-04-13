@@ -89,8 +89,8 @@ public class DetailedChangeFragment extends BaseFragment implements
       ((ChangeBox) v(R.id.changeBox)).display(getApp(), change);
       (new Linkifier(getApp())).linkifyCommitMessage(tv(R.id.commitMessage));
       displayChangeUrl(change);
-      ((ApprovalsView) v(R.id.approvals)).displayApprovals(getApp(),
-          change.info, this);
+      ((ApprovalsView) v(R.id.approvals)).displayApprovals(
+          getApp(), change, this);
       ((FileBox)v(R.id.fileBox)).display(this, change);
       // TODO show further change info, e.g. summary comments, hashtags,
       // related changes

@@ -87,7 +87,7 @@ public class PostReviewView extends LinearLayout {
     ApprovalsView approvalsView =
         ((ApprovalsView) findViewById(R.id.approvals));
     if (approvalsView != null) {
-      approvalsView.displayApprovals(app, change.info, origin);
+      approvalsView.displayApprovals(app, change, origin);
     }
   }
 

@@ -47,6 +47,7 @@ public class Change {
   public ChangeInfo info;
   private Map<String, DiffInfo> diffs = new HashMap<>();
   private Integer inlineCommentCount;
+  private ApprovalData approvalData;
 
   public Change(GerritApi api, ChangeInfo info) {
     this.api = api;
@@ -216,5 +217,12 @@ public class Change {
 
   public String getUrl(String serverUrl) {
     return FormatUtil.ensureSlash(serverUrl) + "#/c/" + info._number;
+  }
+
+  public ApprovalData getApprovalData() {
+    if (approvalData == null) {
+      approvalData = new ApprovalData(info);
+    }
+    return approvalData;
   }
 }
