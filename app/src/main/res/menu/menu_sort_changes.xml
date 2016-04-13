@@ -19,13 +19,13 @@
     android:orderInCategory="100"
     android:title="@string/action_undo"
     android:icon="@drawable/ic_restore_white_18dp"
-    app:showAsAction="always"/>
+    app:showAsAction="ifRoom"/>
   <item
     android:id="@+id/action_reload_change"
     android:orderInCategory="100"
     android:title="@string/action_reload_change"
     android:icon="@drawable/ic_refresh_white_18dp"
-    app:showAsAction="always"/>
+    app:showAsAction="ifRoom"/>
   <item
     android:id="@+id/action_add_reviewer"
     android:orderInCategory="100"
