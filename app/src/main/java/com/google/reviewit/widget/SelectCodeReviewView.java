@@ -212,14 +212,18 @@ public class SelectCodeReviewView extends LinearLayout {
   public void setChange(Change change) {
     this.change = change;
 
-    Collection<Integer> voteableValues = Collections2.transform(
-        change.info.permittedLabels.get("Code-Review"),
-        new Function<String, Integer>() {
-      @Override
-      public Integer apply(String value) {
-        return Integer.parseInt(value.trim());
-      }
-    });
+    Collection<String> permittedCodeReviewVotes =
+        change.info.permittedLabels.get("Code-Review");
+
+    Collection<Integer> voteableValues = permittedCodeReviewVotes != null
+        ? Collections2.transform(permittedCodeReviewVotes,
+          new Function<String, Integer>() {
+            @Override
+            public Integer apply(String value) {
+              return Integer.parseInt(value.trim());
+            }
+          })
+        : new ArrayList<Integer>();
     for (VotingButton b : votingButtons) {
       if (!voteableValues.contains(b.getVote())) {
         b.setDisabled(true);
