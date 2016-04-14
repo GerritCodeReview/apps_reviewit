@@ -18,6 +18,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
@@ -41,6 +42,11 @@ public class LayoutUtil {
 
   public static ViewGroup.LayoutParams fixedLayout(int width, int height) {
     return new ViewGroup.LayoutParams(width, height);
+  }
+
+  public static ViewGroup.LayoutParams fixedLinearLayout(
+      int width, int height) {
+    return new LinearLayout.LayoutParams(width, height);
   }
 
   public static TableLayout.LayoutParams matchAndWrapTableLayout() {

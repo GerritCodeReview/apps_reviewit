@@ -256,6 +256,9 @@
   <!-- FileListFragment -->
   <string name="file_list_title">Files</string>
 
+  <!-- ApprovalsFragment -->
+  <string name="approvals_title">Approvals</string>
+
   <!-- ReplyFragment -->
   <string name="reply_title">Reply</string>
 

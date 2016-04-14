@@ -68,11 +68,15 @@ public class PagedChangeDetailsFragment extends BaseFragment {
     fileListFragment.setChange(change);
     fragments.add(fileListFragment);
 
+    ApprovalsFragment approvalsFragment = new ApprovalsFragment();
+    approvalsFragment.setChange(change);
+    fragments.add(approvalsFragment);
+
     ReplyFragment replyFragment = new ReplyFragment();
     replyFragment.setChange(change);
     fragments.add(replyFragment);
 
-    // TODO add more tabs, e.g. for change messages and approvals
+    // TODO add more tabs, e.g. for change messages
 
     ViewPager pager = ((ViewPager) v(R.id.pager));
     pager.setAdapter(

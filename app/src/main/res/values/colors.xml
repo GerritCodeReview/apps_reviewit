@@ -16,6 +16,7 @@
 
 <resources>
   <color name="abandoned">#B1B3AF</color>
+  <color name="approvalsHeader">#f4f4f4</color>
   <color name="black">#000000</color>
   <color name="button">#4183ff</color>
   <color name="buttonBorder">#8699B3</color>
