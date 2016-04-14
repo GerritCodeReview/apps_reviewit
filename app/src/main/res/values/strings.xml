@@ -251,7 +251,7 @@
   <string name="more_description">More Actions Menu</string>
 
   <!-- CommitMessageFragment -->
-  <string name="commit_message_title">Commit Message</string>
+  <string name="commit_message_title">Commit</string>
 
   <!-- FileListFragment -->
   <string name="file_list_title">Files</string>
