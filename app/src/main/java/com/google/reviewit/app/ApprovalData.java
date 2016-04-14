@@ -19,33 +19,33 @@ import com.google.gerrit.extensions.common.AccountInfo;
 import com.google.gerrit.extensions.common.ApprovalInfo;
 import com.google.gerrit.extensions.common.ChangeInfo;
 import com.google.gerrit.extensions.common.LabelInfo;
-import com.google.reviewit.util.FormatUtil;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class ApprovalData {
   public final Set<AccountInfo> reviewers;
+  public final Set<AccountInfo> ccs;
   public final Map<String, LabelInfo> labels;
   public final TreeMap<String, Map<Integer, ApprovalInfo>> approvalsByLabel;
 
   public ApprovalData(ChangeInfo change) {
-    reviewers = new TreeSet<>(new Comparator<AccountInfo>() {
-      @Override
-      public int compare(AccountInfo account1, AccountInfo account2) {
-        return FormatUtil.format(account1).compareTo(
-            FormatUtil.format(account2));
+    reviewers = new TreeSet<>(new AccountComparator());
+    ccs = new TreeSet<>(new AccountComparator());
+    if (change.reviewers != null) {
+      if (change.reviewers.containsKey(ReviewerState.REVIEWER)) {
+        reviewers.addAll(change.reviewers.get(ReviewerState.REVIEWER));
       }
-    });
-    if (change.reviewers != null
-        && change.reviewers.containsKey(ReviewerState.REVIEWER)) {
-      reviewers.addAll(change.reviewers.get(ReviewerState.REVIEWER));
+      if (change.reviewers.containsKey(ReviewerState.CC)) {
+        ccs.addAll(change.reviewers.get(ReviewerState.CC));
+      }
     }
+
     labels = new TreeMap<>();
     approvalsByLabel = new TreeMap<>();
     for (Map.Entry<String, LabelInfo> label : change.labels.entrySet()) {
@@ -55,7 +55,6 @@ public class ApprovalData {
       List<ApprovalInfo> all = change.labels.get(label.getKey()).all;
       if (all != null) {
         for (ApprovalInfo approval : all) {
-          reviewers.add(approval);
           approvalsByAccount.put(approval._accountId, approval);
         }
       }
@@ -82,5 +81,12 @@ public class ApprovalData {
       }
     }
     return min != null && min.equals(Integer.valueOf(value));
+  }
+
+  public SortedSet<AccountInfo> reviewersAndCcs() {
+    SortedSet<AccountInfo> result = new TreeSet<>(new AccountComparator());
+    result.addAll(reviewers);
+    result.addAll(ccs);
+    return result;
   }
 }

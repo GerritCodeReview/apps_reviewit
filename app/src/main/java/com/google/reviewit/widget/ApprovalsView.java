@@ -105,7 +105,7 @@ public class ApprovalsView extends TableLayout {
       headerRow.addView(center(labelNameText));
     }
 
-    for (AccountInfo account : approvalData.reviewers) {
+    for (AccountInfo account : approvalData.reviewersAndCcs()) {
       addApprovalRow(app, account, approvalData);
     }
   }

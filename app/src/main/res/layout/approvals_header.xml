@@ -31,9 +31,9 @@
     android:shrinkColumns="0">
     <TableRow>
       <TextView
+        android:id="@+id/headerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/reviewers"
         android:textSize="18sp"
         android:textStyle="bold"/>
 

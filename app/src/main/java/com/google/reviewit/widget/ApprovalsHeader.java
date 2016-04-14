@@ -16,6 +16,7 @@ package com.google.reviewit.widget;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -47,17 +48,21 @@ public class ApprovalsHeader extends LinearLayout {
     inflate(context, R.layout.approvals_header, this);
   }
 
-  public void init(Change change) {
-    for (String labelName : change.getApprovalData().labels.keySet()) {
-      TextView text = widgetUtil.createTextView(
-          FormatUtil.formatLabelName(labelName), 18);
-      text.setTypeface(null, Typeface.BOLD);
-      text.setGravity(Gravity.CENTER_HORIZONTAL);
-      text.setLayoutParams(
-          fixedLinearLayout(widgetUtil.dpToPx(40), widgetUtil.dpToPx(25)));
-      text.setPadding(
-          widgetUtil.dpToPx(2), 0, widgetUtil.dpToPx(2), 0);
-      ((ViewGroup) findViewById(R.id.labels)).addView(text);
+  public void init(Change change, String headerText, boolean showLabels) {
+    ((TextView) findViewById(R.id.headerText)).setText(headerText);
+
+    if (showLabels) {
+      for (String labelName : change.getApprovalData().labels.keySet()) {
+        TextView text = widgetUtil.createTextView(
+            FormatUtil.formatLabelName(labelName), 18);
+        text.setTypeface(null, Typeface.BOLD);
+        text.setGravity(Gravity.CENTER_HORIZONTAL);
+        text.setLayoutParams(
+            fixedLinearLayout(widgetUtil.dpToPx(40), widgetUtil.dpToPx(25)));
+        text.setPadding(
+            widgetUtil.dpToPx(2), 0, widgetUtil.dpToPx(2), 0);
+        ((ViewGroup) findViewById(R.id.labels)).addView(text);
+      }
     }
   }
 }

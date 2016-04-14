@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.gerrit.extensions.common.AccountInfo;
+import com.google.reviewit.app.ApprovalData;
 import com.google.reviewit.app.Change;
 import com.google.reviewit.widget.ApprovalEntry;
 import com.google.reviewit.widget.ApprovalsHeader;
@@ -44,15 +45,30 @@ public class ApprovalsFragment extends PageFragment {
     super.onActivityCreated(savedInstanceState);
 
     ViewGroup approvalList = vg(R.id.approvalList);
-    ApprovalsHeader approvalsHeader = new ApprovalsHeader(getContext());
-    approvalsHeader.init(change);
-    approvalList.addView(approvalsHeader);
+    ApprovalData approvalData = change.getApprovalData();
+
+    ApprovalsHeader reviewersHeader = new ApprovalsHeader(getContext());
+    reviewersHeader.init(change, getString(R.string.reviewers), true);
+    approvalList.addView(reviewersHeader);
     addSeparator(approvalList);
-    for (AccountInfo account : change.getApprovalData().reviewers) {
+    for (AccountInfo account : approvalData.reviewers) {
       ApprovalEntry approvalEntry = new ApprovalEntry(getContext());
       approvalEntry.init(getApp(), change, account);
       approvalList.addView(approvalEntry);
       addSeparator(approvalList);
+    }
+
+    if (!approvalData.ccs.isEmpty()) {
+      ApprovalsHeader ccsHeader = new ApprovalsHeader(getContext());
+      ccsHeader.init(change, getString(R.string.ccs), false);
+      approvalList.addView(ccsHeader);
+      addSeparator(approvalList);
+      for (AccountInfo account : approvalData.ccs) {
+        ApprovalEntry approvalEntry = new ApprovalEntry(getContext());
+        approvalEntry.init(getApp(), change, account);
+        approvalList.addView(approvalEntry);
+        addSeparator(approvalList);
+      }
     }
   }
 
