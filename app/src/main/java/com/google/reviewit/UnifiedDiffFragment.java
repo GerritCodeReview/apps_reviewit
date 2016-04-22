@@ -59,7 +59,7 @@ public class UnifiedDiffFragment extends BaseFragment
   private static final String PATH =
       "com.google.reviewit.UnifiedDiffFragment.PATH";
 
-  private ScrollWithHeadingsView root;
+  private ScrollWithHeadingsView diffView;
 
   public static UnifiedDiffFragment create(String path) {
     UnifiedDiffFragment fragment = new UnifiedDiffFragment();
@@ -87,26 +87,36 @@ public class UnifiedDiffFragment extends BaseFragment
     Change change = getApp().getCurrentChange();
     checkState(change != null, "Change not set");
     Map<String, FileInfo> files = change.currentRevision().files;
-    root = (ScrollWithHeadingsView) v(R.id.unifiedDiffRoot);
-    root.setWindow(getWindow());
+    createDiffView();
 
     if (path != null) {
       setVisible(v(R.id.navigationButtons));
       initPostReviewNavPanel(change);
       FileInfo file = files.get(path);
       checkState(file != null, "File not found:" + path);
-      init(root, path, change, files);
-      displayFile(root, change, path, file);
+      init(path, change, files);
+      displayFile(change, path, file);
     } else {
       setGone(v(R.id.navigationButtons));
       initPostReviewPanel(change);
-      displayFiles(root, change, files);
+      displayFiles(change, files);
     }
+  }
+
+  private void createDiffView() {
+    diffView = new ScrollWithHeadingsView(getContext());
+    diffView.setLayoutParams(matchLayout());
+    diffView.setWindow(getWindow());
+    vg(R.id.unifiedDiffRoot).addView(diffView);
+  }
+
+  private void removeDiffView() {
+    vg(R.id.unifiedDiffRoot).removeAllViews();
   }
 
   @Override
   public void dispatchTouchEvent(MotionEvent event) {
-    root.getZoomHandler().dispatchTouchEvent(event);
+    diffView.getZoomHandler().dispatchTouchEvent(event);
   }
 
   private void initPostReviewPanel(Change change) {
@@ -167,8 +177,7 @@ public class UnifiedDiffFragment extends BaseFragment
     });
   }
 
-  private void init(ScrollWithHeadingsView root, String path, Change change,
-                    Map<String, FileInfo> files) {
+  private void init(String path, Change change, Map<String, FileInfo> files) {
     String prevPath = null;
     String nextPath = null;
     List<String> paths = new ArrayList<>(files.keySet());
@@ -179,15 +188,15 @@ public class UnifiedDiffFragment extends BaseFragment
     if (i < paths.size() - 1) {
       nextPath = paths.get(i + 1);
     }
-    root.setNextBackgroundColor(i);
+    diffView.setNextBackgroundColor(i);
 
     if (prevPath != null || nextPath != null) {
       if (prevPath != null) {
         setVisible(v(R.id.navigationPrev));
         WidgetUtil.setText(v(R.id.navigationPrevFile),
             new File(prevPath).getName());
-        setNavigationOnClickListener(R.id.navigationPrev, root, change,
-            prevPath, files);
+        setNavigationOnClickListener(R.id.navigationPrev, change, prevPath,
+            files);
       } else {
         setInvisible(v(R.id.navigationPrev));
       }
@@ -195,8 +204,8 @@ public class UnifiedDiffFragment extends BaseFragment
         setVisible(v(R.id.navigationNext));
         WidgetUtil.setText(v(R.id.navigationNextFile),
             new File(nextPath).getName());
-        setNavigationOnClickListener(R.id.navigationNext, root, change,
-            nextPath, files);
+        setNavigationOnClickListener(R.id.navigationNext, change, nextPath,
+            files);
       } else {
         setInvisible(v(R.id.navigationNext));
       }
@@ -204,31 +213,30 @@ public class UnifiedDiffFragment extends BaseFragment
   }
 
   private void setNavigationOnClickListener(
-      @IdRes int id, final ScrollWithHeadingsView root, final Change change,
+      @IdRes int id, final Change change,
       final String path, final Map<String, FileInfo> files) {
     v(id).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        root.clear();
-        init(root, path, change, files);
-        displayFile(root, change, path, files.get(path));
+        removeDiffView();
+        createDiffView();
+        init(path, change, files);
+        displayFile(change, path, files.get(path));
       }
     });
   }
 
-  private void displayFile(
-      ScrollWithHeadingsView root, Change change, String path, FileInfo file) {
+  private void displayFile(Change change, String path, FileInfo file) {
     Map<String, FileInfo> files = new HashMap<>();
     files.put(path, file);
-    displayFiles(root, change, files);
+    displayFiles(change, files);
   }
 
-  private void displayFiles(
-      final ScrollWithHeadingsView root, final Change change,
+  private void displayFiles(final Change change,
       Map<String, FileInfo> files) {
     final Iterator<Map.Entry<String, FileInfo>> fileEntryIt =
         files.entrySet().iterator();
-    root.setContent(new Iterator<ScrollWithHeadingsView.Content>() {
+    diffView.setContent(new Iterator<ScrollWithHeadingsView.Content>() {
       @Override
       public boolean hasNext() {
         return fileEntryIt.hasNext();
@@ -301,14 +309,14 @@ public class UnifiedDiffFragment extends BaseFragment
                     new LayoutUtil.OneTimeOnGlobalLayoutListener() {
                       @Override
                       public void onFirstGlobalLayout() {
-                        root.relayout();
+                        diffView.relayout();
                       }
                     });
                 unifiedDiffView.setOnSizeChangedListener(
                     new UnifiedDiffView.OnSizeChangedListener() {
                   @Override
                   public void onSizeChanged() {
-                    root.relayout();
+                    diffView.relayout();
                   }
                 });
               }

@@ -140,7 +140,7 @@ public class ScrollWithHeadingsView extends RelativeLayout {
     });
   }
 
-  public void clear() {
+  private void clear() {
     for (Content content : contents) {
       removeView(content.getHeading().getView());
       scrollContent.removeView(content.getContent());
@@ -415,12 +415,12 @@ public class ScrollWithHeadingsView extends RelativeLayout {
 
       LayoutUtil.addOneTimeOnGlobalLayoutListener(headingView,
           new LayoutUtil.OneTimeOnGlobalLayoutListener() {
-        @Override
-        public void onFirstGlobalLayout() {
-          height = headingView.getHeight();
-          layout.getLayoutParams().height = height;
-        }
-      });
+            @Override
+            public void onFirstGlobalLayout() {
+              height = headingView.getHeight();
+              layout.getLayoutParams().height = height;
+            }
+          });
 
       layout = new RelativeLayout(context);
       layout.setLayoutParams(matchAndWrapLayout());
