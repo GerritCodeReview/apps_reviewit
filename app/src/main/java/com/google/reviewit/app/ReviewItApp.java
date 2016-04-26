@@ -130,7 +130,7 @@ public class ReviewItApp extends Application {
 
   private Gerrit getGerrit() {
     if (gerrit == null) {
-      gerrit = new Gerrit(getConfigManager());
+      gerrit = new Gerrit(this, getConfigManager());
     }
     return gerrit;
   }
