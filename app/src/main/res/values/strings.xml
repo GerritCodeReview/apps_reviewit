@@ -20,6 +20,9 @@
 
   <!-- SortChangesFragment -->
   <string name="branch">branch:</string>
+  <string name="change_ignored">Change Ignored</string>
+  <string name="change_skipped">Change Skipped</string>
+  <string name="change_starred">Change Starred</string>
   <string name="help">Help</string>
   <string name="project">project:</string>
   <string name="reload_error">Reloading change failed with %1$d %2$s</string>
@@ -127,6 +130,7 @@
   <string name="title_activity_add_reviewer">Add Reviewer</string>
   <string name="add_reviewer_error">Add reviewer failed with %1$d %2$s</string>
   <string name="ccs">CC\'s:</string>
+  <string name="reviewer_added">Reviewer Added</string>
   <string name="reviewer_hint">Fullname or Email</string>
   <string name="reviewers">Reviewers:</string>
   <string name="no_reviewers">No Reviewers</string>
@@ -165,8 +169,9 @@
   <string name="servers">Servers:</string>
   <string name="server_remove_message">Are you sure you want to delete server \'%1$s\'</string>
   <string name="server_remove_title">Delete Server</string>
-    <string name="storage_info">The server configuration is stored in the application preferences.
-        All values are encrypted.</string>
+  <string name="server_settings_saved">Server Settings Saved</string>
+  <string name="storage_info">The server configuration is stored in the application preferences.
+      All values are encrypted.</string>
   <string name="test_server_connection">Testing connection to the server ...</string>
   <string name="test_server_connection_ok">OK</string>
   <string name="test_server_connection_failed">FAILED</string>
@@ -182,6 +187,7 @@
   <string name="user_hint">Gerrit User</string>
   <string name="query">Query*:</string>
   <string name="query_hint">Change Query</string>
+  <string name="query_saved">Query Saved</string>
 
   <!-- SettingsFragment - menu -->
   <string name="action_clean_avatar_cache">Clean avatar cache</string>
@@ -223,10 +229,12 @@
   <string name="abandon_change_title">Abandon Change %1$d</string>
   <string name="abandon">Abandon</string>
   <string name="abandon_error">Abandon failed with %1$d %2$s</string>
+  <string name="change_abandoned">Change Abandoned</string>
   <string name="reason">Reason:</string>
 
   <!-- RestoreFragment -->
   <string name="title_activity_restore">Restore Change</string>
+  <string name="change_restored">Change Restored</string>
   <string name="restore_change_title">Restore Change %1$d</string>
   <string name="restore">Restore</string>
   <string name="restore_error">Restore failed with %1$d %2$s</string>
@@ -245,6 +253,7 @@
   <string name="publish">Publish</string>
   <string name="publishAndSubmit">Publish and Submit</string>
   <string name="review_error">Posting review failed with %1$d %2$s</string>
+  <string name="review_posted">Review Posted</string>
   <string name="submit_error">Submit failed with %1$d %2$s</string>
 
   <!-- PagedChangeDetailsFragment -->

@@ -128,6 +128,7 @@ public class PostReviewView extends LinearLayout {
                   v.setBackgroundColor(widgetUtil.color(R.color.button));
                   widgetUtil.showError(errorMsg);
                 } else {
+                  widgetUtil.toast(R.string.review_posted);
                   origin.display(target);
                 }
               }

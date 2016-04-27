@@ -350,6 +350,7 @@ public class ServerSettingsFragment extends BaseFragment {
               .build());
       startActivity(new Intent(getContext(), MainActivity.class));
     } else {
+      widgetUtil.toast(R.string.server_settings_saved);
       display(ServerListFragment.class);
     }
   }

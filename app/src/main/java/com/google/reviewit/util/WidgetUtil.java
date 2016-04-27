@@ -33,6 +33,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gerrit.extensions.common.AccountInfo;
 import com.google.reviewit.AvatarTask;
@@ -94,6 +95,14 @@ public class WidgetUtil {
   public static void underline(TextView textView) {
     textView.setPaintFlags(textView.getPaintFlags()
         | Paint.UNDERLINE_TEXT_FLAG);
+  }
+
+  public void toast(@StringRes int stringId) {
+    Toast.makeText(
+        context,
+        context.getString(stringId),
+        Toast.LENGTH_SHORT
+    ).show();
   }
 
   public void showError(@StringRes int id) {

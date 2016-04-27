@@ -131,6 +131,8 @@ public class AddReviewerFragment extends BaseFragment
         if (errorMsg != null) {
           widgetUtil.showError(errorMsg);
         } else {
+          widgetUtil.toast(R.string.reviewer_added);
+
           AddReviewerFragment fragment = new AddReviewerFragment();
           Bundle bundle = new Bundle();
           bundle.putAll(getArguments());

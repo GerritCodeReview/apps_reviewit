@@ -243,6 +243,7 @@ public class SortChangesFragment extends BaseFragment
         disableButtons();
         getSortActionHandler().skip();
         animate(changeBox, SortActionHandler.Action.SKIP);
+        widgetUtil.toast(R.string.change_skipped);
       }
     });
 
@@ -251,6 +252,7 @@ public class SortChangesFragment extends BaseFragment
         disableButtons();
         getSortActionHandler().star();
         animate(changeBox, SortActionHandler.Action.STAR);
+        widgetUtil.toast(R.string.change_starred);
       }
     };
     v(R.id.starButton).setOnClickListener(onStarClickListener);
@@ -261,6 +263,7 @@ public class SortChangesFragment extends BaseFragment
         disableButtons();
         getSortActionHandler().ignore();
         animate(changeBox, SortActionHandler.Action.IGNORE);
+        widgetUtil.toast(R.string.change_ignored);
       }
     };
     v(R.id.ignoreButton).setOnClickListener(onIgnoreClickListener);
@@ -362,16 +365,19 @@ public class SortChangesFragment extends BaseFragment
             switch (action) {
               case STAR:
                 getSortActionHandler().star();
+                widgetUtil.toast(R.string.change_starred);
                 resultBox.removeView(changeBox);
                 display();
                 break;
               case IGNORE:
                 getSortActionHandler().ignore();
+                widgetUtil.toast(R.string.change_ignored);
                 resultBox.removeView(changeBox);
                 display();
                 break;
               case SKIP:
                 getSortActionHandler().skip();
+                widgetUtil.toast(R.string.change_skipped);
                 resultBox.removeView(changeBox);
                 display();
                 break;

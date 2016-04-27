@@ -113,6 +113,8 @@ public class QuerySettingsFragment extends BaseFragment {
             .setQuery(textOf(R.id.queryInput))
             .setLabel(textOf(R.id.labelInput))
             .build());
+    widgetUtil.toast(R.string.query_saved);
+
     switch (getApp().getPrefs().startScreen) {
       case REVIEW_SCREEN:
         display(ReviewChangesFragment.class);

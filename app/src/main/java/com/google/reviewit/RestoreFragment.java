@@ -87,6 +87,7 @@ public class RestoreFragment extends BaseFragment
               v.setBackgroundColor(widgetUtil.color(R.color.button));
               widgetUtil.showError(errorMsg);
             } else {
+              widgetUtil.toast(R.string.change_restored);
               display(SortChangesFragment.class);
             }
           }

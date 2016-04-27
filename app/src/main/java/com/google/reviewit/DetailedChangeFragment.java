@@ -177,6 +177,7 @@ public class DetailedChangeFragment extends BaseFragment implements
         return true;
       case R.id.action_ignore:
         actionHandler.ignore();
+        widgetUtil.toast(R.string.change_ignored);
         startActivity(new Intent(getActivity(), MainActivity.class));
         return true;
       case R.id.action_restore:
@@ -184,10 +185,12 @@ public class DetailedChangeFragment extends BaseFragment implements
         return true;
       case R.id.action_skip:
         actionHandler.skip();
+        widgetUtil.toast(R.string.change_skipped);
         startActivity(new Intent(getActivity(), MainActivity.class));
         return true;
       case R.id.action_star:
         actionHandler.star();
+        widgetUtil.toast(R.string.change_starred);
         startActivity(new Intent(getActivity(), MainActivity.class));
         return true;
       default:

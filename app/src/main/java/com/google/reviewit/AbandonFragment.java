@@ -87,6 +87,7 @@ public class AbandonFragment extends BaseFragment
               v.setBackgroundColor(widgetUtil.color(R.color.button));
               widgetUtil.showError(errorMsg);
             } else {
+              widgetUtil.toast(R.string.change_abandoned);
               display(SortChangesFragment.class);
             }
           }
