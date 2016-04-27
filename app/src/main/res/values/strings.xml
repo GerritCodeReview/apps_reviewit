@@ -241,6 +241,7 @@
 
   <!-- UnifiedDiffFragment -->
   <string name="title_activity_unified_diff">UnifiedDiffActivity</string>
+  <string name="file_count">%1$d / %2$d</string>
 
   <!-- UnfifiedDiffView -->
   <string name="skipped_common_lines">... skipped %1$d common lines ...</string>

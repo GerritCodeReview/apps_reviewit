@@ -93,9 +93,10 @@ public class UnifiedDiffFragment extends BaseFragment
       setVisible(v(R.id.navigationButtons));
       initPostReviewNavPanel(change);
       FileInfo file = files.get(path);
-      checkState(file != null, "File not found:" + path);
+      checkState(file != null, "File not found: " + path);
       init(path, change, files);
-      displayFile(change, path, file);
+      displayFile(change, path, file,
+          (new ArrayList<>(files.keySet())).indexOf(path) + 1, files.size());
     } else {
       setGone(v(R.id.navigationButtons));
       initPostReviewPanel(change);
@@ -196,7 +197,7 @@ public class UnifiedDiffFragment extends BaseFragment
         WidgetUtil.setText(v(R.id.navigationPrevFile),
             new File(prevPath).getName());
         setNavigationOnClickListener(R.id.navigationPrev, change, prevPath,
-            files);
+            i, files);
       } else {
         setInvisible(v(R.id.navigationPrev));
       }
@@ -205,7 +206,7 @@ public class UnifiedDiffFragment extends BaseFragment
         WidgetUtil.setText(v(R.id.navigationNextFile),
             new File(nextPath).getName());
         setNavigationOnClickListener(R.id.navigationNext, change, nextPath,
-            files);
+            i + 2, files);
       } else {
         setInvisible(v(R.id.navigationNext));
       }
@@ -214,29 +215,39 @@ public class UnifiedDiffFragment extends BaseFragment
 
   private void setNavigationOnClickListener(
       @IdRes int id, final Change change,
-      final String path, final Map<String, FileInfo> files) {
+      final String path, final int fileNumber,
+      final Map<String, FileInfo> files) {
     v(id).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         removeDiffView();
         createDiffView();
         init(path, change, files);
-        displayFile(change, path, files.get(path));
+        displayFile(change, path, files.get(path), fileNumber, files.size());
       }
     });
   }
 
-  private void displayFile(Change change, String path, FileInfo file) {
+  private void displayFile(Change change, String path, FileInfo file,
+                           int fileNumber, int totalFileCount) {
     Map<String, FileInfo> files = new HashMap<>();
     files.put(path, file);
-    displayFiles(change, files);
+    displayFiles(change, files, fileNumber, totalFileCount);
+  }
+
+  private void displayFiles(Change change, Map<String, FileInfo> files) {
+    displayFiles(change, files, 1, files.size());
   }
 
   private void displayFiles(final Change change,
-      Map<String, FileInfo> files) {
+                            final Map<String, FileInfo> files,
+                            final int startFileNumber,
+                            final int totalFileCount) {
     final Iterator<Map.Entry<String, FileInfo>> fileEntryIt =
         files.entrySet().iterator();
     diffView.setContent(new Iterator<ScrollWithHeadingsView.Content>() {
+      private int currentFileNumber = startFileNumber;
+
       @Override
       public boolean hasNext() {
         return fileEntryIt.hasNext();
@@ -248,10 +259,14 @@ public class UnifiedDiffFragment extends BaseFragment
         File f = new File(fileEntry.getKey());
         return new ScrollWithHeadingsView.Content(
             new ScrollWithHeadingsView.HeadingWithDetails(
-                getContext(), f.getName(), null,
-                FormatUtil.ensureSlash(f.getParent())),
-                createContent(change, fileEntry.getKey(),
-                    fileEntry.getValue()));
+                getContext(), f.getName(),
+                new ScrollWithHeadingsView.RightAlignedHeadingDetails(
+                    getContext().getString(R.string.file_count,
+                        currentFileNumber++, totalFileCount)),
+                new ScrollWithHeadingsView.CenteredHeadingDetails(
+                    FormatUtil.ensureSlash(f.getParent()))),
+            createContent(change, fileEntry.getKey(),
+                fileEntry.getValue()));
       }
 
       public View createContent(

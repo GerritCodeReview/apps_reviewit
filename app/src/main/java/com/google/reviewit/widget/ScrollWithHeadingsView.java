@@ -402,15 +402,22 @@ public class ScrollWithHeadingsView extends RelativeLayout {
 
   public static class HeadingWithDetails extends TextHeading {
     private final RelativeLayout layout;
-    private final TextView detailsTop;
-    private final TextView detailsBottom;
+    private final TextView detailsTopView;
+    private final TextView detailsBottomView;
     private int height;
+
+    public HeadingWithDetails(
+        Context context, String headingText, String detailsTopText,
+        String detailsBottomText) {
+      this(context, headingText, new CenteredHeadingDetails(detailsTopText),
+          new CenteredHeadingDetails(detailsBottomText));
+    }
 
     // TODO make top/bottom heading smaller if there are no top/bottom
     // details
     public HeadingWithDetails(
-        Context context, String headingText, String detailsTopText,
-        String detailsBottomText) {
+        Context context, String headingText, HeadingDetails detailsTop,
+        HeadingDetails detailsBottom) {
       super(context, headingText);
 
       LayoutUtil.addOneTimeOnGlobalLayoutListener(headingView,
@@ -425,24 +432,38 @@ public class ScrollWithHeadingsView extends RelativeLayout {
       layout = new RelativeLayout(context);
       layout.setLayoutParams(matchAndWrapLayout());
 
-      detailsTop = createDetailsView(detailsTopText);
-      layout.addView(detailsTop);
+      detailsTopView = createDetailsView(detailsTop);
+      if (detailsTopView != null) {
+        layout.addView(detailsTopView);
+      }
 
       layout.addView(headingView);
 
-      detailsBottom = createDetailsView(detailsBottomText);
-      layout.addView(gravityBottom(detailsBottom));
+      detailsBottomView = createDetailsView(detailsBottom);
+      if (detailsBottomView != null) {
+        layout.addView(gravityBottom(detailsBottomView));
+      }
     }
 
-    private TextView createDetailsView(String detailsText) {
+    private TextView createDetailsView(HeadingDetails details) {
+      if (details == null) {
+        return null;
+      }
+
       final MaxFontSizeTextView detailsView =
           new MaxFontSizeTextView(context);
-      detailsView.setLayoutParams(matchAndWrapLayout());
-      detailsView.setText(detailsText);
+      RelativeLayout.LayoutParams layoutParams =
+          new RelativeLayout.LayoutParams(
+              ViewGroup.LayoutParams.MATCH_PARENT,
+              ViewGroup.LayoutParams.WRAP_CONTENT);
+      layoutParams.setMargins(widgetUtil.dpToPx(5), 0,
+          widgetUtil.dpToPx(5), 0);
+      detailsView.setLayoutParams(layoutParams);
+      detailsView.setText(details.getText());
       detailsView.setTextColor(widgetUtil.color(R.color.headingFont));
       detailsView.setMinTextSize(widgetUtil.spToPx(5));
       detailsView.setMaxTextSize(widgetUtil.spToPx(15));
-      detailsView.setGravity(Gravity.CENTER_HORIZONTAL);
+      detailsView.setGravity(details.getGravity());
 
       LayoutUtil.addOnHeightListener(detailsView,
           new LayoutUtil.OnHeightListener() {
@@ -483,15 +504,27 @@ public class ScrollWithHeadingsView extends RelativeLayout {
 
       float paddingSquish = heightToSquish / 2;
       if (paddingSquish > headingPaddingMax / 3) {
-        detailsTop.setAlpha(0f);
-        detailsBottom.setAlpha(0f);
+        if (detailsTopView != null) {
+          detailsTopView.setAlpha(0f);
+        }
+        if (detailsBottomView != null) {
+          detailsBottomView.setAlpha(0f);
+        }
       } else if (paddingSquish > 0) {
         float alpha = 1 - paddingSquish / (headingPaddingMax / 3);
-        detailsTop.setAlpha(alpha);
-        detailsBottom.setAlpha(alpha);
+        if (detailsTopView != null) {
+          detailsTopView.setAlpha(alpha);
+        }
+        if (detailsBottomView != null) {
+          detailsBottomView.setAlpha(alpha);
+        }
       } else {
-        detailsTop.setAlpha(1f);
-        detailsBottom.setAlpha(1f);
+        if (detailsTopView != null) {
+          detailsTopView.setAlpha(1f);
+        }
+        if (detailsBottomView != null) {
+          detailsBottomView.setAlpha(1f);
+        }
       }
 
       layout.getLayoutParams().height = height - heightToSquish;
@@ -505,6 +538,40 @@ public class ScrollWithHeadingsView extends RelativeLayout {
     @Override
     public @ColorInt int getBackgroundColor() {
       return ((ColorDrawable) layout.getBackground()).getColor();
+    }
+  }
+
+  public static abstract class HeadingDetails {
+    private final String text;
+
+    public HeadingDetails(String text) {
+      this.text = text;
+    }
+
+    public String getText() {
+      return text;
+    }
+
+    public abstract int getGravity();
+  }
+
+  public static class CenteredHeadingDetails extends HeadingDetails {
+    public CenteredHeadingDetails(String text) {
+      super(text);
+    }
+
+    public int getGravity() {
+      return Gravity.CENTER_HORIZONTAL;
+    }
+  }
+
+  public static class RightAlignedHeadingDetails extends HeadingDetails {
+    public RightAlignedHeadingDetails(String text) {
+      super(text);
+    }
+
+    public int getGravity() {
+      return Gravity.RIGHT;
     }
   }
 }
