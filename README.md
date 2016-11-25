@@ -126,7 +126,6 @@ The app uses the following build-time dependencies provided under the given lice
 
 * Apache License, Version 2.0
   * [gradle-versions-plugin](https://github.com/ben-manes/gradle-versions-plugin)
-  * [sdk-manager-plugin](https://github.com/JakeWharton/sdk-manager-plugin)
 
 * The MIT License
   * [jitpack.io](https://github.com/jitpack/jitpack.io)
