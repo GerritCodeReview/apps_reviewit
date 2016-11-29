@@ -85,7 +85,7 @@ public class AvatarTask extends ObservableAsyncTask<AccountInfo, Void, Bitmap> {
       }
     }
     Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-    return getRoundedCornerBitmap(bitmap, 10);
+    return bitmap != null ? getRoundedCornerBitmap(bitmap, 10) : null;
   }
 
   protected void postExecute(Bitmap result) {
