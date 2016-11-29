@@ -79,7 +79,8 @@ public class ReviewChangesFragment extends BaseFragment {
   private void init() {
     SwipeRefreshLayout swipeRefreshLayout =
         (SwipeRefreshLayout) v(R.id.swipeRefreshLayout);
-    swipeRefreshLayout.setColorSchemeColors(R.color.progressBar);
+    swipeRefreshLayout.setColorSchemeColors(
+        widgetUtil.color(R.color.progressBar));
     swipeRefreshLayout.setRefreshing(true);
     swipeRefreshLayout.setOnRefreshListener(
         new SwipeRefreshLayout.OnRefreshListener() {
