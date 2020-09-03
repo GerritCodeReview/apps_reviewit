@@ -50,6 +50,23 @@
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5230fdb_ccc51595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1113156
+      },
+      "writtenOn": "2020-09-03T09:21:54Z",
+      "side": 1,
+      "message": "src/connectivity/ethernet/drivers/virtio:virtio_ethernet\", \"//src/devices/block/drivers/virtio:virtio_block\", \"//src/devices/block/drivers/virtio:virtio_scsi\", \"//src/devices/misc/drivers/virtio-rng:virtio_rng\", \"//src/devices/misc/drivers/virtio-socket:virtio_socket\", \"//src/devices/serial/drivers/virtio-console:virtio_console\", \"//src/graphics/display/drivers/goldfish-display\", \"//src/graphics/drivers/virtio:virtio_gpu\", \"//src/ui/input/drivers/virtio:virtio_input\", \"//src/media/audio/drivers/intel-hda/codecs/qemu:qemu-audio-codec\", \"//src/connectivity/ethernet/drivers/realtek-8111\", \"//src/devices/bin/acpidump\", \"//src/devices/block/drivers/ahci\", \"//src/devices/block/drivers/mbr\", \"//src/devices/block/drivers/nvme\", \"//src/devices/block/drivers/pci-sdhci\", \"//src/devices/block/drivers/sdhci\", \"//src/devices/board/drivers/x86:platform-bus-x86\", \"//src/devices/i2c/drivers/intel-i2c\", \"//src/devices/pci/bin:bootfs\", \"//src/devices/rtc/drivers/intel-rtc\", \"//src/devices/serial/drivers/intel-serialio\", \"//src/devices/serial/drivers/uart16550\", \"//src/devices/usb/drivers/xhci:xhci-x86\", \"//src/graphics/display/drivers/intel-i915\", \"//src/graphics/display/drivers/simple:simple.amd-kaveri\", \"//src/graphics/display/drivers/simple:simple.bochs\", \"//src/graphics/display/drivers/simple:simple.intel\", \"//src/graphics/display/drivers/simple:simple.nv\", \"//src/graphics/display/drivers/simple:simple.vmware\", \"//src/media/audio/bin/ihda\", \"//src/media/audio/drivers/alc5514\", \"//src/media/audio/drivers/alc5663\", \"//src/media/audio/drivers/intel-hda/codecs/hdmi:hdmi-audio-codec\", \"//src/media/audio/drivers/intel-hda/codecs/realtek:realtek-audio-codec\", \"//src/media/audio/drivers/intel-hda/controller:intel-hda\", \"//src/media/audio/drivers/max98927\", \"//src/ui/input/drivers/i2c-hid\", \"//src/ui/input/drivers/pc-ps2\", \"//zircon/third_party/dev/ethernet/e1000\", \"//src/security/policy/zxcrypt:null\"]\n\nFrom //boards/x64.gni:45",
+      "revId": "794a0f9895754a392da88395d597fd39954d59e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
