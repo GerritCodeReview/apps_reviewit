@@ -16,6 +16,23 @@
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7f9c96c_207a68f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1113156
+      },
+      "writtenOn": "2020-09-03T09:20:29Z",
+      "side": 1,
+      "message": "org.gradle.api.ProjectConfigurationException: A problem occurred configuring root project \u0027SampleJavaApp\u0027. at org.gradle.configuration.project.LifecycleProjectEvaluator.wrapException(LifecycleProjectEvaluator.java:80) at org.gradle.configuration.project.LifecycleProjectEvaluator.addConfigurationFailure(LifecycleProjectEvaluator.java:73) at org.gradle.configuration.project.LifecycleProjectEvaluator.access$600(LifecycleProjectEvaluator.java:53) at org.gradle.configuration.project.LifecycleProjectEvaluator$EvaluateProject$1.run(LifecycleProjectEvaluator.java:109) at org.gradle.internal.Factories$1.create(Factories.java:26) at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:189) at org.gradle.internal.work.StopShieldingWorkerLeaseService.withLocks(StopShieldingWorkerLeaseService.java:40) at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.withProjectLock(DefaultProjectStateRegistry.java:238) at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.withMutableState(DefaultProjectStateRegistry.java:232) at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.withMutableState(DefaultProjectStateRegistry.java:193) atln -s ~/fuchsia/scripts/fx ~/bin",
+      "revId": "794a0f9895754a392da88395d597fd39954d59e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
