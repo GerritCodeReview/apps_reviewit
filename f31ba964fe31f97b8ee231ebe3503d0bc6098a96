@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c2fb12_dfb77b0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140741
+      },
+      "writtenOn": "2021-10-25T07:15:45Z",
+      "side": 1,
+      "message": "changes code",
+      "revId": "f31ba964fe31f97b8ee231ebe3503d0bc6098a96",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a92ed734_19da9e8f",
+        "filename": "gradle.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1140741
+      },
+      "writtenOn": "2021-10-25T07:15:45Z",
+      "side": 1,
+      "message": "org.gradle.parallel\u003dtrue",
+      "revId": "f31ba964fe31f97b8ee231ebe3503d0bc6098a96",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
