@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "9ea79a50_368ae052",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "https://fuchsia.googlesource.com/fuchsia/+/master//system/framework/core-oj.jar:/system/framework/core-libart.jar:/system/framework/conscrypt.jar:/system/framework/okhttp.jar:/system/framework/bouncycastle.jar:/system/framework/apache-xml.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/android.hidl.base-V1.0-java.jar:/system/framework/android.hidl.manager-V1.0-java.jar:/system/framework/framework-oahl-backward-compatibility.jar:/system/framework/android.test.base.jar:/system/framework/com.lge.mdm.jar:/system/framework/mediatek-common.jar:/system/framework/mediatek-telephony-common.jar:/system/framework/mediatek-telephony-base.jar:/system/framework/mediatek-location-service.jar:/system/framework/com.lge.fmradio.nablabs.jar",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "e7f9c96c_207a68f7",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "org.gradle.api.ProjectConfigurationException: A problem occurred configuring root project \u0027SampleJavaApp\u0027. at org.gradle.configuration.project.LifecycleProjectEvaluator.wrapException(LifecycleProjectEvaluator.java:80) at org.gradle.configuration.project.LifecycleProjectEvaluator.addConfigurationFailure(LifecycleProjectEvaluator.java:73) at org.gradle.configuration.project.LifecycleProjectEvaluator.access$600(LifecycleProjectEvaluator.java:53) at org.gradle.configuration.project.LifecycleProjectEvaluator$EvaluateProject$1.run(LifecycleProjectEvaluator.java:109) at org.gradle.internal.Factories$1.create(Factories.java:26) at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:189) at org.gradle.internal.work.StopShieldingWorkerLeaseService.withLocks(StopShieldingWorkerLeaseService.java:40) at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.withProjectLock(DefaultProjectStateRegistry.java:238) at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.withMutableState(DefaultProjectStateRegistry.java:232) at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.withMutableState(DefaultProjectStateRegistry.java:193) atln -s ~/fuchsia/scripts/fx ~/bin",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "236b8993_68219026",
         "filename": "/PATCHSET_LEVEL",
@@ -48,10 +49,10 @@
       "side": 1,
       "message": "https://fuchsia.googlesource.com/fuchsia/+/master/",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "f5230fdb_ccc51595",
         "filename": "/PATCHSET_LEVEL",
@@ -65,10 +66,10 @@
       "side": 1,
       "message": "src/connectivity/ethernet/drivers/virtio:virtio_ethernet\", \"//src/devices/block/drivers/virtio:virtio_block\", \"//src/devices/block/drivers/virtio:virtio_scsi\", \"//src/devices/misc/drivers/virtio-rng:virtio_rng\", \"//src/devices/misc/drivers/virtio-socket:virtio_socket\", \"//src/devices/serial/drivers/virtio-console:virtio_console\", \"//src/graphics/display/drivers/goldfish-display\", \"//src/graphics/drivers/virtio:virtio_gpu\", \"//src/ui/input/drivers/virtio:virtio_input\", \"//src/media/audio/drivers/intel-hda/codecs/qemu:qemu-audio-codec\", \"//src/connectivity/ethernet/drivers/realtek-8111\", \"//src/devices/bin/acpidump\", \"//src/devices/block/drivers/ahci\", \"//src/devices/block/drivers/mbr\", \"//src/devices/block/drivers/nvme\", \"//src/devices/block/drivers/pci-sdhci\", \"//src/devices/block/drivers/sdhci\", \"//src/devices/board/drivers/x86:platform-bus-x86\", \"//src/devices/i2c/drivers/intel-i2c\", \"//src/devices/pci/bin:bootfs\", \"//src/devices/rtc/drivers/intel-rtc\", \"//src/devices/serial/drivers/intel-serialio\", \"//src/devices/serial/drivers/uart16550\", \"//src/devices/usb/drivers/xhci:xhci-x86\", \"//src/graphics/display/drivers/intel-i915\", \"//src/graphics/display/drivers/simple:simple.amd-kaveri\", \"//src/graphics/display/drivers/simple:simple.bochs\", \"//src/graphics/display/drivers/simple:simple.intel\", \"//src/graphics/display/drivers/simple:simple.nv\", \"//src/graphics/display/drivers/simple:simple.vmware\", \"//src/media/audio/bin/ihda\", \"//src/media/audio/drivers/alc5514\", \"//src/media/audio/drivers/alc5663\", \"//src/media/audio/drivers/intel-hda/codecs/hdmi:hdmi-audio-codec\", \"//src/media/audio/drivers/intel-hda/codecs/realtek:realtek-audio-codec\", \"//src/media/audio/drivers/intel-hda/controller:intel-hda\", \"//src/media/audio/drivers/max98927\", \"//src/ui/input/drivers/i2c-hid\", \"//src/ui/input/drivers/pc-ps2\", \"//zircon/third_party/dev/ethernet/e1000\", \"//src/security/policy/zxcrypt:null\"]\n\nFrom //boards/x64.gni:45",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1aad8851_abee79a7",
         "filename": "/PATCHSET_LEVEL",
@@ -82,10 +83,10 @@
       "side": 1,
       "message": "[\"//build/info:build-info\", \"//garnet/bin/log_listener:log_listener\", \"//garnet/bin/log_listener:log_listener_shell\", \"//garnet/bin/setui:setui_service\", \"//garnet/bin/sshd-host\", \"//garnet/bin/sshd-host:config\", \"//garnet/bin/sysmgr\", \"//garnet/bin/sysmgr:network_config\", \"//garnet/bin/sysmgr:services_config\", \"//garnet/bin/timezone\", \"//src/cobalt/bin/app:cobalt\", \"//src/cobalt/bin/app:cobalt_registry\", \"//src/cobalt/bin/app:config\", \"//src/cobalt/bin/system-metrics:cobalt_system_metrics\", \"//src/cobalt/bin/system-metrics:config\", \"//src/connectivity/bluetooth:core\", \"//src/connectivity/management/reachability\", \"//src/connectivity/management/reachability:reachability_sysmgr_config\", \"//src/connectivity/management:network_config_default\", \"//src/connectivity/network/mdns/bundles:config\", \"//src/connectivity/network/mdns/bundles:services\", \"//src/connectivity/network:config\", \"//src/connectivity/wlan:packages\", \"//src/connectivity/wlan/config:default\", \"//src/developer/forensics:pkg\", \"//src/developer/forensics/snapshot:pkg\", \"//src/diagnostics/archivist\", \"//src/diagnostics/archivist:with_default_config\", \"//src/hwinfo:hwinfo\", \"//src/hwinfo:default_product_config\", \"//src/media/audio/bundles:audio_config\", \"//src/recovery/factory_reset\", \"//src/security/policy:appmgr_policy_eng\", \"//src/security/root_ssl_certificates\", \"//src/sys/appmgr\", \"//src/sys/appmgr:appmgr_scheme_config\", \"//src/sys/appmgr:core_component_id_index\", \"//src/sys/core\", \"//src/sys/device_settings:device_settings_manager\", \"//src/sys/pkg:core\", \"//src/sys/pkg:pkgfs-disable-executability-restrictions\", \"//src/sys/pkg:system-update-checker\", \"//src/sys/pkg/bin/pkg-resolver:enable_dynamic_configuration\", \"//src/sys/stash:pkg\", \"//src/sys/time/network_time_service:network-time-service\", \"//src/sys/time/timekeeper\", \"//third_party/openssh-portable/fuchsia/developer-keys:ssh_config\", \"//src/sys/pkg:tools\", \"//tools/cargo-gnaw:install-cargo-gnaw\", \"//bundles:kitchen_sink\"]\n\nFrom //root_build_dir/args.gn:3",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "119cd8e9_5e216fe4",
         "filename": "/PATCHSET_LEVEL",
@@ -99,10 +100,10 @@
       "side": 1,
       "message": " \"arm64\": [\"//build/info:build-info\", \"//garnet/bin/log_listener:log_listener\", \"//garnet/bin/log_listener:log_listener_shell\", \"//garnet/bin/setui:setui_service\", \"//garnet/bin/sshd-host\", \"//garnet/bin/sshd-host:config\", \"//garnet/bin/sysmgr\", \"//garnet/bin/sysmgr:network_config\", \"//garnet/bin/sysmgr:services_config\", \"//garnet/bin/timezone\", \"//src/cobalt/bin/app:cobalt\", \"//src/cobalt/bin/app:cobalt_registry\", \"//src/cobalt/bin/app:config\", \"//src/cobalt/bin/system-metrics:cobalt_system_metrics\", \"//src/cobalt/bin/system-metrics:config\", \"//src/connectivity/bluetooth:core\", \"//src/connectivity/management/reachability\", \"//src/connectivity/management/reachability:reachability_sysmgr_config\", \"//src/connectivity/management:network_config_default\", \"//src/connectivity/network/mdns/bundles:config\", \"//src/connectivity/network/mdns/bundles:services\", \"//src/connectivity/network:config\", \"//src/connectivity/wlan:packages\", \"//src/connectivity/wlan/config:default\", \"//src/developer/forensics:pkg\", \"//src/developer/forensics/snapshot:pkg\", \"//src/diagnostics/archivist\", \"//src/diagnostics/archivist:with_default_config\", \"//src/hwinfo:hwinfo\", \"//src/hwinfo:default_product_config\", \"//src/media/audio/bundles:audio_config\", \"//src/recovery/factory_reset\", \"//src/security/policy:appmgr_policy_eng\", \"//src/security/root_ssl_certificates\", \"//src/sys/appmgr\", \"//src/sys/appmgr:appmgr_scheme_config\", \"//src/sys/appmgr:core_component_id_index\", \"//src/sys/core\", \"//src/sys/device_settings:device_settings_manager\", \"//src/sys/pkg:core\", \"//src/sys/pkg:pkgfs-disable-executability-restrictions\", \"//src/sys/pkg:system-update-checker\", \"//src/sys/pkg/bin/pkg-resolver:enable_dynamic_configuration\", \"//src/sys/stash:pkg\", \"//src/sys/time/network_time_service:network-time-service\", \"//src/sys/time/timekeeper\", \"//third_party/openssh-portable/fuchsia/developer-keys:ssh_config\", \"//src/sys/pkg:tools\", \"//tools/cargo-gnaw:install-cargo-gnaw\", \"//bundles:kitchen_sink\"]\n\nFrom //root_build_dir/args.gn:3",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "84d92b0f_2d7b73fb",
         "filename": "/PATCHSET_LEVEL",
@@ -116,10 +117,10 @@
       "side": 1,
       "message": "/a.codekk/root@localhost:8080﻿ Java Home: /system﻿ Class Path: .﻿ Boot Class Path: /system/framework/core-oj.jar:/system/framework",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "dd5edf65_4cb4dedc",
         "filename": "/PATCHSET_LEVEL",
@@ -133,10 +134,10 @@
       "side": 1,
       "message": "https://fuchsia.googlesource.com/archived/drivers/wifi",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7eee6f96_24bb100b",
         "filename": "/PATCHSET_LEVEL",
@@ -150,10 +151,10 @@
       "side": 1,
       "message": "scripts/fx-env.sh",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "35bc344e_89178ba1",
         "filename": "/PATCHSET_LEVEL",
@@ -167,10 +168,10 @@
       "side": 1,
       "message": "FUCHSIA_DIR",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "86de740d_a6645b1d",
         "filename": "/PATCHSET_LEVEL",
@@ -184,10 +185,10 @@
       "side": 1,
       "message": "cp ~/fuchsia/.jiri_root/bin/jiri ~/bin",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9cc5d6c8_096fad51",
         "filename": "/PATCHSET_LEVEL",
@@ -201,10 +202,10 @@
       "side": 1,
       "message": "{\n    \"program\": {\n        \"binary\": \"bin/example_app\",\n        \"args\": [ \"--example\", \"args\" ]\n    },\n    \"sandbox\": {\n        \"system\": [ \"data/sysmgr\" ],\n        \"services\": [ \"fuchsia.sys.Launcher\", \"fuchsia.netstack.Netstack\" ]\n    }\n}",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "1ca2d554_f28c9ffc",
         "filename": "/PATCHSET_LEVEL",
@@ -218,10 +219,10 @@
       "side": 1,
       "message": "{\n    \"program\": {\n        \"binary\": \"bin/example_app\",\n        \"args\": [ \"--example\", \"args\" ]\n    },\n    \"sandbox\": {\n        \"system\": [ \"data/sysmgr\" ],\n        \"services\": [ \"fuchsia.sys.Launcher\", \"fuchsia.netstack.Netstack\" ]\n    }\n}",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "92b2c741_a32588b6",
         "filename": "/PATCHSET_LEVEL",
@@ -235,10 +236,10 @@
       "side": 1,
       "message": "~/fuchsia",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "94875949_2fa40ea5",
         "filename": "/PATCHSET_LEVEL",
@@ -252,10 +253,10 @@
       "side": 1,
       "message": "jiri_root/bin",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "bcfb72f5_41611b25",
         "filename": "/PATCHSET_LEVEL",
@@ -269,10 +270,10 @@
       "side": 1,
       "message": "/system/framework/core-oj.jar:/system/framework/core-libart.jar:/system/framework/conscrypt.jar:/system/framework/okhttp.jar:/system/framework/bouncycastle.jar:/system/framework/apache-xml.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/ims-common.jar:/system/framework/android.hidl.base-V1.0-java.jar:/system/framework/android.hidl.manager-V1.0-java.jar:/system/framework/framework-oahl-backward-compatibility.jar:/system/framework/android.test.base.jar:/system/framework/com.lge.mdm.jar:/system/framework/mediatek-common.jar:/system/framework/mediatek-telephony-common.jar:/system/framework/mediatek-telephony-base.jar:/system/framework/mediatek-location-service.jar:/system/framework/com.lge.fmradio.nablabs.jar",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d382e146_32bb59aa",
         "filename": "/PATCHSET_LEVEL",
@@ -286,8 +287,24 @@
       "side": 1,
       "message": "FUCHSIA_DIR@mmh51m/bin/sh",
       "revId": "794a0f9895754a392da88395d597fd39954d59e2",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6d304d7_6683849d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130789
+      },
+      "writtenOn": "2022-05-09T19:16:40Z",
+      "side": 1,
+      "message": "hi ",
+      "revId": "794a0f9895754a392da88395d597fd39954d59e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
