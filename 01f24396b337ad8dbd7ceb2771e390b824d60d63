@@ -16,6 +16,23 @@
       "message": "git clone https://gerrit.googlesource.com/apps/reviewit \u0026\u0026 (cd reviewit \u0026\u0026 f\u003d`git rev-parse --git-dir`/hooks/commit-msg ; mkdir -p $(dirname $f) ; curl -Lo $f https://gerrit-review.googlesource.com/tools/hooks/commit-msg ; chmod +x $f)",
       "revId": "01f24396b337ad8dbd7ceb2771e390b824d60d63",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5fe0f86_2d4bb686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151361
+      },
+      "writtenOn": "2022-09-01T20:20:33Z",
+      "side": 1,
+      "message": "k",
+      "revId": "01f24396b337ad8dbd7ceb2771e390b824d60d63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
