@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher F41A2656 1480434874 +0100\nnonce AG58fQpvseV9a8TkHPe9a1KLR36knWbQuLq9TrFOiuXXD6tQSSaSdkqhRhK4Sgw2t+gixJLcD48R\n\n0000000000000000000000000000000000000000 54dfec1339871e1a9c9e454ed61f2301dde66116 refs/for/master\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1\n\niQEcBAABAgAGBQJYPaS6AAoJEHFVO370GiZWHqQH/29FH79T8Ux3ygq6Cq8SYhAc\no/1HW/bi5KPvzCEhqhlFt2eSui6gd1bAb05/7uaPnUzS7i0CHwDDFjhcrkP4o0q0\nM1Uwml5aG/6HyunKR7Oae3am8YLY981I/wq2HN5o39YCnca4akIWZGY0N6u2ThEj\nan+oVT6Ms7W+7Rhcm5NCa+7ygKFrcInesIkrqKLPPxSYLu1qDoLniWGFL/zcvYmC\nD5Efm3wveJLDQ0W2bfyGNBk2vAP/UDvvnWCgfc0iSujGrW1Ojw4gy2ixvY12o+iy\n2miRn4knGtHkm9/Zco+dQ8afuNYFUJHZR5I3c77L2aXr+6idSkSYeB3IeJXyhoQ\u003d\n\u003dDzAo\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c54e446_379a3151",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079825
+      },
+      "writtenOn": "2023-04-26T02:43:46Z",
+      "side": 1,
+      "message": "Ф",
+      "revId": "54dfec1339871e1a9c9e454ed61f2301dde66116",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
 }
